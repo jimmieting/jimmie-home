@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jimmie Ting · 熵减实验室</title>
+<meta name="description" content="Jimmie Ting 的个人主页 · 熵减实验室 · 进一寸，有进一寸的欢喜" />
+<meta name="theme-color" content="#357ef5" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23357ef5'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23fff'%3EJT%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand">
+    <span class="brand-mark">JT</span>
+    <span class="brand-text">Jimmie Ting</span>
+  </div>
+  <nav class="nav-links">
+    <a href="https://blog.jimmie.cn">博客</a>
+    <a href="https://github.com/jimmieting" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:jimmieting@gmail.com">联系</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="logo-mark">JT</div>
+    <p class="hero-eyebrow">JIMMIE TING · 熵减实验室</p>
+    <h1 class="hero-title">进一寸<span class="dot">，</span>有进一寸的欢喜</h1>
+    <p class="hero-sub">温润有锋 · 结构型实干者。白天设计组织的结构，晚上设计自己的结构。</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://blog.jimmie.cn">访问博客 →</a>
+      <a class="btn" href="https://github.com/jimmieting" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="mailto:jimmieting@gmail.com">邮箱</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="section-eyebrow">WHAT I DO</p>
+      <h2 class="section-title">我在做什么</h2>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="https://blog.jimmie.cn">
+        <div class="card-tag">博客</div>
+        <div class="card-title">熵减实验室</div>
+        <div class="card-desc">记录戒烟、减重、跑步、阅读、AI 与长期主义的实践笔记。</div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <div class="card card-static">
+        <div class="card-tag">跑步</div>
+        <div class="card-title">2030 BQ 追梦中</div>
+        <div class="card-desc">月均 100+ km · 配速 6'10" / km · 目标 2030 波士顿马拉松 BQ 3:08:00。</div>
+      </div>
+
+      <div class="card card-static">
+        <div class="card-tag">阅读</div>
+        <div class="card-title">长读与跨年</div>
+        <div class="card-desc">罗辑思维首批铁杆粉。商业 · AI · 哲学 · 跑步科学。</div>
+      </div>
+
+      <div class="card card-static">
+        <div class="card-tag">人格</div>
+        <div class="card-title">INTJ-A · 长期主义</div>
+        <div class="card-desc">建筑师型人格。系统、结构、复利。慢一点，远一点。</div>
+      </div>
+
+      <div class="card card-static">
+        <div class="card-tag">日常</div>
+        <div class="card-title">岩茶 · 咖啡</div>
+        <div class="card-desc">早晨一杯手冲，下午一泡水仙。在节奏里安住。</div>
+      </div>
+
+      <a class="card" href="mailto:jimmieting@gmail.com">
+        <div class="card-tag">联系</div>
+        <div class="card-title">说点什么</div>
+        <div class="card-desc">jimmieting@gmail.com · 或在 GitHub 上找我。</div>
+        <div class="card-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="section-eyebrow">LATEST POSTS</p>
+      <h2 class="section-title">最新文章</h2>
+    </div>
+    <div id="posts" class="posts">
+      <div class="posts-empty">博客刚刚启程，第一篇正在路上。<a href="https://blog.jimmie.cn">先去博客看看 →</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark sm">JT</span>
+      <span>© 2026 Jimmie Ting · 熵减实验室</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">闽ICP备2026014302号-1</a>
+      <!-- 公安备案号下来后加这里：
+      <a href="https://beian.mps.gov.cn/" target="_blank" rel="noopener">闽公网安备 XXXXXXXXXXXXX 号</a>
+      -->
+    </div>
+  </div>
+</footer>
+
+<script>
+// Pull latest 3 posts from blog atom feed.
+// Falls back gracefully if blog has no posts or feed unreachable (CORS, 404).
+(async () => {
+  const url = 'https://blog.jimmie.cn/atom.xml';
+  const target = document.getElementById('posts');
+  try {
+    const r = await fetch(url, { mode: 'cors' });
+    if (!r.ok) return;
+    const txt = await r.text();
+    const doc = new DOMParser().parseFromString(txt, 'application/xml');
+    const entries = [...doc.querySelectorAll('entry')].slice(0, 3);
+    if (!entries.length) return;
+    target.innerHTML = entries.map(e => {
+      const title = e.querySelector('title')?.textContent || '';
+      const link = e.querySelector('link')?.getAttribute('href') || '#';
+      const date = (e.querySelector('updated,published')?.textContent || '').slice(0, 10);
+      const summary = (e.querySelector('summary,content')?.textContent || '').replace(/\s+/g, ' ').slice(0, 80);
+      return `<a class="post" href="${link}">
+        <div class="post-date">${date}</div>
+        <div class="post-title">${title}</div>
+        <div class="post-desc">${summary}…</div>
+      </a>`;
+    }).join('');
+  } catch (e) { /* keep placeholder */ }
+})();
+</script>
+
+</body>
+</html>
