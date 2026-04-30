@@ -30,6 +30,19 @@
     <p class="hero-eyebrow">JIMMIE TING · 熵减实验室</p>
     <h1 class="hero-title">进一寸<span class="dot">，</span>有进一寸的欢喜</h1>
     <p class="hero-sub">温润有锋 · 结构型实干者。白天设计组织的结构，晚上设计自己的结构。</p>
+
+    <!-- ── NOW 状态条（改这里就能更新当前状态）─────────
+         data-lucide 可选：footprints / dumbbell / book-open / pen-line / brain
+                         / leaf / coffee / laptop / briefcase / wind
+                         / headphones / notebook-pen
+    ─────────────────────────────────────────────── -->
+    <div class="now">
+      <span class="now-dot" aria-hidden="true"></span>
+      <i data-lucide="footprints" class="now-icon"></i>
+      <span class="now-label">NOW</span>
+      <span class="now-text">训练中 · 备战 2030 BQ</span>
+    </div>
+
     <div class="hero-cta">
       <a class="btn btn-primary" href="https://blog.jimmie.cn">访问博客 →</a>
       <a class="btn" href="https://github.com/jimmieting" target="_blank" rel="noopener">GitHub</a>
@@ -111,6 +124,10 @@
     </div>
   </div>
 </footer>
+
+<!-- Lucide icons (Apache-2.0) -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>if (window.lucide) lucide.createIcons();</script>
 
 <script>
 // Pull latest 3 posts from blog atom feed.
