@@ -31,7 +31,7 @@
     <div class="logo-mark">JT</div>
     <p class="hero-eyebrow">JIMMIE TING · 熵减实验室</p>
     <h1 class="hero-title">进一寸<span class="dot">，</span>有进一寸的欢喜</h1>
-    <p class="hero-sub">温润有锋 · 结构型实干者。白天设计组织的结构，晚上设计自己的结构。</p>
+    <p class="hero-sub">温润有锋 · 长期主义实践者。凡有好奇，必躬行。</p>
 
     <!-- ── NOW 状态条（改这里就能更新当前状态）─────────
          data-lucide 可选：footprints / dumbbell / book-open / pen-line / brain
@@ -42,7 +42,7 @@
       <span class="now-dot" aria-hidden="true"></span>
       <i data-lucide="footprints" class="now-icon"></i>
       <span class="now-label">NOW</span>
-      <span class="now-text">训练中 · 备战 2030 BQ</span>
+      <span class="now-text">训练中 · 距 2026 福马 217 天</span>
     </div>
 
     <div class="hero-cta">
@@ -69,13 +69,13 @@
       <a class="card" href="https://blog.jimmie.cn/categories/川行/">
         <div class="card-tag">川行</div>
         <div class="card-title">身体实验中</div>
-        <div class="card-desc">跑步 · 登山 · 一切用身体认真做的事。月均 100+ km · 目标 2030 BQ 3:08:00。</div>
+        <div class="card-desc">跑步 · 登山 · 一切用身体认真做的事。月均 120+ km · 目标 2030 BQ。</div>
         <div class="card-arrow">→</div>
       </a>
 
       <div class="card card-static">
         <div class="card-tag">阅读</div>
-        <div class="card-title">长读与跨年</div>
+        <div class="card-title">长读与思考</div>
         <div class="card-desc">罗辑思维首批铁杆粉。商业 · AI · 哲学 · 跑步科学。</div>
       </div>
 
@@ -88,7 +88,7 @@
       <div class="card card-static">
         <div class="card-tag">日常</div>
         <div class="card-title">岩茶 · 咖啡</div>
-        <div class="card-desc">早晨一杯手冲，下午一泡水仙。在节奏里安住。</div>
+        <div class="card-desc">早晨一杯手冲，下午一泡老枞。在节奏里安住。</div>
       </div>
 
       <a class="card" href="mailto:jimmieting@gmail.com">
@@ -132,6 +132,22 @@
 <!-- Lucide icons (Apache-2.0) -->
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>if (window.lucide) lucide.createIcons();</script>
+
+<script>
+// NOW 状态条 · 距 2026 福州马拉松倒计时（自动）
+// 目标日期变了改这一行即可
+(function(){
+  var target = new Date('2026-12-13');
+  var today = new Date();
+  var days = Math.ceil((target - today) / 86400000);
+  var el = document.querySelector('.now-text');
+  if (el && days > 0) {
+    el.textContent = '训练中 · 距 2026 福马 ' + days + ' 天';
+  } else if (el && days === 0) {
+    el.textContent = '今天比赛 🏃';
+  }
+})();
+</script>
 
 <script>
 // Pull latest 3 posts from blog atom feed.
