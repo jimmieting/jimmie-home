@@ -150,26 +150,27 @@
 </script>
 
 <script>
-// Pull latest 3 posts from blog atom feed.
-// Falls back gracefully if blog has no posts or feed unreachable (CORS, 404).
+// 抓博客最新 3 篇文章，渲染到 #posts。
+// 由于 EdgeOne Pages 给 atom.xml 没加 CORS header（直接 fetch 会被浏览器挡），
+// 这里走 rss2json 公共代理：把 RSS 转 JSON + 自带 CORS。
+// 免费 10k 请求/天，个人博客绝对够。
+// 万一代理服务挂掉，保留占位 fallback。
 (async () => {
-  const url = 'https://blog.jimmie.cn/atom.xml';
   const target = document.getElementById('posts');
+  const proxy = 'https://api.rss2json.com/v1/api.json?rss_url=';
+  const feedUrl = 'https://blog.jimmie.cn/atom.xml';
   try {
-    const r = await fetch(url, { mode: 'cors' });
+    const r = await fetch(proxy + encodeURIComponent(feedUrl));
     if (!r.ok) return;
-    const txt = await r.text();
-    const doc = new DOMParser().parseFromString(txt, 'application/xml');
-    const entries = [...doc.querySelectorAll('entry')].slice(0, 3);
-    if (!entries.length) return;
-    target.innerHTML = entries.map(e => {
-      const title = e.querySelector('title')?.textContent || '';
-      const link = e.querySelector('link')?.getAttribute('href') || '#';
-      const date = (e.querySelector('updated,published')?.textContent || '').slice(0, 10);
-      const summary = (e.querySelector('summary,content')?.textContent || '').replace(/\s+/g, ' ').slice(0, 80);
-      return `<a class="post" href="${link}">
+    const json = await r.json();
+    const items = (json.items || []).slice(0, 3);
+    if (!items.length) return;
+    target.innerHTML = items.map(item => {
+      const date = (item.pubDate || '').slice(0, 10);
+      const summary = (item.description || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').slice(0, 80);
+      return `<a class="post" href="${item.link}">
         <div class="post-date">${date}</div>
-        <div class="post-title">${title}</div>
+        <div class="post-title">${item.title}</div>
         <div class="post-desc">${summary}…</div>
       </a>`;
     }).join('');
