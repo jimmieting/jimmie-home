@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="福建农林大学厦门交通与土木工程学院校友群 471 人数据画像">
-<title>厦门交通与土木工程学院 · 校友数据画像</title>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="viewport" content="width=device-width,initial-scale=1"><title>厦门交通与土木工程学院 · 校友数据画像</title>
 <style>
   :root{
     --paper:#F2F4F2; --card:#FBFCFB; --ink:#1A2A31; --muted:#5C6B71;
@@ -104,13 +99,29 @@
   @media(max-width:680px){
     .stats{grid-template-columns:repeat(2,1fr)}
     .grid2,.takeaways{grid-template-columns:1fr}
+    .hero{padding:44px 0 38px}
+    section{padding:42px 0}
+    .hero h1 br{display:none}
+  }
+  @media(max-width:560px){
+    .hm{overflow-x:visible}
+    .hm table{min-width:0;table-layout:fixed}
+    .hm th.rowh{width:37%}
+    .hm .rowh{font-size:11.5px;font-weight:600;white-space:normal;line-height:1.2;padding-left:0}
+    .hm .rowh .dot{width:7px;height:7px;margin-right:4px}
+    .hm th{font-size:10.5px;padding:4px 2px;line-height:1.2}
+    .hm td{height:50px;border-width:1.5px}
+    .hm td .c{font-size:13px;border-radius:4px}
+    .legend{font-size:12px;gap:8px 14px}
+    .sbar{grid-template-columns:24px 1fr 82px}
+    .sbar .lab{font-size:14px}
+    .sbar .val{font-size:11px;white-space:nowrap}
   }
   @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
   .reveal{opacity:0;transform:translateY(14px)}
   .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
 </style>
-</head>
-<body>
+</head><body>
 <div class="hero wrap">
   <div class="kicker">福建农林大学 · 厦门交通与土木工程学院 · 校友群</div>
   <h1>471 位校友的数据，<br>画出一部<em>学院转型史</em></h1>
@@ -261,9 +272,7 @@
       xl.textContent="'"+String(p[0]).slice(2);svg.appendChild(xl);
     }
   });
-  // 波峰标注
-  var lab=el("text",{x:mL+14*(bw+gap)+bw/2,y:mT-8,"text-anchor":"middle","class":"callout",fill:"#C9662A"});
-  lab.textContent="↑ 2002 峰值";svg.appendChild(lab);
+  // 峰值不再加浮标：2002 柱已用橙色高亮 + 顶部数字标注体现
 
   // ---- 姓氏 ----
   var sd=[["陈",58,13.0],["林",39,8.8],["张",26,5.8],["黄",25,5.6],["王",20,4.5],["李",16,3.6],["刘",15,3.4],["吴",12,2.7],["蔡",9,2.0],["杨",9,2.0]];
@@ -286,5 +295,4 @@
   }
 })();
 </script>
-</body>
-</html>
+</body></html>
