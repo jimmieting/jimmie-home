@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta name="robots" content="noindex,nofollow,noarchive">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>普洱茶 · 从入门到在行</title>
+<style>
+:root{
+  --ink:#17120E;          /* 幽暗茶褐底 */
+  --ink-2:#1F1811;        /* 面板 */
+  --ink-3:#2A2118;        /* 卡片 */
+  --line:#3A2E22;         /* 分割线 */
+  --paper:#E9DEC9;        /* 棉纸·正文 */
+  --paper-dim:#B8AB92;    /* 次要文字 */
+  --paper-faint:#8A7E68;  /* 弱文字 */
+  --amber:#CB8A3E;        /* 陈茶琥珀金·主强调 */
+  --amber-bright:#E0A64E;
+  --red:#9A3B2A;          /* 老茶红·次强调 */
+  --celadon:#8FA07E;      /* 青瓷·冷点缀 */
+  --maxw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-weight:300;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.serif{font-family:"Noto Serif SC","Songti SC","SimSun",serif;}
+h1,h2,h3,h4,.eyebrow{font-family:"Noto Serif SC","Songti SC","SimSun",serif;}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+
+/* ---------- 顶部导航 ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(23,18,14,.86);
+  backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;gap:6px;max-width:var(--maxw);margin:0 auto;padding:11px 26px;flex-wrap:wrap}
+.brand{font-family:"Noto Serif SC",serif;font-weight:700;font-size:19px;letter-spacing:.14em;color:var(--paper);margin-right:auto}
+.brand b{color:var(--amber)}
+.nav-in a.lnk{
+  font-size:12.5px;color:var(--paper-dim);padding:5px 9px;border-radius:6px;
+  letter-spacing:.04em;transition:.2s;white-space:nowrap;
+}
+.nav-in a.lnk:hover{color:var(--paper);background:var(--ink-3)}
+@media(max-width:760px){.nav-in a.lnk{display:none}.brand{margin-right:0}}
+
+/* ---------- 通用区块 ---------- */
+section{padding:78px 0;border-bottom:1px solid var(--line)}
+.eyebrow{
+  display:inline-block;font-size:12px;letter-spacing:.42em;color:var(--amber);
+  font-weight:600;margin-bottom:16px;text-transform:uppercase;
+}
+.sec-title{font-size:clamp(27px,4.4vw,44px);font-weight:700;line-height:1.28;letter-spacing:.02em}
+.sec-title .num{color:var(--paper-faint);font-weight:400;font-size:.62em;margin-right:.5em;font-variant-numeric:tabular-nums}
+.lead{color:var(--paper-dim);font-size:16px;max-width:720px;margin-top:16px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:96px 0 70px;border-bottom:1px solid var(--line);overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(60% 90% at 82% 8%, rgba(203,138,62,.16), transparent 60%),
+    radial-gradient(50% 70% at 8% 100%, rgba(154,59,42,.14), transparent 60%);
+  pointer-events:none;
+}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(40px,8vw,88px);font-weight:900;line-height:1.02;letter-spacing:.02em}
+.hero h1 .g{
+  background:linear-gradient(100deg,var(--amber-bright),var(--red));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .sub{margin-top:22px;font-size:18px;color:var(--paper-dim);max-width:640px}
+.hero .cn{font-family:"Noto Serif SC",serif;font-style:normal}
+.stat-row{display:flex;gap:38px;margin-top:44px;flex-wrap:wrap}
+.stat b{font-family:"Noto Serif SC",serif;font-size:32px;font-weight:700;color:var(--amber);display:block;font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--paper-faint);letter-spacing:.08em}
+
+/* ---------- 茶汤色谱（招牌） ---------- */
+.spectrum-block{margin-top:56px;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:30px 28px 34px}
+.spectrum-block .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;flex-wrap:wrap;gap:6px}
+.spectrum-block .cap h3{font-size:19px;font-weight:600;letter-spacing:.06em}
+.spectrum-block .cap em{font-style:normal;color:var(--paper-faint);font-size:12.5px;letter-spacing:.05em}
+.bar-wrap{position:relative;margin:26px 0 8px}
+.bar{
+  height:56px;border-radius:10px;
+  background:linear-gradient(90deg,#D9C567 0%,#D69A2E 26%,#C0642A 52%,#7E2E1C 78%,#4A1E13 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
+}
+.bar-labels{display:flex;justify-content:space-between;margin-top:8px;font-size:11.5px;color:var(--paper-faint);letter-spacing:.04em}
+.marker{
+  position:absolute;top:-12px;left:12%;transform:translateX(-50%);
+  transition:left .55s cubic-bezier(.22,1,.36,.68);
+}
+.marker .pin{width:2px;height:80px;background:var(--paper);margin:0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.marker .flag{
+  position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+  background:var(--paper);color:var(--ink);font-family:"Noto Serif SC",serif;font-weight:700;
+  font-size:12.5px;padding:3px 10px;border-radius:5px;white-space:nowrap;
+}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
+.chip{
+  cursor:pointer;font-size:13px;padding:7px 14px;border-radius:20px;
+  border:1px solid var(--line);background:var(--ink-3);color:var(--paper-dim);
+  transition:.18s;letter-spacing:.03em;
+}
+.chip:hover{border-color:var(--amber);color:var(--paper)}
+.chip.active{background:var(--amber);color:var(--ink);border-color:var(--amber);font-weight:500}
+.chip-desc{margin-top:22px;min-height:52px;font-size:14.5px;color:var(--paper-dim);line-height:1.8;
+  border-left:2px solid var(--amber);padding-left:16px}
+.chip-desc b{color:var(--paper);font-weight:500}
+
+/* ---------- 两栏 / 卡片网格 ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+@media(max-width:760px){.two-col{grid-template-columns:1fr}}
+.card{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:26px 24px}
+.card h3{font-size:21px;font-weight:600;margin-bottom:4px;display:flex;align-items:baseline;gap:10px}
+.card h3 .tag{font-size:12px;font-weight:400;color:var(--ink);background:var(--celadon);padding:2px 9px;border-radius:12px;letter-spacing:.05em;font-family:"Noto Sans SC",sans-serif}
+.card h3 .tag.warm{background:var(--amber)}
+.card .k{font-size:14.5px;color:var(--paper-dim);margin-top:14px}
+.card .k dt{color:var(--amber);font-weight:500;font-size:13px;letter-spacing:.05em;margin-top:12px}
+.card .k dd{color:var(--paper-dim);margin-top:2px}
+
+/* ---------- 表格 ---------- */
+.table-scroll{overflow-x:auto;margin-top:40px;border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13.5px}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--ink-3);color:var(--amber);font-weight:600;font-family:"Noto Serif SC",serif;letter-spacing:.05em;position:sticky;top:0}
+tbody tr:hover{background:var(--ink-2)}
+td.name{font-family:"Noto Serif SC",serif;font-weight:600;color:var(--paper);white-space:nowrap}
+td .mut{color:var(--paper-faint);font-size:12px;display:block;margin-top:2px}
+.pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;letter-spacing:.03em}
+.pill.slow{background:rgba(143,160,126,.18);color:var(--celadon)}
+.pill.mid{background:rgba(203,138,62,.18);color:var(--amber)}
+.pill.fast{background:rgba(154,59,42,.22);color:#D9705C}
+
+/* ---------- 提示条 ---------- */
+.note{margin-top:34px;background:var(--ink-2);border:1px solid var(--line);border-left:3px solid var(--red);
+  border-radius:10px;padding:20px 22px;font-size:14.5px;color:var(--paper-dim)}
+.note b{color:var(--amber);font-family:"Noto Serif SC",serif}
+
+/* ---------- 山头 ---------- */
+.mtn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
+@media(max-width:860px){.mtn-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.mtn-grid{grid-template-columns:1fr}}
+.mtn{background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:20px 20px;transition:.2s}
+.mtn:hover{border-color:var(--amber);transform:translateY(-3px)}
+.mtn .h{display:flex;align-items:baseline;justify-content:space-between}
+.mtn .h b{font-family:"Noto Serif SC",serif;font-size:19px;color:var(--paper)}
+.mtn .h em{font-style:normal;font-size:11px;color:var(--paper-faint);letter-spacing:.06em}
+.mtn .region{font-size:11.5px;color:var(--celadon);letter-spacing:.05em;margin-top:2px}
+.mtn p{font-size:13.5px;color:var(--paper-dim);margin-top:10px;line-height:1.7}
+
+/* ---------- 品鉴维度 ---------- */
+.dims{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px}
+@media(max-width:640px){.dims{grid-template-columns:1fr}}
+.dim{display:flex;gap:16px;background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.dim .n{font-family:"Noto Serif SC",serif;font-size:26px;color:var(--amber);font-weight:700;line-height:1;flex-shrink:0;width:34px}
+.dim b{font-size:16px;font-weight:600;color:var(--paper)}
+.dim p{font-size:13px;color:var(--paper-dim);margin-top:3px;line-height:1.65}
+.aroma-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px}
+.aroma{font-size:13px;padding:8px 15px;border-radius:8px;background:var(--ink-3);border:1px solid var(--line);color:var(--paper-dim)}
+.aroma b{color:var(--amber);font-family:"Noto Serif SC",serif;font-weight:600}
+
+/* ---------- 冲泡步骤 ---------- */
+.brew{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:42px}
+@media(max-width:820px){.brew{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.brew{grid-template-columns:1fr}}
+.step{background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:18px 16px}
+.step .s{font-family:"Noto Serif SC",serif;color:var(--paper-faint);font-size:12px;letter-spacing:.1em}
+.step b{display:block;font-size:15px;margin:6px 0 6px;color:var(--paper);font-family:"Noto Serif SC",serif}
+.step p{font-size:12.5px;color:var(--paper-dim);line-height:1.6}
+.step .big{font-family:"Noto Serif SC",serif;font-size:22px;color:var(--amber);font-weight:700}
+
+/* ---------- 黑话速查 ---------- */
+.glo-tools{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap;align-items:center}
+#gloSearch{
+  flex:1;min-width:200px;background:var(--ink-2);border:1px solid var(--line);border-radius:10px;
+  color:var(--paper);padding:12px 16px;font-size:14px;font-family:inherit;
+}
+#gloSearch::placeholder{color:var(--paper-faint)}
+#gloSearch:focus{outline:none;border-color:var(--amber)}
+.gfilter{display:flex;gap:7px;flex-wrap:wrap}
+.gf{cursor:pointer;font-size:12.5px;padding:7px 13px;border-radius:16px;border:1px solid var(--line);
+  background:var(--ink-2);color:var(--paper-dim);transition:.15s}
+.gf.active,.gf:hover{border-color:var(--amber);color:var(--paper)}
+.gf.active{background:var(--amber);color:var(--ink);font-weight:500}
+.glo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px}
+@media(max-width:680px){.glo-grid{grid-template-columns:1fr}}
+.term{background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:15px 18px}
+.term .t{font-family:"Noto Serif SC",serif;font-weight:600;font-size:15.5px;color:var(--paper);display:flex;align-items:center;gap:8px}
+.term .cat{font-size:10px;padding:1px 7px;border-radius:8px;background:var(--ink-3);color:var(--celadon);letter-spacing:.04em;font-family:"Noto Sans SC",sans-serif}
+.term p{font-size:13px;color:var(--paper-dim);margin-top:5px;line-height:1.65}
+.no-res{grid-column:1/-1;text-align:center;color:var(--paper-faint);padding:30px;font-size:14px}
+
+/* ---------- footer ---------- */
+footer{padding:56px 0 70px;text-align:center}
+footer p{color:var(--paper-faint);font-size:12.5px;letter-spacing:.04em;max-width:640px;margin:0 auto;line-height:1.9}
+footer .line{width:44px;height:2px;background:var(--amber);margin:0 auto 26px}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <span class="brand"><b>茶</b>·普洱通鉴</span>
+    <a class="lnk" href="#what">何为普洱</a>
+    <a class="lnk" href="#sheng">生·熟</a>
+    <a class="lnk" href="#cang">仓储江湖</a>
+    <a class="lnk" href="#age">越陈越香</a>
+    <a class="lnk" href="#mtn">山头产区</a>
+    <a class="lnk" href="#taste">品鉴</a>
+    <a class="lnk" href="#brew">形制冲泡</a>
+    <a class="lnk" href="#buy">选购避坑</a>
+    <a class="lnk" href="#glossary">黑话速查</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="reveal in">
+      <h1 class="serif">一片会<span class="g">呼吸</span>的叶子</h1>
+      <p class="sub">普洱茶是极少数"越存越好喝"的茶。它的价值不只在山头，更在<b class="cn" style="color:var(--paper)">时间</b>与<b class="cn" style="color:var(--paper)">仓储</b>——同一批茶，在昆明、在东莞、在香港，会走成三种完全不同的味道。这份通鉴，帮你从看得懂标签，到聊得进茶局。</p>
+      <div class="stat-row">
+        <div class="stat"><b>2</b><span>基本分类 · 生茶 / 熟茶</span></div>
+        <div class="stat"><b>7+</b><span>主流仓型 · 干仓到湿仓</span></div>
+        <div class="stat"><b>357<span style="font-size:14px">g</span></b><span>一片七子饼的标准重量</span></div>
+        <div class="stat"><b>1973</b><span>熟茶渥堆工艺问世</span></div>
+      </div>
+    </div>
+
+    <!-- 招牌:茶汤色谱 -->
+    <div class="spectrum-block reveal in">
+      <div class="cap">
+        <h3 class="serif">茶汤色谱 · 仓储与年份如何改写一杯茶</h3>
+        <em>点击下方仓型，看它把汤色推向何处 →</em>
+      </div>
+      <div class="bar-wrap">
+        <div class="marker" id="marker"><div class="flag" id="flag">昆明仓</div><div class="pin"></div></div>
+        <div class="bar"></div>
+      </div>
+      <div class="bar-labels">
+        <span>浅黄绿 · 新生茶</span><span>金黄</span><span>橙红</span><span>栗红</span><span>酱褐 · 重仓/极老</span>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="chip-desc" id="chipDesc"><b>昆明仓（极干仓）：</b>云南本地高海拔、气候干凉，转化最慢最纯。存十几年汤色仍偏金黄，香气清扬、茶质"活"，是"越陈越香·纯干仓派"的标杆。缺点是想喝出老茶的醇厚感需要极长等待。</div>
+    </div>
+  </div>
+</header>
+
+<!-- 01 何为普洱 -->
+<section id="what">
+  <div class="wrap reveal">
+    <span class="eyebrow">Origin</span>
+    <h2 class="sec-title"><span class="num">01</span>何为普洱</h2>
+    <p class="lead">先立住定义——这是行家和"喝个热闹"的人第一句就能分出来的地方。</p>
+    <div class="two-col">
+      <div class="card">
+        <h3 class="serif">法定定义</h3>
+        <div class="k">
+          <dd>普洱茶是以<b style="color:var(--paper)">云南特定区域的大叶种晒青毛茶</b>为原料，经特定工艺制成的<b style="color:var(--paper)">地理标志产品</b>。三个关键词缺一不可：</dd>
+          <dt>大叶种</dt><dd>云南大叶种，内含物质（茶多酚、儿茶素等）远高于中小叶种，是"越陈越香"的物质基础。</dd>
+          <dt>晒青</dt><dd>杀青后日光晒干（非烘青、炒青）。晒青保留了活性酶与微生物，才能后续持续转化——这是普洱和绿茶的分水岭。</dd>
+          <dt>后发酵</dt><dd>普洱的品质在成品后仍在变化，靠的是缓慢的"后发酵"，而不是一次做到位。</dd>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="serif">别搞混的三件事</h3>
+        <div class="k">
+          <dt>普洱 ≠ 越贵越老越好</dt><dd>仓储不当的老茶（发霉、碳化）不如一饼干净的新茶。年份是加分项，不是免死金牌。</dd>
+          <dt>普洱 ≠ 只有熟茶那种"红汤"</dt><dd>那是熟茶或老生茶。新生茶汤色是黄绿的，喝起来偏苦涩，是正常的。</dd>
+          <dt>紧压 ≠ 品质标志</dt><dd>压成饼、砖、沱主要是为了运输与陈化，散茶一样是普洱。别被"饼"唬住。</dd>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 生熟 -->
+<section id="sheng">
+  <div class="wrap reveal">
+    <span class="eyebrow">Two Roads</span>
+    <h2 class="sec-title"><span class="num">02</span>生茶 · 熟茶</h2>
+    <p class="lead">普洱只分两大类。分清生熟，等于拿到了这个世界的入场券。</p>
+    <div class="two-col">
+      <div class="card">
+        <h3 class="serif">生茶（生普）<span class="tag">时间的味道</span></h3>
+        <div class="k">
+          <dt>本质</dt><dd>晒青毛茶直接压制，不经人工发酵，靠岁月自然缓慢转化。</dd>
+          <dt>新茶</dt><dd>汤色黄绿透亮，滋味鲜爽带苦涩，有青味、花蜜香，刺激性强。</dd>
+          <dt>陈化后</dt><dd>苦涩渐化，汤色转橙转红，出现陈香、蜜香、樟香，口感变醇滑。这就是收藏党追的"越陈越香"。</dd>
+          <dt>一句话</dt><dd>买生茶，很大程度是在买它<b style="color:var(--paper)">未来几十年</b>的可能性。</dd>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="serif">熟茶（熟普）<span class="tag warm">人工的捷径</span></h3>
+        <div class="k">
+          <dt>本质</dt><dd>1973 年昆明茶厂等研发的<b style="color:var(--paper)">渥堆发酵</b>工艺——洒水堆积、控温控湿，让微生物在 40–60 天内完成本需数十年的转化。</dd>
+          <dt>口感</dt><dd>汤色红浓明亮，滋味醇厚甜滑、无苦涩，有枣香、糯香、参香，性温和养胃。</dd>
+          <dt>陈化</dt><dd>熟茶也会继续陈化变柔，但"起点"已经很熟，变化幅度不如生茶戏剧化。</dd>
+          <dt>一句话</dt><dd>想现在就喝到温润顺口、不刺激的普洱，选熟茶。</dd>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>行家提示 ·</b> 判断生熟最快的办法：看叶底。生茶叶底柔韧鲜活、有弹性、偏黄绿到褐色；熟茶叶底红褐、发酵充分的会偏"泥"、韧性较弱。汤色红 ≠ 熟茶，老生茶汤也很红，但叶底骗不了人。</div>
+  </div>
+</section>
+
+<!-- 03 仓储江湖(核心) -->
+<section id="cang">
+  <div class="wrap reveal">
+    <span class="eyebrow">The Cellar</span>
+    <h2 class="sec-title"><span class="num">03</span>仓储江湖</h2>
+    <p class="lead">同样一饼茶，仓储不同，十年后是两款茶。这是普洱最玄、也最能体现"在行"的地方。核心变量只有两个——<b style="color:var(--paper)">温度</b>与<b style="color:var(--paper)">湿度</b>。</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>仓型</th><th>代表地区</th><th>湿度参考</th><th>转化速度</th><th>风格特征</th><th>风险 / 短板</th></tr></thead>
+        <tbody>
+          <tr><td class="name">昆明仓<span class="mut">极干仓 · 纯干仓派标杆</span></td><td>云南昆明<span class="mut">高海拔·凉爽干燥</span></td><td>40–60%</td><td><span class="pill slow">极慢</span></td><td>香扬清亮、活泼、汤偏黄，茶质纯净</td><td>转化太慢，几十年仍偏"生"</td></tr>
+          <tr><td class="name">干仓<span class="mut">通风·清洁·无异味</span></td><td>北方 / 西南干燥地</td><td>55–70%</td><td><span class="pill slow">慢</span></td><td>干净纯正、香气清晰、茶质保留好</td><td>陈化需耐心等待</td></tr>
+          <tr><td class="name">偏干仓<span class="mut">当下主流审美</span></td><td>平衡型仓储</td><td>65–75%</td><td><span class="pill mid">中慢</span></td><td>兼顾纯净与转化速度，兼容性最好</td><td>—</td></tr>
+          <tr><td class="name">广东仓<span class="mut">东莞 · "藏茶之都"</span></td><td>广东东莞 / 广州</td><td>70–80%</td><td><span class="pill mid">较快</span></td><td>汤色红浓、口感醇厚，有独特"广东味"</td><td>控制不好易带仓味</td></tr>
+          <tr><td class="name">大马仓<span class="mut">近年热门</span></td><td>马来西亚</td><td>75–85%</td><td><span class="pill fast">快而柔</span></td><td>常年高温高湿且稳定，转化足、仓味干净、甜润</td><td>需退仓处理</td></tr>
+          <tr><td class="name">港仓<span class="mut">技术入仓 + 退仓</span></td><td>香港<span class="mut">传统地窖仓</span></td><td>80%+</td><td><span class="pill fast">快</span></td><td>汤浓红亮、绵滑，参香/药香/樟香突出，老茶客的经典味</td><td>仓味重需退仓；工艺不到位则伤茶</td></tr>
+          <tr><td class="name">湿仓<span class="mut">人为高湿·洒水</span></td><td>—</td><td>85%+</td><td><span class="pill fast">极快</span></td><td>快速做出"老茶感"</td><td>易霉变、损茶质，过度者有害健康</td></tr>
+          <tr><td class="name">北方仓<span class="mut">干燥内陆</span></td><td>华北等</td><td>偏低</td><td><span class="pill slow">慢</span></td><td>干净、留香、茶质活</td><td>太干难以转化</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note"><b>最关键的一句"内行话" ·</b> <b style="color:var(--paper)">湿仓 ≠ 港仓。</b> 湿仓是贬义，指为求快而粗暴加湿、结果发霉伤茶；而传统<b style="color:var(--paper)">港仓是一门"技术活"</b>——入仓（控温控湿加速）之后必须<b style="color:var(--paper)">退仓</b>（长期通风散去仓味）。许多印级、号级老茶正是经典港仓的产物。能说清这个区别，你在茶桌上就不是外行了。</div>
+
+    <div class="two-col" style="margin-top:22px">
+      <div class="card">
+        <h3 class="serif">理想陈化的四个条件</h3>
+        <div class="k">
+          <dt>温度</dt><dd>约 20–30℃。过低转化停滞，过高易劣变。</dd>
+          <dt>湿度</dt><dd>约 55–75% 为安全区。>80% 有霉变风险，<50% 转化极慢。</dd>
+          <dt>氧气与流通</dt><dd>需要缓慢换气。完全密封会让茶"睡着"，停止转化。</dd>
+          <dt>洁净无异味</dt><dd>茶极易吸味——远离厨房、香料、樟脑、油漆。</dd>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="serif">"退仓"是什么</h3>
+        <div class="k">
+          <dd>把入过仓（高湿加速）的茶，移到干燥通风环境静置数月至数年，让仓味、杂味散去，只留下转化出的醇厚。</dd>
+          <dt>退仓到位</dt><dd>汤色透亮、无霉味杂味，只余陈香与顺滑。</dd>
+          <dt>退仓不足</dt><dd>一入口有闷霉的"仓味"、锁喉。这也是判断一款港仓/大马仓茶好坏的关键。</dd>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 越陈越香 -->
+<section id="age">
+  <div class="wrap reveal">
+    <span class="eyebrow">Why It Ages</span>
+    <h2 class="sec-title"><span class="num">04</span>"越陈越香"的科学</h2>
+    <p class="lead">这四个字不是玄学。背后是微生物、酶与氧化在几十年里做的一场慢工。</p>
+    <div class="two-col">
+      <div class="card">
+        <h3 class="serif">生茶：缓慢的自然后发酵</h3>
+        <div class="k">
+          <dt>氧化主导</dt><dd>茶多酚在氧气与微量微生物作用下缓慢氧化，生成茶黄素 → 茶红素 → 茶褐素。汤色由黄绿逐步转橙、转红。</dd>
+          <dt>苦涩转醇</dt><dd>刺激性的儿茶素、咖啡碱等逐渐降解或络合，苦涩下降，口感变得醇厚、甘滑。</dd>
+          <dt>香气演变</dt><dd>青草花香 → 蜜香 → 陈香、樟香、药香。这是时间在茶里写下的痕迹。</dd>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="serif">熟茶：被压缩的几十年</h3>
+        <div class="k">
+          <dt>渥堆微生物发酵</dt><dd>黑曲霉、酵母等微生物在湿热堆子里大量繁殖，几十天内完成生茶需数十年的物质转化。</dd>
+          <dt>直达醇厚</dt><dd>成品即有红浓汤色与温润口感，代价是损失了一部分"活性"与变化的空间。</dd>
+          <dt>本质区别</dt><dd>生茶陈化 = 大自然的慢炖；熟茶渥堆 = 人工的高压锅。终点相似，路径迥异。</dd>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>因此 ·</b> "越陈越香"有前提——<b style="color:var(--paper)">好原料 + 好工艺 + 好仓储 + 足够时间</b>，四者缺一不可。一饼底子差或存坏的茶，只会越陈越糟。把茶随手扔进密封袋、或潮湿柜子里，都不会"自动升值"。</div>
+  </div>
+</section>
+
+<!-- 05 山头 -->
+<section id="mtn">
+  <div class="wrap reveal">
+    <span class="eyebrow">Terroir</span>
+    <h2 class="sec-title"><span class="num">05</span>山头与产区</h2>
+    <p class="lead">"喝山头"是普洱进阶的乐趣。四大产区、各具风骨——记住几个名山的性格，聊起来立刻不一样。</p>
+    <div class="mtn-grid">
+      <div class="mtn"><div class="h"><b>老班章</b><em>茶王</em></div><div class="region">西双版纳 · 勐海 · 布朗山</div><p>霸气，苦底重而化得快，回甘生津强劲、茶气足。是"刚猛派"的图腾，价高。</p></div>
+      <div class="mtn"><div class="h"><b>冰岛</b><em>茶后</em></div><div class="region">临沧 · 勐库</div><p>柔而甜，冰糖韵明显、喉韵深长，几乎无苦涩。与老班章一刚一柔，并称"班章为王，冰岛为后"。</p></div>
+      <div class="mtn"><div class="h"><b>易武</b><em>柔中带刚</em></div><div class="region">西双版纳 · 勐腊</div><p>汤糯水柔、蜜香细腻，越存越显骨力。名寨众多：麻黑、刮风寨、薄荷塘、落水洞。</p></div>
+      <div class="mtn"><div class="h"><b>昔归</b><em>临沧劲道</em></div><div class="region">临沧 · 邦东</div><p>菌香/花蜜香独特，汤感饱满有力、回甘强，性价比路线的"猛将"。</p></div>
+      <div class="mtn"><div class="h"><b>景迈</b><em>兰香蜜韵</em></div><div class="region">普洱 · 澜沧</div><p>古茶林闻名，兰花香与蜜香交织，甜柔耐泡，风格清雅。</p></div>
+      <div class="mtn"><div class="h"><b>南糯 / 布朗</b><em>勐海底味</em></div><div class="region">西双版纳 · 勐海</div><p>南糯柔和均衡、上手友好；布朗系（含班盆、老曼峨）苦重气强，与班章同脉。</p></div>
+    </div>
+    <div class="two-col" style="margin-top:22px">
+      <div class="card">
+        <h3 class="serif">四大产区速记</h3>
+        <div class="k">
+          <dt>西双版纳</dt><dd>勐海（浓强·班章/布朗/南糯） + 易武（柔糯·蜜香），产区人气与价格双高。</dd>
+          <dt>临沧</dt><dd>冰岛、昔归、大雪山所在。香高、甜柔或劲道，风格多元。</dd>
+          <dt>普洱（思茅）</dt><dd>景迈、千家寨等，古茶林多，清雅甜柔。</dd>
+          <dt>保山</dt><dd>相对小众，部分高山料品质不俗。</dd>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="serif">古树 vs 台地 · 纯料 vs 拼配</h3>
+        <div class="k">
+          <dt>古树 / 大树</dt><dd>树龄长、根深、内质丰富，耐泡、有"山韵"体感，产量稀少价高。</dd>
+          <dt>台地 / 小树</dt><dd>密植灌木、产量大，口感相对单薄，是口粮茶主力。</dd>
+          <dt>纯料</dt><dd>单一山头/单株，突出个性与地域特征。</dd>
+          <dt>拼配</dt><dd>不同料拼配以求稳定与层次，是大厂标杆（如 7542）的看家本领——拼配好 ≠ 低端。</dd>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 品鉴 -->
+<section id="taste">
+  <div class="wrap reveal">
+    <span class="eyebrow">Tasting</span>
+    <h2 class="sec-title"><span class="num">06</span>品鉴维度</h2>
+    <p class="lead">把感觉说成术语，是"看上去在行"的核心技能。下面是茶桌上真正在用的词。</p>
+    <div class="dims">
+      <div class="dim"><div class="n">回</div><div><b>回甘</b><p>入口苦涩后，口腔回返的甜。来得快、留得久为佳。</p></div></div>
+      <div class="dim"><div class="n">津</div><div><b>生津</b><p>两颊或舌底不断分泌唾液的感觉，"舌底鸣泉"是高阶褒义。</p></div></div>
+      <div class="dim"><div class="n">喉</div><div><b>喉韵</b><p>茶汤在喉部留下的甘润、开阔感，好茶"下得去、留得住"。</p></div></div>
+      <div class="dim"><div class="n">气</div><div><b>茶气 / 体感</b><p>饮后身体发热、微汗、通透的体验。玄但真实，好料常有。</p></div></div>
+      <div class="dim"><div class="n">水</div><div><b>水路</b><p>茶汤过口的粗细顺滑度。"水路细腻"是褒，"水路粗"是贬。</p></div></div>
+      <div class="dim"><div class="n">锁</div><div><b>锁喉</b><p>饮后喉咙发紧、干痒不适。多为工艺或仓储问题，是明确的差评。</p></div></div>
+    </div>
+    <p class="lead" style="margin-top:36px">常见香型 · 认得出香，等于听得懂茶：</p>
+    <div class="aroma-row">
+      <span class="aroma"><b>蜜香</b> 中生茶转化标志</span>
+      <span class="aroma"><b>兰香</b> 清雅高扬</span>
+      <span class="aroma"><b>樟香</b> 老生茶经典</span>
+      <span class="aroma"><b>药香</b> 港仓老茶</span>
+      <span class="aroma"><b>参香</b> 陈年干仓珍品</span>
+      <span class="aroma"><b>枣香</b> 熟茶/老茶</span>
+      <span class="aroma"><b>荷香</b> 嫩度高的老熟散茶</span>
+      <span class="aroma"><b>菌香</b> 昔归等临沧料</span>
+      <span class="aroma"><b>陈香</b> 岁月综合味</span>
+    </div>
+  </div>
+</section>
+
+<!-- 07 形制冲泡 -->
+<section id="brew">
+  <div class="wrap reveal">
+    <span class="eyebrow">Form & Brew</span>
+    <h2 class="sec-title"><span class="num">07</span>形制与冲泡</h2>
+    <p class="lead">先认形，再会泡。用对方法，一饼普通茶也能喝出七八分。</p>
+    <div class="two-col">
+      <div class="card">
+        <h3 class="serif">形制速认</h3>
+        <div class="k">
+          <dt>饼茶</dt><dd>圆饼，最经典。标准"七子饼"357g/片、7片一提（筒），"七子"取团圆之意。</dd>
+          <dt>砖 / 沱</dt><dd>砖茶方正易运；沱茶碗状（下关沱最有名）。</dd>
+          <dt>散茶 / 龙珠 / 金瓜</dt><dd>散茶不紧压；龙珠是小圆球，一颗一泡很方便；金瓜（团茶）多为贡茶形制。</dd>
+          <dt>老茶头</dt><dd>渥堆时自然结块的熟茶疙瘩，胶质厚、耐泡、甜糯，熟茶爱好者的心头好。</dd>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="serif">器具选择</h3>
+        <div class="k">
+          <dt>盖碗</dt><dd>试茶首选。不吸味、能客观呈现茶的优缺点，出汤利落。</dd>
+          <dt>紫砂壶</dt><dd>聚香、软化水质，适合熟茶与老生茶的"醇化"，但会修饰缺点，不适合评测。</dd>
+          <dt>撬茶</dt><dd>用茶针/茶刀顺茶饼纹理"层层撬"，尽量保持条索完整，别捅成碎末。</dd>
+        </div>
+      </div>
+    </div>
+    <div class="brew">
+      <div class="step"><div class="s">STEP 01</div><b>投茶</b><p>盖碗约 110ml 配 <span class="big">7–8g</span></p><p style="margin-top:6px">比例约 1:15，老茶客可更浓。</p></div>
+      <div class="step"><div class="s">STEP 02</div><b>水温</b><p><span class="big">100℃</span> 沸水</p><p style="margin-top:6px">熟茶/老茶必须沸水；新生茶怕苦可略降并快出。</p></div>
+      <div class="step"><div class="s">STEP 03</div><b>醒茶</b><p>快速润茶 <span class="big">1–2</span> 遍</p><p style="margin-top:6px">即冲即出，唤醒茶、洗去浮尘（老茶/熟茶尤需）。</p></div>
+      <div class="step"><div class="s">STEP 04</div><b>出汤</b><p>前 3–5 泡 <span class="big">秒出</span></p><p style="margin-top:6px">快进快出防苦涩，之后逐泡延长坐杯时间。</p></div>
+      <div class="step"><div class="s">STEP 05</div><b>水质</b><p>软水 · 山泉更佳</p><p style="margin-top:6px">水是茶的载体，硬水会压香、发涩。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 选购避坑 -->
+<section id="buy">
+  <div class="wrap reveal">
+    <span class="eyebrow">Buy Smart</span>
+    <h2 class="sec-title"><span class="num">08</span>选购与避坑</h2>
+    <p class="lead">新手最容易交两种学费：买到"做旧假老茶"，和存坏了自己的茶。避开它们，你就赢过了大多数人。</p>
+    <div class="two-col">
+      <div class="card">
+        <h3 class="serif">辨"湿仓 / 做旧茶"四看</h3>
+        <div class="k">
+          <dt>一闻</dt><dd>干茶与叶底有无霉味、闷仓味。健康陈味是干净舒服的，霉味刺鼻是危险信号。</dd>
+          <dt>二看叶底</dt><dd>好茶叶底鲜活有弹性；做旧茶叶底碳化、僵硬、发黑、一捏就烂。</dd>
+          <dt>三看汤色</dt><dd>透亮为佳；浑浊发暗、"酱油汤"要警惕。</dd>
+          <dt>四尝口感</dt><dd>是否锁喉、有无闷味杂味。舒不舒服，喉咙最诚实。</dd>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="serif">入门与存茶建议</h3>
+        <div class="k">
+          <dt>从标杆入门</dt><dd>先喝大厂经典口粮建立"味觉坐标"：大益 7542（生）/ 7572（熟）、下关沱、中茶等，再谈山头与老茶。</dd>
+          <dt>不碰高价老茶</dt><dd>号级、印级、88青、大白菜等造假重灾区，新手别当"捡漏"入场。</dd>
+          <dt>家庭存茶</dt><dd>离地离墙、避光、无异味、控温湿（55–75%）、生熟分开存；整提/整件比拆散更利转化。</dd>
+          <dt>南北方差异</dt><dd>南方梅雨季注意防潮防霉；北方过干可适度提供换气与微湿环境。</dd>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>一句压轴 ·</b> 判断一款茶值不值，永远回到最朴素的三问：<b style="color:var(--paper)">干不干净？舒不舒服？喝不喝得下去第二杯？</b> 术语是用来交流的，身体的反应才是最终裁判。</div>
+  </div>
+</section>
+
+<!-- 09 黑话速查 -->
+<section id="glossary" style="border-bottom:none">
+  <div class="wrap reveal">
+    <span class="eyebrow">Glossary</span>
+    <h2 class="sec-title"><span class="num">09</span>黑话速查</h2>
+    <p class="lead">茶桌听不懂时，来这里查。支持关键词搜索与分类筛选。</p>
+    <div class="glo-tools">
+      <input id="gloSearch" type="text" placeholder="搜索术语，如「退仓」「回甘」「7542」…">
+      <div class="gfilter" id="gfilter">
+        <span class="gf active" data-c="all">全部</span>
+        <span class="gf" data-c="仓储">仓储</span>
+        <span class="gf" data-c="品鉴">品鉴</span>
+        <span class="gf" data-c="工艺">工艺</span>
+        <span class="gf" data-c="形制">形制</span>
+        <span class="gf" data-c="原料">原料</span>
+        <span class="gf" data-c="行话">行话</span>
+      </div>
+    </div>
+    <div class="glo-grid" id="gloGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="line"></div>
+  <p>本页为普洱茶知识科普整理，供入门与速查参考。茶事因人、因地、因批次而异，口感描述属经验性共识，非绝对标准。真正的"在行"，最终来自一杯杯喝出来的记忆。</p>
+</footer>
+
+<script>
+/* ===== 茶汤色谱交互 ===== */
+const cangData=[
+  {n:"昆明仓",pos:12,d:"<b>昆明仓（极干仓）：</b>云南本地高海拔、气候干凉，转化最慢最纯。存十几年汤色仍偏金黄，香气清扬、茶质“活”，是“越陈越香·纯干仓派”的标杆。缺点是想喝出老茶醇厚感需极长等待。"},
+  {n:"干仓",pos:22,d:"<b>干仓：</b>通风、清洁、无异味、湿度约 55–70% 的自然环境。转化慢但干净纯正、香气清晰，茶质保留最好，是当代收藏的主流方向。"},
+  {n:"偏干仓",pos:35,d:"<b>偏干仓：</b>湿度略高（约 65–75%）的平衡型仓储，转化比极干仓快、比湿仓慢，兼顾纯净度与陈化速度，是很多茶友追求的“甜蜜点”。"},
+  {n:"广东仓",pos:55,d:"<b>广东仓（东莞仓）：</b>东莞是“藏茶之都”，湿热气候使转化较快，汤色红浓、口感醇厚，带独特“广东味”。控制得当很出彩，过头则易生仓味。"},
+  {n:"大马仓",pos:64,d:"<b>大马仓（马来西亚）：</b>常年高温高湿且稳定，转化足而柔、仓味相对干净甜润，近年颇受追捧。上市前一般需要退仓处理。"},
+  {n:"港仓",pos:78,d:"<b>港仓（传统入仓）：</b>香港地窖高温高湿加速陈化，再经长期“退仓”散去仓味。汤浓红亮、绵滑，参香/药香/樟香突出。<b>是有工艺的“技术仓”，与粗暴湿仓不同。</b>许多印级号级老茶皆出于此。"},
+  {n:"湿仓",pos:92,d:"<b>湿仓：</b>人为把湿度推到 85% 以上甚至洒水，极速做出“老茶感”。汤色深、转化快，但极易发霉、损伤茶质，过度者对健康有害——是贬义词，选购需警惕。"}
+];
+const chips=document.getElementById('chips');
+const marker=document.getElementById('marker');
+const flag=document.getElementById('flag');
+const chipDesc=document.getElementById('chipDesc');
+cangData.forEach((c,i)=>{
+  const el=document.createElement('span');
+  el.className='chip'+(i===0?' active':'');
+  el.textContent=c.n;
+  el.onclick=()=>{
+    document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+    marker.style.left=c.pos+'%';
+    flag.textContent=c.n;
+    chipDesc.innerHTML=c.d;
+  };
+  chips.appendChild(el);
+});
+
+/* ===== 黑话数据 ===== */
+const terms=[
+  {t:"干仓",c:"仓储",p:"通风、干燥、清洁、无异味的存放环境（湿度约55–70%）。转化慢但干净，茶质保留好。"},
+  {t:"湿仓",c:"仓储",p:"人为高湿加速陈化（贬义），易发霉伤茶。注意：湿仓≠港仓。"},
+  {t:"港仓",c:"仓储",p:"香港传统“入仓+退仓”工艺仓，高温高湿快速陈化后通风散仓味，汤浓红亮、参药樟香。"},
+  {t:"入仓 / 未入仓",c:"仓储",p:"是否经过人为控温控湿的仓储处理。“未入仓”通常指自然干仓存放。"},
+  {t:"退仓",c:"仓储",p:"把入过仓的茶移到干燥通风处静置，散去仓味杂味，只留醇厚陈香。退仓是否到位是港仓/大马仓好坏关键。"},
+  {t:"仓味",c:"仓储",p:"仓储（尤其高湿）留下的闷、霉、土腥类气味。轻则退仓可去，重则伤茶。"},
+  {t:"做旧",c:"仓储",p:"用湿仓、高温、喷水等手段把新茶伪装成老茶以卖高价，叶底碳化僵硬是破绽。"},
+  {t:"渥堆",c:"工艺",p:"熟茶核心工艺：洒水堆积、控温控湿，让微生物在40–60天内完成快速发酵。1973年问世。"},
+  {t:"晒青毛茶",c:"工艺",p:"普洱的原料半成品：杀青揉捻后日光晒干，保留活性，是能“后发酵”的前提。"},
+  {t:"杀青",c:"工艺",p:"高温钝化酶活、去青味的工序。普洱多用锅炒，温度低于绿茶以保留后续转化空间。"},
+  {t:"后发酵",c:"工艺",p:"成品后仍持续进行的缓慢转化（微生物+氧化+酶），是“越陈越香”的机制。"},
+  {t:"拼配",c:"工艺",p:"将不同产区/等级/年份的料按配方拼合，追求稳定与层次。大厂标杆多为拼配，并非低端。"},
+  {t:"纯料 / 单株",c:"原料",p:"单一山头（甚至单一茶树）的料，突出地域个性。"},
+  {t:"古树 / 大树",c:"原料",p:"树龄久、根深内质丰富、耐泡有山韵，产量稀少价高。"},
+  {t:"台地茶",c:"原料",p:"密植灌木、产量大、口感相对单薄，口粮茶主力。"},
+  {t:"大叶种",c:"原料",p:"云南大叶种茶树，内含物质丰富，是普洱越陈越香的物质基础。"},
+  {t:"七子饼",c:"形制",p:"标准圆饼357g/片、7片一提(筒)，取“七子团圆”之意。"},
+  {t:"沱茶",c:"形制",p:"碗臼状紧压茶，下关沱最著名。"},
+  {t:"老茶头",c:"形制",p:"渥堆中自然结块的熟茶疙瘩，胶质厚、耐泡、甜糯。"},
+  {t:"龙珠",c:"形制",p:"小圆球状紧压茶，一颗约一泡，便携易存。"},
+  {t:"金瓜 / 团茶",c:"形制",p:"南瓜状紧压团茶，历史上多为贡茶形制。"},
+  {t:"回甘",c:"品鉴",p:"入口苦涩后口腔回返的甜。来得快、留得久为佳。"},
+  {t:"生津",c:"品鉴",p:"两颊/舌底分泌唾液的感觉，“舌底鸣泉”为高阶褒义。"},
+  {t:"喉韵",c:"品鉴",p:"茶汤在喉部留下的甘润、开阔感，好茶下得去留得住。"},
+  {t:"锁喉",c:"品鉴",p:"饮后喉咙发紧干痒，多为工艺/仓储问题，明确差评。"},
+  {t:"茶气 / 体感",c:"品鉴",p:"饮后发热、微汗、通透的身体体验。玄但真实，好料常有。"},
+  {t:"水路",c:"品鉴",p:"茶汤过口的粗细顺滑度。“水路细腻”为褒。"},
+  {t:"挂杯",c:"品鉴",p:"茶汤/香气在杯壁的留存。香气持久、挂杯明显常为质优表现。"},
+  {t:"樟香 / 药香 / 参香",c:"品鉴",p:"陈年生茶与港仓老茶的经典香型，越陈越显。"},
+  {t:"陈味 vs 霉味",c:"品鉴",p:"陈味干净舒服（褒），霉味刺鼻不适（贬，危险信号）。二者一线之隔，是辨茶硬功夫。"},
+  {t:"7542",c:"行话",p:"大益（勐海茶厂）经典生茶唛号：75年配方、4级茶菁为主、2号厂。生茶标杆，常被当作“味觉尺子”。"},
+  {t:"7572",c:"行话",p:"大益经典熟茶唛号，熟茶入门标杆。"},
+  {t:"唛号",c:"行话",p:"传统四位数编号，如7542：前两位配方年份、第三位茶菁等级、第四位茶厂代号。"},
+  {t:"口粮茶",c:"行话",p:"性价比高、适合日常大量喝的茶，相对于收藏级/品鉴级。"},
+  {t:"88青",c:"行话",p:"指1988–1992年前后一批7542生茶，干仓转化的名品，老茶标杆之一。"},
+  {t:"提 / 件",c:"行话",p:"计量单位：7片饼为一“提”(筒)，多提装一“件”(箱)，整提整件更利转化与保值。"}
+];
+const gloGrid=document.getElementById('gloGrid');
+function renderGlo(list){
+  gloGrid.innerHTML = list.length ? list.map(x=>
+    `<div class="term"><div class="t">${x.t}<span class="cat">${x.c}</span></div><p>${x.p}</p></div>`
+  ).join('') : '<div class="no-res">没有匹配的术语,换个关键词试试 ~</div>';
+}
+renderGlo(terms);
+let curCat='all';
+const sInput=document.getElementById('gloSearch');
+function applyFilter(){
+  const q=sInput.value.trim().toLowerCase();
+  renderGlo(terms.filter(x=>
+    (curCat==='all'||x.c===curCat) &&
+    (q===''||x.t.toLowerCase().includes(q)||x.p.toLowerCase().includes(q))
+  ));
+}
+sInput.addEventListener('input',applyFilter);
+document.querySelectorAll('.gf').forEach(g=>{
+  g.onclick=()=>{
+    document.querySelectorAll('.gf').forEach(x=>x.classList.remove('active'));
+    g.classList.add('active');
+    curCat=g.dataset.c;
+    applyFilter();
+  };
+});
+
+/* ===== 滚动揭示 ===== */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
