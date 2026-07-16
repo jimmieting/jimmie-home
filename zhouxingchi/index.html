@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="周星驰人物档案与21条网络流言逐条核查：出镜54部完整片单、8次香港年度票房冠军、「主演49部致敬1949」说法溯源。">
+</head>
+<body>
+<title>周星驰研究档案</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f8f6f1;
+    --surface: #fdfcf9;
+    --ink: #241f19;
+    --ink2: #6e675c;
+    --ink3: #9a938a;
+    --line: #e4ded2;
+    --line2: #cfc7b6;
+    --red: #b5271b;
+    --red-soft: #f3e4e0;
+    --blue: #3f6cb4;
+    --blue-soft: #e3eaf5;
+    --chart-lead: #bf2f21;
+    --chart-other: #3f6cb4;
+    --v-true: #2e7d43;
+    --v-mostly: #1f7a68;
+    --v-half: #a8681c;
+    --v-false: #b5271b;
+    --v-unknown: #6f6a63;
+    --v-true-bg: #e2efe5;
+    --v-mostly-bg: #dfeeea;
+    --v-half-bg: #f5ead8;
+    --v-false-bg: #f5e0dd;
+    --v-unknown-bg: #ebe8e3;
+    --serif: "Songti SC", "STSong", "Noto Serif SC", "Noto Serif CJK SC", "SimSun", serif;
+    --sans: -apple-system, "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161b;
+      --surface: #1b1e24;
+      --ink: #e8e5de;
+      --ink2: #a29b8f;
+      --ink3: #7c766c;
+      --line: #2b2e36;
+      --line2: #3d414b;
+      --red: #e05543;
+      --red-soft: #3a2320;
+      --blue: #6f9be0;
+      --blue-soft: #1f2836;
+      --chart-lead: #e14b36;
+      --chart-other: #4f83d6;
+      --v-true: #5cb377;
+      --v-mostly: #55a898;
+      --v-half: #cf9445;
+      --v-false: #e0604f;
+      --v-unknown: #949089;
+      --v-true-bg: #1f2e23;
+      --v-mostly-bg: #1c2d2a;
+      --v-half-bg: #33291a;
+      --v-false-bg: #362019;
+      --v-unknown-bg: #26262a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14161b; --surface: #1b1e24; --ink: #e8e5de; --ink2: #a29b8f; --ink3: #7c766c;
+    --line: #2b2e36; --line2: #3d414b;
+    --red: #e05543; --red-soft: #3a2320; --blue: #6f9be0; --blue-soft: #1f2836;
+    --chart-lead: #e14b36; --chart-other: #4f83d6;
+    --v-true: #5cb377; --v-mostly: #55a898; --v-half: #cf9445; --v-false: #e0604f; --v-unknown: #949089;
+    --v-true-bg: #1f2e23; --v-mostly-bg: #1c2d2a; --v-half-bg: #33291a; --v-false-bg: #362019; --v-unknown-bg: #26262a;
+  }
+  :root[data-theme="light"] {
+    --bg: #f8f6f1; --surface: #fdfcf9; --ink: #241f19; --ink2: #6e675c; --ink3: #9a938a;
+    --line: #e4ded2; --line2: #cfc7b6;
+    --red: #b5271b; --red-soft: #f3e4e0; --blue: #3f6cb4; --blue-soft: #e3eaf5;
+    --chart-lead: #bf2f21; --chart-other: #3f6cb4;
+    --v-true: #2e7d43; --v-mostly: #1f7a68; --v-half: #a8681c; --v-false: #b5271b; --v-unknown: #6f6a63;
+    --v-true-bg: #e2efe5; --v-mostly-bg: #dfeeea; --v-half-bg: #f5ead8; --v-false-bg: #f5e0dd; --v-unknown-bg: #ebe8e3;
+  }
+  html { background: var(--bg); }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 1000px; margin: 0 auto; padding: 40px 28px 80px; }
+  a { color: var(--blue); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--blue); }
+  a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 2px; }
+  strong { font-weight: 600; }
+
+  /* ---------- masthead ---------- */
+  .masthead { border-top: 3px solid var(--ink); position: relative; padding-top: 6px; }
+  .masthead::before { content: ""; display: block; border-top: 1px solid var(--ink); margin-bottom: 22px; }
+  .mast-meta { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--ink2); letter-spacing: 0.28em; margin-bottom: 34px; }
+  .masthead-grid { display: grid; grid-template-columns: 1fr 226px; gap: 44px; align-items: start; }
+  h1 { font-family: var(--serif); font-size: clamp(40px, 7vw, 64px); font-weight: 700; letter-spacing: 0.06em; line-height: 1.2; text-wrap: balance; }
+  h1 .dot { color: var(--red); }
+  .subtitle { font-family: var(--serif); font-size: clamp(17px, 2.6vw, 21px); color: var(--ink2); margin-top: 14px; max-width: 40em; }
+  .portrait { position: relative; margin-top: 4px; }
+  .portrait img { display: block; width: 100%; filter: grayscale(1) contrast(1.04); border: 1px solid var(--line2); }
+  .portrait figcaption { font-size: 11px; color: var(--ink3); margin-top: 8px; line-height: 1.6; }
+  .stamp {
+    position: absolute; left: -20px; bottom: 44px;
+    border: 3px double var(--red); color: var(--red);
+    background: color-mix(in srgb, var(--bg) 55%, transparent);
+    font-family: var(--serif); font-weight: 700; font-size: 17px; letter-spacing: 0.35em;
+    padding: 8px 12px 8px 17px; transform: rotate(-7deg); opacity: 0.9;
+    user-select: none;
+  }
+  .stamp small { display: block; font-size: 10px; letter-spacing: 0.12em; font-weight: 400; text-align: center; margin-top: 2px; }
+  @media (max-width: 680px) {
+    .masthead-grid { grid-template-columns: 1fr; gap: 26px; }
+    .portrait { max-width: 250px; }
+  }
+
+  /* ---------- figures ---------- */
+  img { max-width: 100%; }
+  .poster-strip { display: grid; grid-auto-flow: column; grid-auto-columns: 118px; gap: 16px; overflow-x: auto; padding: 6px 2px 12px; }
+  .poster { margin: 0; }
+  .poster img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border: 1px solid var(--line2); }
+  .poster figcaption { font-size: 11.5px; color: var(--ink2); margin-top: 7px; line-height: 1.55; }
+  .poster figcaption b { display: block; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .tl-img { float: right; width: 96px; margin: 2px 0 10px 16px; border: 1px solid var(--line2); }
+  .cul-img { float: right; width: 84px; margin: 2px 0 8px 12px; border: 1px solid var(--line2); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2); margin: 40px 0 0; }
+  .stat { padding: 20px 8px 16px; text-align: center; border-left: 1px solid var(--line); }
+  .stat:first-child { border-left: none; }
+  .stat b { display: block; font-family: var(--serif); font-size: 34px; font-weight: 700; color: var(--red); font-variant-numeric: tabular-nums; line-height: 1.15; }
+  .stat b small { font-size: 17px; font-weight: 400; color: var(--ink2); }
+  .stat span { font-size: 12.5px; color: var(--ink2); letter-spacing: 0.1em; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 72px; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; border-bottom: 1px solid var(--ink); padding-bottom: 10px; margin-bottom: 28px; }
+  .sec-num { font-family: var(--serif); color: var(--red); font-size: 15px; letter-spacing: 0.2em; }
+  h2 { font-family: var(--serif); font-size: clamp(24px, 4vw, 30px); font-weight: 700; letter-spacing: 0.04em; }
+  .sec-note { margin-left: auto; font-size: 12.5px; color: var(--ink3); letter-spacing: 0.06em; }
+  .prose { max-width: 46em; }
+  .prose p { margin-bottom: 1em; }
+  h3.sub { font-family: var(--serif); font-size: 19px; margin: 34px 0 14px; letter-spacing: 0.04em; }
+  h3.sub::before { content: "▍"; color: var(--red); margin-right: 6px; }
+
+  /* ---------- verdict strip ---------- */
+  .vstrip { display: flex; gap: 2px; height: 14px; border-radius: 4px; overflow: hidden; margin: 10px 0 14px; }
+  .vstrip i { display: block; }
+  .vkey { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 13.5px; color: var(--ink2); margin-bottom: 26px; }
+  .vkey b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .dotc { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; vertical-align: baseline; }
+
+  /* ---------- claims ---------- */
+  .claim { display: grid; grid-template-columns: 52px 1fr; gap: 0 18px; padding: 24px 0; border-top: 1px solid var(--line); }
+  .claim:first-of-type { border-top: none; }
+  .claim-num { font-family: var(--serif); font-size: 15px; color: var(--ink3); font-variant-numeric: tabular-nums; padding-top: 5px; }
+  .claim h4 { font-family: var(--serif); font-size: 18.5px; font-weight: 700; line-height: 1.55; letter-spacing: 0.02em; }
+  .claim h4 q { quotes: "「" "」"; font-style: normal; }
+  .badge { display: inline-block; font-family: var(--sans); font-size: 12.5px; font-weight: 600; letter-spacing: 0.12em; padding: 2px 11px; border-radius: 100px; margin-left: 10px; vertical-align: 3px; white-space: nowrap; }
+  .b-true    { color: var(--v-true);    background: var(--v-true-bg); }
+  .b-mostly  { color: var(--v-mostly);  background: var(--v-mostly-bg); }
+  .b-half    { color: var(--v-half);    background: var(--v-half-bg); }
+  .b-false   { color: var(--v-false);   background: var(--v-false-bg); }
+  .b-unknown { color: var(--v-unknown); background: var(--v-unknown-bg); }
+  .claim p { margin-top: 9px; color: var(--ink); max-width: 46em; }
+  .claim .src { margin-top: 7px; font-size: 12.5px; color: var(--ink3); }
+  .claim .src a { color: var(--ink3); border-bottom: 1px solid var(--line2); }
+  .claim .src a:hover { color: var(--blue); border-bottom-color: var(--blue); }
+  .group-tag { font-size: 13px; letter-spacing: 0.3em; color: var(--red); font-family: var(--serif); font-weight: 700; margin: 40px 0 4px; }
+  .group-tag:first-of-type { margin-top: 0; }
+  @media (max-width: 560px) { .claim { grid-template-columns: 1fr; } .claim-num { padding: 0 0 2px; } }
+
+  /* ---------- chart ---------- */
+  .chart-wrap { position: relative; margin: 26px 0 6px; }
+  .chart-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; margin-bottom: 4px; }
+  .chart-title { font-family: var(--serif); font-weight: 700; font-size: 17px; }
+  .legend { display: flex; gap: 18px; font-size: 13px; color: var(--ink2); margin-left: auto; }
+  .scrollx { overflow-x: auto; }
+  svg text { font-family: var(--sans); fill: var(--ink2); }
+  .bar-hit { fill: transparent; cursor: default; }
+  .bar-hit:hover { fill: color-mix(in srgb, var(--ink) 6%, transparent); }
+  #tip {
+    position: absolute; pointer-events: none; display: none;
+    background: var(--ink); color: var(--bg); font-size: 12.5px; line-height: 1.5;
+    padding: 6px 10px; border-radius: 6px; white-space: nowrap; z-index: 5;
+    font-variant-numeric: tabular-nums;
+  }
+  .chart-note { font-size: 12.5px; color: var(--ink3); }
+
+  /* ---------- timeline ---------- */
+  .timeline { border-left: 2px solid var(--line2); margin-left: 6px; padding-left: 26px; max-width: 50em; }
+  .tl { position: relative; padding-bottom: 20px; }
+  .tl::before { content: ""; position: absolute; left: -32px; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); border: 2px solid var(--red); }
+  .tl.minor::before { border-color: var(--line2); }
+  .tl b.yr { font-family: var(--serif); color: var(--red); font-size: 17px; margin-right: 10px; font-variant-numeric: tabular-nums; }
+  .tl p { display: inline; color: var(--ink); }
+
+  /* ---------- tables ---------- */
+  .tbl-wrap { overflow-x: auto; border-top: 2px solid var(--ink); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.6; }
+  th { font-family: var(--sans); font-size: 12.5px; letter-spacing: 0.12em; color: var(--ink2); font-weight: 600; text-align: left; padding: 10px 12px 8px; border-bottom: 1px solid var(--line2); white-space: nowrap; }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.num, th.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr:hover td { background: color-mix(in srgb, var(--ink) 3.5%, transparent); }
+  .chip { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; padding: 1px 8px; border-radius: 100px; white-space: nowrap; }
+  .c-lead { color: var(--red); background: var(--red-soft); }
+  .c-supp { color: var(--blue); background: var(--blue-soft); }
+  .c-cameo { color: var(--v-unknown); background: var(--v-unknown-bg); }
+  .star { color: var(--red); font-weight: 700; }
+  td .rmk { color: var(--ink2); font-size: 12.5px; }
+
+  /* ---------- culture cards ---------- */
+  .culture { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+  .cul { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px 22px; }
+  .cul h4 { font-family: var(--serif); font-size: 17.5px; margin-bottom: 8px; }
+  .cul h4::before { content: "◈ "; color: var(--red); font-size: 14px; }
+  .cul p { font-size: 14.5px; color: var(--ink); }
+
+  /* ---------- footer ---------- */
+  .appendix { font-size: 14px; color: var(--ink2); max-width: 50em; }
+  .appendix h3 { font-family: var(--serif); font-size: 16.5px; color: var(--ink); margin: 26px 0 8px; }
+  .appendix ul { padding-left: 1.4em; }
+  .appendix li { margin-bottom: 6px; }
+  .colophon { margin-top: 64px; border-top: 3px solid var(--ink); padding-top: 8px; }
+  .colophon::before { content: ""; display: block; border-top: 1px solid var(--ink); margin-bottom: 16px; }
+  .colophon p { font-size: 12.5px; color: var(--ink3); letter-spacing: 0.12em; }
+  blockquote.thesis {
+    font-family: var(--serif); font-size: clamp(19px, 3vw, 23px); line-height: 1.9;
+    border-left: 3px solid var(--red); padding-left: 22px; margin: 30px 0; max-width: 44em; text-wrap: balance;
+  }
+  blockquote.thesis em { font-style: normal; color: var(--red); }
+</style>
+
+<div class="page">
+
+  <!-- ═══════════ 报头 ═══════════ -->
+  <header class="masthead">
+    <div class="mast-meta"><span>周星驰研究 · 卷一</span><span>2026年7月16日</span></div>
+    <div class="masthead-grid">
+      <div>
+        <h1>周星驰<span class="dot">：</span>数字与流言</h1>
+        <p class="subtitle">一部人物档案，附二十一条网络流言的逐条核查——从「主演49部致敬1949」查起。</p>
+      </div>
+      <figure class="portrait">
+        <img src="img/portrait.jpg" alt="周星驰肖像照片" width="800">
+        <div class="stamp">已核查<small>贰拾壹条 · 五路信源</small></div>
+        <figcaption id="portrait-credit">周星驰，2008年。图：Kit Liew ／ Wikimedia Commons，CC BY 3.0</figcaption>
+      </figure>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>54<small> 部</small></b><span>出镜电影（含客串）</span></div>
+      <div class="stat"><b>45<small> 部</small></b><span>担任男主角</span></div>
+      <div class="stat"><b>8<small> 次</small></b><span>香港年度票房冠军</span></div>
+      <div class="stat"><b>33.9<small> 亿</small></b><span>《美人鱼》内地影史纪录</span></div>
+    </div>
+  </header>
+
+  <!-- ═══════════ 壹 · 核查总览 ═══════════ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">壹</span><h2>核查总览</h2><span class="sec-note">21条流言 · 5路并行检索</span></div>
+    <div class="vstrip" aria-hidden="true">
+      <i style="flex:2;background:var(--v-true)"></i><i style="flex:3;background:var(--v-mostly)"></i><i style="flex:7;background:var(--v-half)"></i><i style="flex:5;background:var(--v-false)"></i><i style="flex:4;background:var(--v-unknown)"></i>
+    </div>
+    <div class="vkey">
+      <span><i class="dotc" style="background:var(--v-true)"></i>属实 <b>2</b></span>
+      <span><i class="dotc" style="background:var(--v-mostly)"></i>基本属实 <b>3</b></span>
+      <span><i class="dotc" style="background:var(--v-half)"></i>半真半假 <b>7</b></span>
+      <span><i class="dotc" style="background:var(--v-false)"></i>不实 <b>5</b></span>
+      <span><i class="dotc" style="background:var(--v-unknown)"></i>查无依据 <b>4</b></span>
+    </div>
+    <div class="prose">
+      <p>触发本次研究的那类短视频（「星爷把爱国密码藏在电影里三十年」），是一份<strong>真细节配假意图</strong>的拼盘：画面细节多半经得起查——「甲申」二字、《帝女花》唱段、「忠党爱国」台词、中山装唱《我是中国人》都确有其事；但把这些归结为「周星驰一个人埋的密码」，几乎全无一手证据。多数设计出自杜琪峰、王晶、编剧或戏曲原型，而且至少两处（「后庭花」「忠党爱国」）的原始语境与「爱国解读」方向正好相反。</p>
+      <p>最硬的一条反证：整套叙事的支点——1997年那句「我对中国政府有信心」——查无当年任何出处，所有版本都来自2019年之后的自媒体。而1997年7月可查的真实报道，是他接受专访剖白<strong>申请移民加拿大两度被拒</strong>、官司一直打到2001年败诉。「人人找后路、唯独他不找」的故事，主角本人恰恰在找。</p>
+      <p>「好莱坞三请三拒」三条全部与英文行业媒体的当年记录相反或不符；「49部致敬1949」则是双重编造。这批视频在2026年5—7月集中爆发，与他执导的《功夫女足》（7月11日上映）档期高度重合，传播动机并不神秘。</p>
+      <blockquote class="thesis">剥掉包装，真实的周星驰依然可观：8次香港年度票房冠军、两破内地影史纪录、金像金马双料、《时代》周刊封面。<em>研究他，不需要编造。</em></blockquote>
+    </div>
+  </section>
+
+  <!-- ═══════════ 贰 · 「49部」之谜 ═══════════ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">贰</span><h2>「49部」之谜</h2><span class="sec-note">中英维基 × HKMDB × 豆瓣 交叉核对</span></div>
+    <div class="prose">
+      <p>逐部核对四个来源后，任何口径都数不出49：</p>
+    </div>
+    <div class="tbl-wrap" style="max-width:46em">
+      <table>
+        <thead><tr><th>统计口径</th><th class="num">数量</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>全部出镜电影（含配角、客串）</td><td class="num"><strong>54 部</strong></td><td>1988《捕风汉子》—2017《西游伏妖篇》片尾彩蛋；另有 2 部纯配音未计</td></tr>
+          <tr><td>担任男主角（含双男主）</td><td class="num"><strong>45 部</strong></td><td>剔除 5 部配角、4 部客串</td></tr>
+          <tr><td>严格主演（再剔除边界争议）</td><td class="num"><strong>43 部</strong></td><td>再剔除《最佳女婿》《千王之王2000》两个边界案例</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose" style="margin-top:22px">
+      <p>「49」的实际来源是营销号凑数梗：2019年前后有文章按上映顺序把《喜剧之王》（1999）排为「第49部」，此后「主演49部」在B站、百家号之间互相转述成了「常识」。至于「致敬1949」——<strong>连营销号自己都没这么说过</strong>。中英文精确检索，找不到任何一条把 49 和 1949 挂钩的信源，周星驰本人更无此表述。何况片数是几十年市场博弈的结果，演员无法预先控制，「用从影片数致敬」这个设定本身就不成立。</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-head">
+        <span class="chart-title">出镜电影逐年分布 · 1988—2017</span>
+        <div class="legend">
+          <span><i class="dotc" style="background:var(--chart-lead)"></i>男主角</span>
+          <span><i class="dotc" style="background:var(--chart-other)"></i>配角・客串</span>
+        </div>
+      </div>
+      <div class="scrollx">
+      <svg viewBox="0 0 946 300" width="946" height="300" role="img" aria-label="周星驰出镜电影逐年分布柱状图，1990年达到峰值11部，2008年后仅2017年一次客串">
+        <!-- grid -->
+        <line x1="34" y1="160" x2="940" y2="160" stroke="var(--line)" stroke-width="1"/>
+        <line x1="34" y1="60"  x2="940" y2="60"  stroke="var(--line)" stroke-width="1"/>
+        <line x1="34" y1="260" x2="940" y2="260" stroke="var(--line2)" stroke-width="1.5"/>
+        <text x="26" y="164" font-size="11" text-anchor="end">5</text>
+        <text x="26" y="64"  font-size="11" text-anchor="end">10</text>
+        <!-- bars: red = lead (baseline), blue = other (stacked, 2px gap) -->
+        <g>
+          <rect x="40"  y="240" width="18" height="20"  fill="var(--chart-lead)"/><rect x="40"  y="200" width="18" height="38" rx="2" fill="var(--chart-other)"/>
+          <rect x="70"  y="240" width="18" height="20"  fill="var(--chart-lead)"/><rect x="70"  y="200" width="18" height="38" rx="2" fill="var(--chart-other)"/>
+          <rect x="100" y="60"  width="18" height="200" fill="var(--chart-lead)"/><rect x="100" y="40"  width="18" height="18" rx="2" fill="var(--chart-other)"/>
+          <rect x="130" y="140" width="18" height="120" fill="var(--chart-lead)"/><rect x="130" y="100" width="18" height="38" rx="2" fill="var(--chart-other)"/>
+          <rect x="160" y="120" width="18" height="140" rx="2" fill="var(--chart-lead)"/>
+          <rect x="190" y="200" width="18" height="60"  rx="2" fill="var(--chart-lead)"/>
+          <rect x="220" y="200" width="18" height="60"  rx="2" fill="var(--chart-lead)"/>
+          <rect x="250" y="180" width="18" height="80"  rx="2" fill="var(--chart-lead)"/>
+          <rect x="280" y="220" width="18" height="40"  rx="2" fill="var(--chart-lead)"/>
+          <rect x="310" y="220" width="18" height="40"  rx="2" fill="var(--chart-lead)"/>
+          <rect x="340" y="240" width="18" height="20"  rx="2" fill="var(--chart-lead)"/>
+          <rect x="370" y="220" width="18" height="40"  fill="var(--chart-lead)"/><rect x="370" y="200" width="18" height="18" rx="2" fill="var(--chart-other)"/>
+          <rect x="430" y="240" width="18" height="20"  rx="2" fill="var(--chart-lead)"/>
+          <rect x="520" y="240" width="18" height="20"  rx="2" fill="var(--chart-lead)"/>
+          <rect x="640" y="240" width="18" height="20"  rx="2" fill="var(--chart-lead)"/>
+          <rect x="910" y="240" width="18" height="20"  rx="2" fill="var(--chart-other)"/>
+        </g>
+        <!-- direct label: 1990 peak -->
+        <text x="109" y="28" font-size="12.5" font-weight="600" text-anchor="middle" fill="var(--ink)">11 部</text>
+        <!-- x labels every 2 years -->
+        <text x="49"  y="280" font-size="10" text-anchor="middle">1988</text>
+        <text x="109" y="280" font-size="10" text-anchor="middle">1990</text>
+        <text x="169" y="280" font-size="10" text-anchor="middle">1992</text>
+        <text x="229" y="280" font-size="10" text-anchor="middle">1994</text>
+        <text x="289" y="280" font-size="10" text-anchor="middle">1996</text>
+        <text x="349" y="280" font-size="10" text-anchor="middle">1998</text>
+        <text x="409" y="280" font-size="10" text-anchor="middle">2000</text>
+        <text x="469" y="280" font-size="10" text-anchor="middle">2002</text>
+        <text x="529" y="280" font-size="10" text-anchor="middle">2004</text>
+        <text x="589" y="280" font-size="10" text-anchor="middle">2006</text>
+        <text x="649" y="280" font-size="10" text-anchor="middle">2008</text>
+        <text x="709" y="280" font-size="10" text-anchor="middle">2010</text>
+        <text x="769" y="280" font-size="10" text-anchor="middle">2012</text>
+        <text x="829" y="280" font-size="10" text-anchor="middle">2014</text>
+        <text x="889" y="280" font-size="10" text-anchor="middle">2016</text>
+        <!-- hover hits -->
+        <g id="hits">
+          <rect class="bar-hit" x="34"  y="20" width="30" height="246" data-y="1988" data-l="1" data-o="2"/>
+          <rect class="bar-hit" x="64"  y="20" width="30" height="246" data-y="1989" data-l="1" data-o="2"/>
+          <rect class="bar-hit" x="94"  y="20" width="30" height="246" data-y="1990" data-l="10" data-o="1"/>
+          <rect class="bar-hit" x="124" y="20" width="30" height="246" data-y="1991" data-l="6" data-o="2"/>
+          <rect class="bar-hit" x="154" y="20" width="30" height="246" data-y="1992" data-l="7" data-o="0"/>
+          <rect class="bar-hit" x="184" y="20" width="30" height="246" data-y="1993" data-l="3" data-o="0"/>
+          <rect class="bar-hit" x="214" y="20" width="30" height="246" data-y="1994" data-l="3" data-o="0"/>
+          <rect class="bar-hit" x="244" y="20" width="30" height="246" data-y="1995" data-l="4" data-o="0"/>
+          <rect class="bar-hit" x="274" y="20" width="30" height="246" data-y="1996" data-l="2" data-o="0"/>
+          <rect class="bar-hit" x="304" y="20" width="30" height="246" data-y="1997" data-l="2" data-o="0"/>
+          <rect class="bar-hit" x="334" y="20" width="30" height="246" data-y="1998" data-l="1" data-o="0"/>
+          <rect class="bar-hit" x="364" y="20" width="30" height="246" data-y="1999" data-l="2" data-o="1"/>
+          <rect class="bar-hit" x="424" y="20" width="30" height="246" data-y="2001" data-l="1" data-o="0"/>
+          <rect class="bar-hit" x="514" y="20" width="30" height="246" data-y="2004" data-l="1" data-o="0"/>
+          <rect class="bar-hit" x="634" y="20" width="30" height="246" data-y="2008" data-l="1" data-o="0"/>
+          <rect class="bar-hit" x="904" y="20" width="30" height="246" data-y="2017" data-l="0" data-o="1"/>
+        </g>
+      </svg>
+      </div>
+      <div id="tip"></div>
+      <p class="chart-note">1990年一年出镜11部为生涯峰值；2008年《长江7号》后不再主演，2017年仅在《西游伏妖篇》片尾客串一场。逐部明细见「柒 · 完整片单」。</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ 叁 · 逐条核查 ═══════════ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">叁</span><h2>流言逐条核查</h2><span class="sec-note">编号01—21 · 附来源</span></div>
+
+    <p class="group-tag">甲 ｜ 数字与排片</p>
+
+    <div class="claim">
+      <div class="claim-num">01</div>
+      <div>
+        <h4><q>他一生主演了49部电影</q><span class="badge b-false">不实</span></h4>
+        <p>任何权威口径都数不出49：全部出镜53—54部、男主角45部、严格主演43部。「49」是2019年前后营销号按上映顺序数到《喜剧之王》附近取的凑数，此后被短视频互相转述成「常识」。</p>
+        <div class="src">来源：<a href="https://zh.wikipedia.org/wiki/%E5%91%A8%E6%98%9F%E9%A9%B0%E5%BD%B1%E8%A6%96%E4%BD%9C%E5%93%81%E5%88%97%E8%A1%A8">中文维基·作品列表</a> ・ <a href="https://en.wikipedia.org/wiki/Stephen_Chow">英文维基</a> ・ <a href="https://web.archive.org/web/20241007130525/https://hkmdb.com/db/people/view.mhtml?id=7230&amp;display_set=big5">HKMDB 存档</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">02</div>
+      <div>
+        <h4><q>49这个数字是致敬新中国成立的1949年</q><span class="badge b-false">不实</span></h4>
+        <p>纯属编造的二次附会——中英文精确检索，没有任何信源（包括营销号自己）把49和1949挂钩，周星驰本人从未有此表述。片数是市场结果，演员无法预先控制，「用片数致敬」在逻辑上也不成立。</p>
+        <div class="src">来源：多组关键词全网检索无果（详见方法附注）</div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">03</div>
+      <div>
+        <h4><q>央视六公主一个多月的黄金时段全是他的片子连着放</q><span class="badge b-half">半真半假</span></h4>
+        <p>2026年6月底至7月，电影频道确有密集连播（可查到的说法是「黄金档连播十天」），但「一个多月」无节目单佐证。背景毫不神秘：他执导的《功夫女足》7月11日上映（3天破6亿），连播是常规的档期造势，谈不上「还他公道」的暗示。</p>
+        <div class="src">来源：<a href="https://m.sohu.com/a/1048162064_122484487">搜狐·连播十天</a> ・ <a href="https://www.thepaper.cn/newsDetail_forward_33577524">澎湃·功夫女足3天破6亿</a></div>
+      </div>
+    </div>
+
+    <p class="group-tag">乙 ｜ 影片细节</p>
+
+    <div class="claim">
+      <div class="claim-num">04</div>
+      <div>
+        <h4><q>《审死官》梅艳芳脸上印着「甲申」二字，暗指1644甲申国难；一共打了八下</q><span class="badge b-half">半真半假</span></h4>
+        <p>字是真的：有网友逐帧截图确认脸上印的确是「甲申」，令签上只有天干「甲乙丙」、脸上却多出地支「申」，确实像有意为之。但「打八下」不实——逐帧核查是十下，「1644＋8」纯属数字附会。且即便隐喻成立，这部片的导演是杜琪峰、编剧是邵丽琼，周星驰只是主演，功劳簿记错了人。</p>
+        <div class="src">来源：<a href="https://news.qq.com/rain/a/20260529A05D1F00">腾讯·闲人电影逐条考证</a> ・ <a href="https://x.com/jesselaunz/status/2059854648987812067">逐帧截图核查</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">05</div>
+      <div>
+        <h4><q>《百变星君》用一场中国历史考试讽刺殖民教育，选项里还有「香港」</q><span class="badge b-half">半真半假</span></h4>
+        <p>考试机器桥段存在，「明太祖是谁」的搞笑选项是「朱茵」「猪头皮」——前者是他当时的女友兼搭档，后者是台湾歌手，全是九十年代艺人谐音梗；「香港」选项查无实据。这场戏公认讽刺的是填鸭式考试文化，「殖民教育」是强行升华。</p>
+        <div class="src">来源：<a href="https://zh.wikipedia.org/wiki/%E7%99%BE%E8%AE%8A%E6%98%9F%E5%90%9B">维基·百变星君</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">06</div>
+      <div>
+        <h4><q>《鹿鼎记》韦小宝的虎头帽参照反清复明的藤牌营</q><span class="badge b-unknown">查无依据</span></h4>
+        <p>帽子真、藤牌营史实真（金庸原著里韦小宝确实向林兴珠学过藤牌战法），但「造型参照藤牌营」只是2022年影迷文章的联想，无任何剧组证据。更要命的是：历史上的藤牌营是<strong>效力清廷</strong>、替康熙打雅克萨的部队，拿它当「反清复明密码」自相矛盾。通行解读就是小孩帽子戴在成人头上的滑稽反差。</p>
+        <div class="src">来源：<a href="https://www.sohu.com/a/518961725_99995271">搜狐·虎衣藤牌兵考</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">07</div>
+      <div>
+        <h4><q>片中有人对着满清的公主唱亡国戏《帝女花》</q><span class="badge b-mostly">基本属实</span></h4>
+        <p>确有其事，出自续集《鹿鼎记2神龙教》片尾：韦小宝对建宁公主唱《帝女花·香夭》「落花满天蔽月光」，建宁还赞「真有诗意」。《帝女花》写明末长平公主殉国，对清朝公主唱确有反讽味——这个解读2012年豆瓣影评就有，不是短视频的新发现。但《帝女花》是粤语区最烂熟的唱段，港片引用成癖，算不算「密码」见仁见智。</p>
+        <div class="src">来源：<a href="https://movie.douban.com/review/5360113/">豆瓣影评（2012）</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">08</div>
+      <div>
+        <h4><q>《武状元苏乞儿》全片不留辫子、始终梳汉人发髻，宁做乞丐不弯腰</q><span class="badge b-half">半真半假</span></h4>
+        <p>发型确实无辫（按清律当斩，属喜剧化处理），但「梳汉人发髻」不准确——多数时候是披发的乞丐造型，且片中散发者不止他一人。关键反证：苏察哈尔灿的人物设定本身就是<strong>旗人</strong>贵公子（广州将军之子），一个旗人「用发型反清」说不通。</p>
+        <div class="src">来源：<a href="https://www.163.com/dy/article/JQEOF40I0523GCC3.html">网易·细节考据</a> ・ <a href="https://news.qq.com/rain/a/20260529A05D1F00">腾讯·闲人电影</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">09</div>
+      <div>
+        <h4><q>《唐伯虎点秋香》背景牌子「十不准」里藏着「不准唱后庭花」的亡国之痛</q><span class="badge b-half">半真半假</span></h4>
+        <p>牌子真实存在，「不准唱后庭花」确在其中。但整块牌子公认是一串粤语荤段子——「磨豆腐」「打纸鸢」「走后门」「偷鸡」在粤语俗语里全有性暗示，「后庭花」在此语境同样是黄段子。把其中一条单拎出来解成家国隐喻，与整块牌子的语境完全不符。</p>
+        <div class="src">来源：<a href="https://www.sohu.com/a/277965434_100119945">搜狐·华府家规考（2018）</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">10</div>
+      <div>
+        <h4><q>《国产凌凌漆》英文名 From Beijing with Love，片中说「我是中国人」、还有「忠党爱国」的台词</q><span class="badge b-half">半真半假</span></h4>
+        <p>英文片名属实（戏仿007的 From Russia with Love）；「亏你还有脸站在『忠党爱国』四个字前面」台词也属实。但语境是<strong>讽刺</strong>——说这话时对面是贪腐司令，站在招牌前的是反派；整部片还因恶搞内地桥段一度在大陆禁映。把讽刺戏包装成「藏爱国心」，方向正好倒了。至于「我是中国人」这句台词，全剧本与维基语录均查无此句。</p>
+        <div class="src">来源：<a href="https://zh.wikipedia.org/zh-hans/%E5%9C%8B%E7%94%A2%E5%87%8C%E5%87%8C%E6%BC%86">维基·国产凌凌漆</a> ・ <a href="https://www.douban.com/group/topic/1020110/">豆瓣·粤语全剧本</a></div>
+      </div>
+    </div>
+
+    <p class="group-tag">丙 ｜ 生平言行</p>
+
+    <div class="claim">
+      <div class="claim-num">11</div>
+      <div>
+        <h4><q>1997年他对着镜头说：我对中国政府有信心</q><span class="badge b-unknown">查无依据</span></h4>
+        <p>找不到当年任何报道或视频，所有流传版本都出自2019年之后的自媒体，无一注明媒体和场合。当年可查的真实报道方向恰恰相反：1997年7月加拿大《明报》专访的主题，是他<strong>申请移民加拿大两度被拒</strong>（移民局怀疑其黑帮关联）、上诉至2001年终审败诉。容易混淆的真语录是2022年回归25周年央视专访：「我永远都是中国人。」</p>
+        <div class="src">来源：<a href="https://www.rfa.org/mandarin/yataibaodao/zhengzhi/zxc-02072013143655.html">RFA·移民案报道</a> ・ <a href="https://www.hk01.com/%E5%8D%B3%E6%99%82%E5%A8%9B%E6%A8%82/785902">HK01·2022央视专访</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">12</div>
+      <div>
+        <h4><q>1988年凭《霹雳先锋》拿下金马奖最佳男配角</q><span class="badge b-true">属实</span></h4>
+        <p>第25届金马奖（1988），凭《霹雳先锋》获最佳男配角，这也是他从主持人转型演员的起点。</p>
+        <div class="src">来源：<a href="https://zh.wikipedia.org/zh-hans/%E7%AC%AC25%E5%B1%86%E9%87%91%E9%A6%AC%E7%8D%8E">维基·第25届金马奖</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">13</div>
+      <div>
+        <h4><q>1988年TVB台庆，全场西装革履，只有他穿白色中山装唱《我是中国人》</q><span class="badge b-mostly">基本属实</span></h4>
+        <p>视频真实且流传很早（2007年已有博客记载），1988年、白色中山装、唱《我是中国人》（刘家昌词曲、张明敏唱红）都对。但场合的早期口径是综艺《欢乐今宵》而非台庆，且这是节目编排的表演环节——另有他与林正英同唱此歌的片段。「满场西装唯他中山装」的对比场面是后加的戏剧化演绎。</p>
+        <div class="src">来源：<a href="https://luweiqing.com/gossip/88-zhou-xing-chi.html">2007年博客记载</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">14</div>
+      <div>
+        <h4><q>梁小龙只因表达爱国立场，被封杀十几年</q><span class="badge b-mostly">基本属实</span></h4>
+        <p>1980年代中期他访问大陆后，被台湾「港九电影戏剧事业自由总会」列入黑名单，拒写悔过书（「我回自己的国家有什么错？」），失去当时港片最大的台湾市场，香港片商连带弃用，息影近二十年——2004年正是周星驰请他演《功夫》火云邪神才复出。需修正两处：封杀主体是台湾当局而非「港台」；他演的是陈真（《大侠霍元甲》里演陈真），并非霍元甲本人。梁小龙已于2026年1月去世。</p>
+        <div class="src">来源：<a href="https://zh.wikipedia.org/zh-hans/%E6%A2%81%E5%B0%8F%E9%BE%8D">维基·梁小龙</a> ・ <a href="https://www.news.cn/gangao/20260118/dee5d309c3534a04a49d3390a76e80be/c.html">新华网讣闻</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">15</div>
+      <div>
+        <h4><q>他的名字取自《滕王阁序》</q><span class="badge b-true">属实</span></h4>
+        <p>母亲凌宝儿取自「雄州雾列，俊采星驰」（视频ASR误听成「雄州物列隽彩」）。1962年6月22日生于九龙。</p>
+        <div class="src">来源：<a href="https://zh.wikipedia.org/zh-cn/%E5%91%A8%E6%98%9F%E9%A9%B0">维基·周星驰</a></div>
+      </div>
+    </div>
+
+    <p class="group-tag">丁 ｜ 好莱坞与慈善</p>
+
+    <div class="claim">
+      <div class="claim-num">16</div>
+      <div>
+        <h4><q>《食神》火遍全球，好莱坞要买翻拍权但要把中国菜换成西餐，他说免谈</q><span class="badge b-false">不实</span></h4>
+        <p>方向说反了。当年报道显示是周星驰一方<strong>主动推进</strong>美版翻拍：1998年《星岛日报》报道他计划为英语市场翻拍《食神》，金·凯瑞主演、福斯买下版权、好莱坞编剧改写英文剧本——项目最后自然流产，是好莱坞常见的开发夭折。「要么保留中国元素要么免谈」查无出处。</p>
+        <div class="src">来源：<a href="https://en.wikipedia.org/wiki/The_God_of_Cookery">英文维基·食神</a> ・ <a href="https://variety.com/1999/film/news/fox-cooks-up-hyman-pact-1117755786/">Variety 1999</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">17</div>
+      <div>
+        <h4><q>好莱坞请他导真人版《七龙珠》，他写了一整本剧本要保东方功夫内核，对方只给3000万，他退了</q><span class="badge b-false">不实</span></h4>
+        <p>说反了。他婉拒的只是导演职位（自述只导自己原创的故事），但<strong>接受了制片人职位</strong>——《七龙珠：全新进化》（2009）片头字幕里就有他的名字，通过其星辉海外公司挂名。这部片是影史著名烂片。「写整本剧本」「只给3000万」查无任何报道，「3000万」疑似挪用了该片的实际预算数字。</p>
+        <div class="src">来源：<a href="https://en.wikipedia.org/wiki/Dragonball_Evolution">英文维基·七龙珠</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">18</div>
+      <div>
+        <h4><q>请他演《青蜂侠》加藤，美方非要把加藤改成日本人，他拒了天价片酬</q><span class="badge b-false">不实</span></h4>
+        <p>2008年9月哥伦比亚官宣他<strong>执导并饰演加藤</strong>，他当时的声明是「执导本片作为美国首秀是梦想成真」——欣然接受。同年12月因「创作分歧」辞去导演（美联社报道他还想腾档期拍别的喜剧），2009年7月因档期彻底退出。加藤最终由周杰伦出演，角色设定还是上海人——直接反驳「美方坚持加藤是日本人」。</p>
+        <div class="src">来源：<a href="https://en.wikipedia.org/wiki/The_Green_Hornet_(2011_film)">英文维基·青蜂侠</a> ・ <a href="https://www.deseret.com/2008/12/28/20293312/chow-drops-out-as-director-of-green-hornet/">AP 2008</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">19</div>
+      <div>
+        <h4><q>武汉疫情他第一时间捐顶级医疗设备，医疗队公开致谢；人民日报发布他的「盖世英雄」视频</q><span class="badge b-half">半真半假</span></h4>
+        <p>捐赠为真：2020年3月CCTV6《中国电影报道》披露他向四川援鄂医疗队捐赠医疗设备，队长雷波公开致谢「这是一份拯救生命的礼物」。「你们是我心中的盖世英雄」视频也是真的——但出自央视电影频道《战疫故事》直播，<strong>不是人民日报</strong>。此前确有「未见捐款被骂孤寒」的舆论，网传捐款数字（1000万／3000万）当年即被指未经证实。</p>
+        <div class="src">来源：<a href="https://m.thepaper.cn/newsDetail_forward_6213010">澎湃·专访雷波</a> ・ <a href="https://www.dianyingjie.com.cn/2020/0317/45805.shtml">中国电影报道披露</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">20</div>
+      <div>
+        <h4><q>多年在内地山区捐建希望小学，从没晒过一张凭证</q><span class="badge b-unknown">查无依据</span></h4>
+        <p>查无一所可实名核实的学校，中国青基会公开渠道无记录——对比古天乐捐建的百余所学校有名单、有照片、有基金会记录。相关的「汶川捐3000万」同样是讹传：那是香港演艺界「512关爱行动」的募捐总额，被算到他一人头上。「从不晒凭证」恰好让说法不可证伪，是典型的营销号话术。</p>
+        <div class="src">来源：<a href="https://www.zhihu.com/question/2028816766818693678">知乎·质疑帖</a> ・ <a href="https://cydf.org.cn/x-1-1-1-1-1-1-1/">青基会公开名录</a></div>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-num">21</div>
+      <div>
+        <h4><q>梁朝伟结婚他包8000块红包，被拿来说事骂抠门</q><span class="badge b-unknown">查无依据</span></h4>
+        <p>2008年不丹婚礼属实，但「8000红包」及他那句潇洒「回应」只能追溯到2022年前后的内地自媒体文章——无时间、无场合、无提问媒体；检索2008年前后港媒无对应报道。更像为「不在乎虚礼」人设量身编排的对照故事。</p>
+        <div class="src">来源：2008年港媒检索无果；现存最早版本为2022年自媒体</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 肆 · 大事纪 ═══════════ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">肆</span><h2>大事纪</h2><span class="sec-note">1962—2026</span></div>
+    <div class="timeline">
+      <div class="tl"><b class="yr">1962</b><p>6月22日生于九龙贫民区，父周驿尚（宁波人）、母凌宝儿（广东宝安人）；七岁时父母离异，母亲独力抚养姐弟三人。</p></div>
+      <div class="tl minor"><b class="yr">1971</b><p>约九岁时看李小龙《唐山大兄》，立志做武打明星。</p></div>
+      <div class="tl"><b class="yr">1982</b><p>与好友梁朝伟同考TVB艺员训练班：梁被正规班录取，他落榜，经戚美珍说情才进夜训班（另一说为1981年）。</p></div>
+      <div class="tl minor"><b class="yr">1983</b><p>起主持儿童节目《430穿梭机》约五年——流传的「六年」偏高。</p></div>
+      <div class="tl"><b class="yr">1988</b><p>签约李修贤，凭《霹雳先锋》获第25届金马奖最佳男配角，正式转型。</p></div>
+      <div class="tl"><b class="yr">1990</b><p>《赌圣》以4132万港元成为香港影史首部破四千万的电影，一跃为一线巨星；这一年他出镜11部，为生涯峰值。</p></div>
+      <div class="tl"><b class="yr">1992</b><p>「周星驰年」：当年香港票房前五全是他的电影，《审死官》4988万再破影史纪录。</p></div>
+      <div class="tl minor"><b class="yr">1993</b><p>《唐伯虎点秋香》完成年度冠军四连庄。</p></div>
+      <div class="tl"><b class="yr">1994</b><p>《国产凌凌漆》与李力持联合执导，为导演处女作。</p></div>
+      <div class="tl minor"><b class="yr">1996</b><p>脱离永盛，成立星辉公司；主演《食神》。</p></div>
+      <div class="tl minor"><b class="yr">1999</b><p>《喜剧之王》再夺年冠；《大话西游》正经由盗版VCD在内地高校封神。</p></div>
+      <div class="tl"><b class="yr">2001</b><p>自编自导自演《少林足球》，6074万破港产片纪录；次年横扫金像奖七项大奖。</p></div>
+      <div class="tl"><b class="yr">2004</b><p>《功夫》6128万再创港产片纪录（保持七年），获金马最佳剧情片、最佳导演等五奖，全球票房约1.05亿美元。</p></div>
+      <div class="tl"><b class="yr">2008</b><p>《长江7号》夺年冠——此后不再主演电影。</p></div>
+      <div class="tl minor"><b class="yr">2013</b><p>转入纯导演阶段：《西游·降魔篇》12.46亿元居内地年度冠军。</p></div>
+      <div class="tl" style="overflow:hidden"><img class="tl-img" src="img/poster-meirenyu.jpg" alt="美人鱼海报" loading="lazy"><b class="yr">2016</b><p>《美人鱼》33.9亿元创内地影史总票房纪录，为首部破30亿的电影，纪录保持约18个月至《战狼2》。</p></div>
+      <div class="tl minor"><b class="yr">2019</b><p>《新喜剧之王》6.24亿元，口碑票房均不及预期。</p></div>
+      <div class="tl minor"><b class="yr">2024</b><p>出品首部微短剧《金猪玉叶》；任《喜剧之王单口季》发起人。其「御用配音」石班瑜9月去世。</p></div>
+      <div class="tl" style="overflow:hidden"><img class="tl-img" src="img/poster-gongfunvzu.jpg" alt="功夫女足海报" loading="lazy"><b class="yr">2026</b><p>《功夫女足》（《少林足球》25周年精神续作，筹备七年）7月11日上映，3天破6亿，预测总票房上调至20亿以上；《美人鱼2》搁置八年后已获公映许可，有望年内上映。</p></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 伍 · 奖项与纪录 ═══════════ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">伍</span><h2>奖项与纪录</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="num">年份</th><th>奖项</th><th>作品</th><th>结果</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1988</td><td>第25届金马奖 · 最佳男配角</td><td>霹雳先锋</td><td>获奖</td></tr>
+          <tr><td class="num">2002</td><td>第21届香港电影金像奖</td><td>少林足球</td><td>七项大奖：最佳电影、最佳导演、最佳男主角、杰出青年导演等——个人一届独揽三奖</td></tr>
+          <tr><td class="num">2005</td><td>第24届香港电影金像奖</td><td>功夫</td><td>六项大奖，含最佳电影</td></tr>
+          <tr><td class="num">2005</td><td>第42届金马奖</td><td>功夫</td><td>五项大奖：最佳剧情片、最佳导演等</td></tr>
+          <tr><td class="num">2006</td><td>金球奖 · 最佳外语片</td><td>功夫</td><td>提名（另获英国电影学院奖最佳非英语片提名）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose" style="margin-top:26px">
+      <h3 class="sub">香港年度票房冠军 · 8次（影史纪录）</h3>
+    </div>
+    <div class="poster-strip">
+      <figure class="poster"><img src="img/poster-dusheng.jpg" alt="赌圣海报" loading="lazy"><figcaption><b>1990 · 赌圣</b>4132万，首破影史纪录</figcaption></figure>
+      <figure class="poster"><img src="img/poster-taoxue.jpg" alt="逃学威龙海报" loading="lazy"><figcaption><b>1991 · 逃学威龙</b>4382万，再破纪录</figcaption></figure>
+      <figure class="poster"><img src="img/poster-shensiguan.jpg" alt="审死官海报" loading="lazy"><figcaption><b>1992 · 审死官</b>4988万，三破纪录</figcaption></figure>
+      <figure class="poster"><img src="img/poster-tangbohu.jpg" alt="唐伯虎点秋香海报" loading="lazy"><figcaption><b>1993 · 唐伯虎点秋香</b>年冠四连庄</figcaption></figure>
+      <figure class="poster"><img src="img/poster-xijuzhiwang.jpg" alt="喜剧之王海报" loading="lazy"><figcaption><b>1999 · 喜剧之王</b>年冠</figcaption></figure>
+      <figure class="poster"><img src="img/poster-shaolin.jpg" alt="少林足球海报" loading="lazy"><figcaption><b>2001 · 少林足球</b>6074万，破港产片纪录</figcaption></figure>
+      <figure class="poster"><img src="img/poster-gongfu.jpg" alt="功夫海报" loading="lazy"><figcaption><b>2004 · 功夫</b>6128万，纪录保持七年</figcaption></figure>
+      <figure class="poster"><img src="img/poster-cj7.jpg" alt="长江7号海报" loading="lazy"><figcaption><b>2008 · 长江7号</b>最后一次主演</figcaption></figure>
+    </div>
+    <div class="prose">
+      <h3 class="sub">五破香港影史票房纪录</h3>
+      <p>《赌圣》4132万 → 《逃学威龙》4382万 → 《审死官》4988万 → 《少林足球》6074万 → 《功夫》6128万（保持七年）。导演作品另两破内地影史纪录：《西游·降魔篇》12.46亿、《美人鱼》33.9亿。</p>
+      <h3 class="sub">《时代》周刊</h3>
+      <p>2003年登上美国《时代》周刊封面，入选「29位亚洲英雄」，评语大意为：中国若有查理·卓别林，那就是周星驰。《功夫》入选《时代》2005年全球十佳电影。</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ 陆 · 文化坐标 ═══════════ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">陆</span><h2>文化坐标</h2></div>
+    <div class="culture">
+      <div class="cul"><h4>从「星仔」到「星爷」</h4><p>跑龙套时期人称「星仔」；1990年《赌圣》里吴君如一句「星爷」的台词埋下伏笔，影片爆红后称呼不胫而走，另有洪金宝等前辈带头改口的圈内轶闻（属回忆性材料）。从「仔」到「爷」，是香港影坛对地位的认证。</p></div>
+      <div class="cul"><h4>「无厘头」</h4><p>源于佛山一带粤语俚语，意为「没来由、无逻辑」。作为表演形态经他1989年剧集《盖世豪侠》引爆，九十年代随其电影发展为香港次文化的代表——解构权威、草根戏谑，影响整个华语圈。</p></div>
+      <div class="cul"><h4>《大话西游》的逆袭</h4><p><img class="cul-img" src="img/poster-dahua.jpg" alt="大话西游之仙履奇缘海报" loading="lazy">1995年上映时香港平淡、内地惨败，一度被视为「文化垃圾」；1996年起经北电、清华水木BBS用后现代话语重新解读，配合盗版VCD在大学宿舍反复流传，台词成为一代人的接头暗号，最终封神——他的电影在内地的影响力，最初正是靠盗版碟与大学生完成的。</p></div>
+      <div class="cul"><h4>两种声音</h4><p>台湾配音员石班瑜自1990年《赌侠》起为他配国语共28部，夸张的笑声塑造了内地观众心中的「周星驰声音」；粤语区观众则更认原声冷面的一派。两个版本各成审美，常被对照讨论。石班瑜2024年9月去世。</p></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 柒 · 完整片单 ═══════════ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">柒</span><h2>完整片单 · 出镜电影54部</h2><span class="sec-note">★＝香港年度票房冠军</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="num">年份</th><th>片名</th><th>角色</th><th>戏份</th><th>导演</th><th>备注</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1988</td><td>捕风汉子</td><td>阿星</td><td><span class="chip c-supp">配角</span></td><td>赖建国</td><td class="rmk">首部电影</td></tr>
+          <tr><td class="num">1988</td><td>霹雳先锋</td><td>阿Boy</td><td><span class="chip c-supp">配角</span></td><td>黄柏文</td><td class="rmk">金马奖最佳男配角</td></tr>
+          <tr><td class="num">1988</td><td>最佳女婿</td><td>赖布甸</td><td><span class="chip c-lead">主演</span></td><td>黄华麒</td><td class="rmk">三男主群戏（边界案例）</td></tr>
+          <tr><td class="num">1989</td><td>龙在天涯</td><td>阿友</td><td><span class="chip c-supp">配角</span></td><td>邓衍成</td><td class="rmk">李连杰主演</td></tr>
+          <tr><td class="num">1989</td><td>义胆群英</td><td>小奇</td><td><span class="chip c-supp">配角</span></td><td>吴宇森、午马</td><td></td></tr>
+          <tr><td class="num">1989</td><td>流氓差婆</td><td>贤仔</td><td><span class="chip c-lead">主演</span></td><td>刘镇伟</td><td class="rmk">与吴君如对手主演</td></tr>
+          <tr><td class="num">1990</td><td>望夫成龙</td><td>石金水</td><td><span class="chip c-lead">主演</span></td><td>梁家树</td><td></td></tr>
+          <tr><td class="num">1990</td><td>一本漫画闯天涯</td><td>阿星</td><td><span class="chip c-lead">主演</span></td><td>梁家仁</td><td class="rmk">无厘头电影化开端</td></tr>
+          <tr><td class="num">1990</td><td>龙凤茶楼</td><td>垃圾驰</td><td><span class="chip c-lead">主演</span></td><td>潘文杰</td><td></td></tr>
+          <tr><td class="num">1990</td><td>风雨同路</td><td>张郎</td><td><span class="chip c-lead">主演</span></td><td>黄柏文</td><td></td></tr>
+          <tr><td class="num">1990</td><td>咖喱辣椒</td><td>招文强</td><td><span class="chip c-lead">主演</span></td><td>柯受良</td><td class="rmk">与张学友双主</td></tr>
+          <tr><td class="num">1990</td><td>小偷阿星</td><td>阿星</td><td><span class="chip c-lead">主演</span></td><td>楚原</td><td></td></tr>
+          <tr><td class="num">1990</td><td>师兄撞鬼</td><td>周星</td><td><span class="chip c-lead">主演</span></td><td>刘仕裕</td><td></td></tr>
+          <tr><td class="num">1990</td><td>赌圣</td><td>左颂星</td><td><span class="chip c-lead">主演</span></td><td>刘镇伟、元奎</td><td class="rmk"><span class="star">★</span> 4132万首破香港影史纪录</td></tr>
+          <tr><td class="num">1990</td><td>无敌幸运星</td><td>幸运星</td><td><span class="chip c-lead">主演</span></td><td>陈友</td><td></td></tr>
+          <tr><td class="num">1990</td><td>江湖最后一个大佬</td><td>阿星</td><td><span class="chip c-supp">配角</span></td><td>沈威</td><td></td></tr>
+          <tr><td class="num">1990</td><td>赌侠</td><td>周星祖</td><td><span class="chip c-lead">主演</span></td><td>王晶</td><td class="rmk">与刘德华双主</td></tr>
+          <tr><td class="num">1991</td><td>整蛊专家</td><td>古晶</td><td><span class="chip c-lead">主演</span></td><td>王晶</td><td class="rmk">与刘德华双主</td></tr>
+          <tr><td class="num">1991</td><td>龙的传人</td><td>周小龙</td><td><span class="chip c-lead">主演</span></td><td>李修贤</td><td></td></tr>
+          <tr><td class="num">1991</td><td>新精武门1991</td><td>刘晶</td><td><span class="chip c-lead">主演</span></td><td>左颂升</td><td></td></tr>
+          <tr><td class="num">1991</td><td>逃学威龙</td><td>周星星</td><td><span class="chip c-lead">主演</span></td><td>陈嘉上</td><td class="rmk"><span class="star">★</span> 4382万再破影史纪录</td></tr>
+          <tr><td class="num">1991</td><td>赌侠2之上海滩赌圣</td><td>周星祖</td><td><span class="chip c-lead">主演</span></td><td>王晶</td><td></td></tr>
+          <tr><td class="num">1991</td><td>情圣</td><td>程胜</td><td><span class="chip c-lead">主演</span></td><td>李力持</td><td></td></tr>
+          <tr><td class="num">1991</td><td>赌圣延续篇：赌霸</td><td>左颂星</td><td><span class="chip c-cameo">客串</span></td><td>刘镇伟、元奎</td><td></td></tr>
+          <tr><td class="num">1991</td><td>豪门夜宴</td><td>星爷（本人）</td><td><span class="chip c-cameo">客串</span></td><td>徐克等</td><td class="rmk">群星慈善片</td></tr>
+          <tr><td class="num">1992</td><td>漫画威龙</td><td>刘晶</td><td><span class="chip c-lead">主演</span></td><td>左颂升</td><td></td></tr>
+          <tr><td class="num">1992</td><td>家有喜事</td><td>常欢</td><td><span class="chip c-lead">主演</span></td><td>高志森</td><td class="rmk">群戏三兄弟之一</td></tr>
+          <tr><td class="num">1992</td><td>逃学威龙2</td><td>周星星</td><td><span class="chip c-lead">主演</span></td><td>陈嘉上</td><td></td></tr>
+          <tr><td class="num">1992</td><td>审死官</td><td>宋世杰</td><td><span class="chip c-lead">主演</span></td><td>杜琪峰</td><td class="rmk"><span class="star">★</span> 4988万再破影史纪录</td></tr>
+          <tr><td class="num">1992</td><td>鹿鼎记</td><td>韦小宝</td><td><span class="chip c-lead">主演</span></td><td>王晶</td><td></td></tr>
+          <tr><td class="num">1992</td><td>鹿鼎记2神龙教</td><td>韦小宝</td><td><span class="chip c-lead">主演</span></td><td>王晶</td><td></td></tr>
+          <tr><td class="num">1992</td><td>武状元苏乞儿</td><td>苏察哈尔灿</td><td><span class="chip c-lead">主演</span></td><td>陈嘉上</td><td></td></tr>
+          <tr><td class="num">1993</td><td>逃学威龙3之龙过鸡年</td><td>周星星</td><td><span class="chip c-lead">主演</span></td><td>王晶</td><td></td></tr>
+          <tr><td class="num">1993</td><td>唐伯虎点秋香</td><td>唐伯虎／华安</td><td><span class="chip c-lead">主演</span></td><td>李力持</td><td class="rmk"><span class="star">★</span> 年冠四连庄</td></tr>
+          <tr><td class="num">1993</td><td>济公</td><td>济颠</td><td><span class="chip c-lead">主演</span></td><td>杜琪峰</td><td></td></tr>
+          <tr><td class="num">1994</td><td>破坏之王</td><td>何金银</td><td><span class="chip c-lead">主演</span></td><td>李力持</td><td></td></tr>
+          <tr><td class="num">1994</td><td>九品芝麻官</td><td>包龙星</td><td><span class="chip c-lead">主演</span></td><td>王晶</td><td></td></tr>
+          <tr><td class="num">1994</td><td>国产凌凌漆</td><td>凌凌漆</td><td><span class="chip c-lead">主演</span></td><td>周星驰、李力持</td><td class="rmk">导演处女作</td></tr>
+          <tr><td class="num">1995</td><td>大话西游之月光宝盒</td><td>至尊宝</td><td><span class="chip c-lead">主演</span></td><td>刘镇伟</td><td class="rmk">上映遇冷、后经VCD封神</td></tr>
+          <tr><td class="num">1995</td><td>大话西游之仙履奇缘</td><td>至尊宝／孙悟空</td><td><span class="chip c-lead">主演</span></td><td>刘镇伟</td><td></td></tr>
+          <tr><td class="num">1995</td><td>回魂夜</td><td>Leon</td><td><span class="chip c-lead">主演</span></td><td>刘镇伟</td><td></td></tr>
+          <tr><td class="num">1995</td><td>百变星君</td><td>李泽星</td><td><span class="chip c-lead">主演</span></td><td>王晶</td><td></td></tr>
+          <tr><td class="num">1996</td><td>大内密探零零发</td><td>零零发</td><td><span class="chip c-lead">主演</span></td><td>周星驰、谷德昭</td><td></td></tr>
+          <tr><td class="num">1996</td><td>食神</td><td>史提芬周</td><td><span class="chip c-lead">主演</span></td><td>周星驰、李力持</td><td class="rmk">星辉公司创业作</td></tr>
+          <tr><td class="num">1997</td><td>97家有喜事</td><td>老恭</td><td><span class="chip c-lead">主演</span></td><td>张坚庭</td><td></td></tr>
+          <tr><td class="num">1997</td><td>算死草</td><td>陈梦吉</td><td><span class="chip c-lead">主演</span></td><td>马伟豪</td><td></td></tr>
+          <tr><td class="num">1998</td><td>行运一条龙</td><td>何金水</td><td><span class="chip c-lead">主演</span></td><td>李力持</td><td></td></tr>
+          <tr><td class="num">1999</td><td>喜剧之王</td><td>尹天仇</td><td><span class="chip c-lead">主演</span></td><td>周星驰、李力持</td><td class="rmk"><span class="star">★</span></td></tr>
+          <tr><td class="num">1999</td><td>玻璃樽</td><td>警员</td><td><span class="chip c-cameo">客串</span></td><td>谷德昭</td><td class="rmk">成龙主演</td></tr>
+          <tr><td class="num">1999</td><td>千王之王2000</td><td>黄师虎</td><td><span class="chip c-lead">主演</span></td><td>王晶</td><td class="rmk">挂头牌、戏份偏少（边界案例）</td></tr>
+          <tr><td class="num">2001</td><td>少林足球</td><td>阿星</td><td><span class="chip c-lead">主演</span></td><td>周星驰</td><td class="rmk"><span class="star">★</span> 6074万破港产片纪录；金像七奖</td></tr>
+          <tr><td class="num">2004</td><td>功夫</td><td>阿星</td><td><span class="chip c-lead">主演</span></td><td>周星驰</td><td class="rmk"><span class="star">★</span> 6128万再破纪录；金马五奖</td></tr>
+          <tr><td class="num">2008</td><td>长江7号</td><td>周铁</td><td><span class="chip c-lead">主演</span></td><td>周星驰</td><td class="rmk"><span class="star">★</span> 最后一次主演</td></tr>
+          <tr><td class="num">2017</td><td>西游伏妖篇</td><td>影院清洁工</td><td><span class="chip c-cameo">客串</span></td><td>徐克</td><td class="rmk">片尾彩蛋，九年后首次出镜</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="chart-note" style="margin-top:12px">另有纯声音出演2部未计入：《非洲和尚》（1991，旁白）、《茅趸王》粤语版（2000，配音）。《建国大业》客串系2009年谣传（实为求客串被拒）；《功夫女足》片尾「背影客串」暂无权威信源，均不计入。</p>
+  </section>
+
+  <!-- ═══════════ 附 · 方法与存疑 ═══════════ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">附</span><h2>方法与存疑</h2></div>
+    <div class="appendix">
+      <h3>核查方法</h3>
+      <ul>
+        <li>五路并行检索：片单统计、影片细节、生平言行、好莱坞与慈善、人物档案，各自独立交叉信源。</li>
+        <li>信源分级：当年报道／行业媒体（Variety、星岛、明报）＞维基百科等汇编＞近年自媒体。营销号互相转述不计为独立证据。</li>
+        <li>片单以中文维基「周星驰影视作品列表」、英文维基、HKMDB（Wayback存档）、豆瓣四方交叉，剔除电视剧、电视电影与谣传条目后收敛于同一批54部。</li>
+      </ul>
+      <h3>存疑备忘</h3>
+      <ul>
+        <li>训练班入学有「1981落榜入夜班」与「1982与梁朝伟同考」两说，本页采主流叙事并注明。</li>
+        <li>《430穿梭机》主持年限4—5年（各源不一），「约六年」不成立。</li>
+        <li>《美人鱼2》成本各报道差异大（4.5亿→6亿或3亿→8亿）；《功夫女足》票房为动态数字，本页数据截至2026年7月15日。</li>
+        <li>「甲申」「帝女花」等细节的<strong>意图归属</strong>均无主创一手访谈，本页只核「是否存在」，不替主创认领动机。</li>
+      </ul>
+      <h3>图片来源</h3>
+      <ul>
+        <li>页首人像来自 Wikimedia Commons（署名见图注）；电影海报为低分辨率缩略图，取自维基百科等公开条目，版权归各片方所有，此处仅作介绍、评论之引用。</li>
+      </ul>
+      <h3>原视频ASR勘误</h3>
+      <ul>
+        <li>「雄州物列隽彩星驰」应为「雄州雾列，俊采星驰」；「眉山自缢」应为煤山（崇祯自缢于煤山，今景山）。</li>
+        <li>「63年了」：周星驰生于1962年，2026年已64岁。</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <p>周星驰研究 · 卷一 ｜ 五路信源交叉核查 ｜ 编纂于 2026年7月16日 ｜ 数据截至 2026年7月15日</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var tip = document.getElementById('tip');
+  var wrap = document.querySelector('.chart-wrap');
+  if (!tip || !wrap) return;
+  document.querySelectorAll('.bar-hit').forEach(function (r) {
+    r.addEventListener('mousemove', function (e) {
+      var l = +r.dataset.l, o = +r.dataset.o;
+      var parts = [];
+      if (l) parts.push('男主角 ' + l + ' 部');
+      if (o) parts.push('配角客串 ' + o + ' 部');
+      tip.innerHTML = '<strong>' + r.dataset.y + '年</strong> · ' + parts.join(' ＋ ');
+      tip.style.display = 'block';
+      var box = wrap.getBoundingClientRect();
+      var x = e.clientX - box.left + 14, y = e.clientY - box.top - 10;
+      if (x + tip.offsetWidth > box.width - 8) x = x - tip.offsetWidth - 28;
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    });
+    r.addEventListener('mouseleave', function () { tip.style.display = 'none'; });
+  });
+})();
+</script>
+
+</body>
+</html>
