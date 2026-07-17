@@ -33,6 +33,11 @@ h1{font-size:clamp(28px,5vw,34px);font-weight:800;margin:10px 0 8px;letter-spaci
   font-size:12px;color:var(--faint);line-height:2}
 .foot code{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:11px}
 .foot a{color:var(--blue);text-decoration:none}
+.exits{display:flex;gap:10px;margin-top:13px;flex-wrap:wrap}
+.exit{font-size:12px;font-weight:700;color:var(--blue);border:1px solid var(--line);
+  border-radius:8px;padding:5px 13px;text-decoration:none;transition:.18s;background:var(--bg)}
+.exit:hover{border-color:var(--blue);transform:translateY(-1px)}
+.exit small{font-weight:400;color:var(--faint);margin-left:5px}
 </style>
 </head>
 <body>
@@ -43,11 +48,15 @@ h1{font-size:clamp(28px,5vw,34px);font-weight:800;margin:10px 0 8px;letter-spaci
   <p class="sub">不挂在导航上的页面，都收在这儿。凭链接访问。</p>
 
   <div class="list">
-    <a class="item" href="/zhouxingchi/">
+    <div class="item">
       <div class="item-tag">研究</div>
-      <div class="item-title">周星驰：数字与流言</div>
-      <div class="item-desc">周星驰研究 · 卷一。人物档案＋21条网络流言逐条核查：「主演49部致敬1949」溯源、出镜54部完整片单、八次年冠海报墙。</div>
-    </a>
+      <div class="item-title">周星驰研究档案</div>
+      <div class="item-desc">周星驰研究 · 卷一。同一选题、两个模型各自独立完成的研究页：人物档案、完整片单、对源视频说法的逐条核查。部分结论两版并不一致，适合对照着读。</div>
+      <div class="exits">
+        <a class="exit" href="/zhouxingchi/">数字与流言<small>Claude Fable 5</small></a>
+        <a class="exit" href="/stephen-chow/">一年一影帝，百年周星驰<small>Kimi K3</small></a>
+      </div>
+    </div>
     <a class="item" href="/fonts/">
       <div class="item-tag">工具</div>
       <div class="item-title">字体选型台</div>
