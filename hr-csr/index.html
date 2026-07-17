@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>恒荣集团 · 公益事业成果汇报</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#9e2f2f; --red-l:#b8443f; --gold:#c1943f; --ink:#2b2724; --ink-2:#6b625c;
+  --bg:#faf8f4; --card:#fff; --line:#e8e1d8; --wash:#f3ede4;
+}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:"Songti SC","Source Han Serif SC","Noto Serif SC",serif}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{
+  background:linear-gradient(150deg,#8f2626 0%,#a83535 55%,#8a2320 100%);
+  color:#fff;padding:64px 0 56px;position:relative;overflow:hidden;
+}
+header::after{
+  content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;
+  border:1px solid rgba(255,255,255,.13);border-radius:50%;
+}
+header .eyebrow{
+  font-size:13px;letter-spacing:.32em;color:rgba(255,255,255,.72);margin-bottom:18px;
+}
+header h1{font-size:40px;font-weight:600;letter-spacing:.04em;margin-bottom:14px;line-height:1.3}
+header .motto{font-size:17px;color:rgba(255,255,255,.9);letter-spacing:.06em}
+header .meta{
+  margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);
+  font-size:13px;color:rgba(255,255,255,.66);
+}
+
+/* Stat cards */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:-38px auto 0;position:relative;z-index:2}
+.stat{
+  background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px 20px;
+  box-shadow:0 6px 22px rgba(60,40,30,.07);
+}
+.stat .k{font-size:12px;color:var(--ink-2);letter-spacing:.1em;margin-bottom:10px}
+.stat .v{font-size:34px;font-weight:600;color:var(--red);line-height:1.1;
+  font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.stat .v small{font-size:15px;font-weight:500;margin-left:3px}
+.stat .sub{font-size:12px;color:var(--ink-2);margin-top:8px}
+
+/* Sections */
+section{margin:64px 0}
+.h{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.h .no{
+  font-size:12px;color:var(--gold);letter-spacing:.2em;font-weight:600;
+  font-variant-numeric:tabular-nums;
+}
+.h h2{font-size:24px;font-weight:600;letter-spacing:.03em}
+.lead{color:var(--ink-2);font-size:14px;margin-bottom:26px}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:28px}
+figure{margin:0}
+svg{display:block;width:100%;height:auto}
+
+/* Legend */
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px}
+.legend div{display:flex;align-items:center;gap:9px;font-size:13px}
+.legend i{width:11px;height:11px;border-radius:2px;flex:none}
+.legend b{font-variant-numeric:tabular-nums;font-weight:600}
+.legend span{color:var(--ink-2);font-size:12px}
+
+/* Two col */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* Badges */
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.badge{
+  background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:8px;padding:20px;
+}
+.badge .n{font-size:26px;font-weight:600;color:var(--red);font-variant-numeric:tabular-nums}
+.badge .t{font-size:13px;font-weight:600;margin:6px 0 4px}
+.badge .d{font-size:12px;color:var(--ink-2);line-height:1.6}
+
+/* Table */
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{
+  text-align:left;padding:12px 14px;background:var(--wash);color:var(--ink-2);
+  font-weight:600;font-size:12px;letter-spacing:.06em;border-bottom:1px solid var(--line);
+}
+td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--red);white-space:nowrap}
+.tag{
+  display:inline-block;font-size:11px;padding:2px 8px;border-radius:3px;
+  background:var(--wash);color:var(--ink-2);margin-right:5px;
+}
+
+/* Projects */
+.proj{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px}
+.pcard .pt{font-size:16px;font-weight:600;margin-bottom:4px}
+.pcard .pn{font-size:24px;font-weight:600;color:var(--red);font-variant-numeric:tabular-nums;margin:10px 0 8px}
+.pcard .pd{font-size:13px;color:var(--ink-2);line-height:1.7}
+
+/* Footer */
+footer{
+  background:#2b2724;color:rgba(255,255,255,.55);padding:40px 0;margin-top:72px;font-size:12.5px;
+}
+footer .fm{color:rgba(255,255,255,.85);font-size:15px;margin-bottom:10px;letter-spacing:.08em}
+
+@media(max-width:860px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .two,.proj{grid-template-columns:1fr}
+  .badges{grid-template-columns:repeat(2,1fr)}
+  header h1{font-size:29px}
+  .tblwrap{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">恒 荣 集 团 · 社 会 责 任</div>
+    <h1 class="serif">公益事业成果汇报</h1>
+    <div class="motto serif">尽己所能 · 至善共荣</div>
+    <div class="meta">数据截至 2025 年末 ｜ 集团合并口径 ｜ 逐笔核验</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat">
+      <div class="k">累计公益投入</div>
+      <div class="v">716.60<small>万</small></div>
+      <div class="sub">全口径 · 41 笔</div>
+    </div>
+    <div class="stat">
+      <div class="k">其中慈善捐赠</div>
+      <div class="v">563.71<small>万</small></div>
+      <div class="sub">29 笔 · 笔笔有据</div>
+    </div>
+    <div class="stat">
+      <div class="k">持续投入</div>
+      <div class="v">十余<small>年</small></div>
+      <div class="sub">2013 年至今</div>
+    </div>
+    <div class="stat">
+      <div class="k">近年连续</div>
+      <div class="v">8<small>年</small></div>
+      <div class="sub">2018—2025 未断档</div>
+    </div>
+  </div>
+
+  <!-- 1 累计 -->
+  <section>
+    <div class="h"><span class="no">01</span><h2 class="serif">累计公益投入</h2></div>
+    <p class="lead">十余年持续投入，累计公益投入达 <b>716.60 万元</b>。</p>
+    <div class="panel">
+      <figure>
+        <svg viewBox="0 0 800 320" role="img" aria-label="累计公益投入曲线，2013 年 100 万元增长至 2025 年 716.60 万元">
+          <defs>
+            <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#9e2f2f" stop-opacity=".26"/>
+              <stop offset="100%" stop-color="#9e2f2f" stop-opacity=".02"/>
+            </linearGradient>
+          </defs>
+          <!-- grid -->
+          <g stroke="#e8e1d8" stroke-width="1">
+            <line x1="60" y1="280" x2="780" y2="280"/>
+            <line x1="60" y1="193" x2="780" y2="193" stroke-dasharray="3 4"/>
+            <line x1="60" y1="106" x2="780" y2="106" stroke-dasharray="3 4"/>
+            <line x1="60" y1="20"  x2="780" y2="20"  stroke-dasharray="3 4"/>
+          </g>
+          <g fill="#6b625c" font-size="11" text-anchor="end" font-family="system-ui">
+            <text x="52" y="284">0</text>
+            <text x="52" y="197">250</text>
+            <text x="52" y="110">500</text>
+            <text x="52" y="24">750</text>
+          </g>
+          <!-- area -->
+          <path fill="url(#ga)" d="M60,245.3 L120,227 L180,227 L240,227 L300,227 L360,192 L420,75.4 L480,66 L540,53.7 L600,48.7 L660,45.2 L720,39.3 L780,31.6 L780,280 L60,280 Z"/>
+          <polyline fill="none" stroke="#9e2f2f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
+            points="60,245.3 120,227 180,227 240,227 300,227 360,192 420,75.4 480,66 540,53.7 600,48.7 660,45.2 720,39.3 780,31.6"/>
+          <!-- dots -->
+          <g fill="#fff" stroke="#9e2f2f" stroke-width="2">
+            <circle cx="60" cy="245.3" r="3.2"/><circle cx="120" cy="227" r="3.2"/>
+            <circle cx="180" cy="227" r="3.2"/><circle cx="240" cy="227" r="3.2"/>
+            <circle cx="300" cy="227" r="3.2"/><circle cx="360" cy="192" r="3.2"/>
+            <circle cx="420" cy="75.4" r="3.2"/><circle cx="480" cy="66" r="3.2"/>
+            <circle cx="540" cy="53.7" r="3.2"/><circle cx="600" cy="48.7" r="3.2"/>
+            <circle cx="660" cy="45.2" r="3.2"/><circle cx="720" cy="39.3" r="3.2"/>
+          </g>
+          <circle cx="780" cy="31.6" r="5.5" fill="#9e2f2f"/>
+          <circle cx="780" cy="31.6" r="9" fill="none" stroke="#9e2f2f" stroke-opacity=".3" stroke-width="1.5"/>
+          <!-- end label -->
+          <g font-family="system-ui">
+            <text x="772" y="20" text-anchor="end" font-size="15" font-weight="600" fill="#9e2f2f">716.60 万</text>
+          </g>
+          <!-- x axis -->
+          <g fill="#6b625c" font-size="10.5" text-anchor="middle" font-family="system-ui">
+            <text x="60" y="300">2013</text><text x="120" y="300">2014</text>
+            <text x="180" y="300">2015</text><text x="240" y="300">2016</text>
+            <text x="300" y="300">2017</text><text x="360" y="300">2018</text>
+            <text x="420" y="300">2019</text><text x="480" y="300">2020</text>
+            <text x="540" y="300">2021</text><text x="600" y="300">2022</text>
+            <text x="660" y="300">2023</text><text x="720" y="300">2024</text>
+            <text x="780" y="300">2025</text>
+          </g>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2 构成 -->
+  <section>
+    <div class="h"><span class="no">02</span><h2 class="serif">慈善捐赠构成</h2></div>
+    <p class="lead">563.71 万元慈善捐赠，覆盖综合慈善、东西部协作、教育助学、社区共建、应急救灾五大方向。</p>
+    <div class="two">
+      <div class="panel">
+        <figure>
+          <svg viewBox="0 0 200 200" role="img" aria-label="慈善捐赠构成环形图">
+            <g transform="rotate(-90 100 100)" fill="none" stroke-width="26">
+              <circle cx="100" cy="100" r="80" stroke="#9e2f2f" stroke-dasharray="365.5 502.65" stroke-dashoffset="0"/>
+              <circle cx="100" cy="100" r="80" stroke="#c1943f" stroke-dasharray="84.5 502.65" stroke-dashoffset="-365.5"/>
+              <circle cx="100" cy="100" r="80" stroke="#7c8f6a" stroke-dasharray="31.6 502.65" stroke-dashoffset="-450"/>
+              <circle cx="100" cy="100" r="80" stroke="#8a7a6d" stroke-dasharray="12.9 502.65" stroke-dashoffset="-481.6"/>
+              <circle cx="100" cy="100" r="80" stroke="#b8443f" stroke-dasharray="7.9 502.65" stroke-dashoffset="-494.5"/>
+            </g>
+            <text x="100" y="94" text-anchor="middle" font-size="26" font-weight="600" fill="#2b2724"
+              font-family="system-ui" style="font-variant-numeric:tabular-nums">563.71</text>
+            <text x="100" y="114" text-anchor="middle" font-size="11" fill="#6b625c" font-family="system-ui">万元 · 慈善捐赠</text>
+          </svg>
+        </figure>
+        <div class="legend">
+          <div><i style="background:#9e2f2f"></i>综合慈善 <b>410</b> <span>72.7%</span></div>
+          <div><i style="background:#c1943f"></i>东西部协作 <b>94.8</b> <span>16.8%</span></div>
+          <div><i style="background:#7c8f6a"></i>教育助学 <b>35.5</b> <span>6.3%</span></div>
+          <div><i style="background:#8a7a6d"></i>社区共建 <b>14.53</b> <span>2.6%</span></div>
+          <div><i style="background:#b8443f"></i>应急救灾 <b>8.88</b> <span>1.6%</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="tblwrap">
+        <table>
+          <thead><tr><th>方向</th><th>金额</th><th>代表</th></tr></thead>
+          <tbody>
+            <tr><td><b>综合慈善</b></td><td class="num">410 万</td><td>南平、长乐、光泽三地慈善总会</td></tr>
+            <tr><td><b>东西部协作</b></td><td class="num">94.8 万</td><td>宁夏隆德、原州、西吉、闽宁镇；甘肃岷县、渭源</td></tr>
+            <tr><td><b>教育助学</b></td><td class="num">35.5 万</td><td>春晖奖学金、长乐区教育发展促进会</td></tr>
+            <tr><td><b>社区共建</b></td><td class="num">14.53 万</td><td>台山社区、红星社区</td></tr>
+            <tr><td><b>应急救灾</b></td><td class="num">8.88 万</td><td>闽清、光泽防疫物资</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 东西部 -->
+  <section>
+    <div class="h"><span class="no">03</span><h2 class="serif">东西部协作</h2></div>
+    <p class="lead">2019—2025 年间 <b>十三度</b>响应号召，累计 <b>94.8 万元</b>，覆盖宁夏、甘肃两省区六个受助地。</p>
+    <div class="panel">
+      <figure>
+        <svg viewBox="0 0 800 260" role="img" aria-label="东西部协作各受助地捐资条形图">
+          <g font-family="system-ui">
+            <!-- 渭源 50 -->
+            <text x="86" y="30" text-anchor="end" font-size="13" fill="#2b2724" font-weight="600">甘肃渭源</text>
+            <rect x="96" y="16" width="620" height="20" rx="3" fill="#9e2f2f"/>
+            <text x="726" y="31" font-size="13" font-weight="600" fill="#9e2f2f" style="font-variant-numeric:tabular-nums">50 万</text>
+            <!-- 隆德 25 -->
+            <text x="86" y="72" text-anchor="end" font-size="13" fill="#2b2724" font-weight="600">宁夏隆德</text>
+            <rect x="96" y="58" width="310" height="20" rx="3" fill="#b8443f"/>
+            <text x="416" y="73" font-size="13" font-weight="600" fill="#9e2f2f" style="font-variant-numeric:tabular-nums">25 万</text>
+            <!-- 闽宁 11 -->
+            <text x="86" y="114" text-anchor="end" font-size="13" fill="#2b2724" font-weight="600">闽宁协作</text>
+            <rect x="96" y="100" width="136.4" height="20" rx="3" fill="#c1943f"/>
+            <text x="242.4" y="115" font-size="13" font-weight="600" fill="#9e2f2f" style="font-variant-numeric:tabular-nums">11 万</text>
+            <!-- 原州 5.3 -->
+            <text x="86" y="156" text-anchor="end" font-size="13" fill="#2b2724" font-weight="600">宁夏原州</text>
+            <rect x="96" y="142" width="65.7" height="20" rx="3" fill="#cfa85e"/>
+            <text x="171.7" y="157" font-size="13" font-weight="600" fill="#9e2f2f" style="font-variant-numeric:tabular-nums">5.3 万</text>
+            <!-- 岷县 3 -->
+            <text x="86" y="198" text-anchor="end" font-size="13" fill="#2b2724" font-weight="600">甘肃岷县</text>
+            <rect x="96" y="184" width="37.2" height="20" rx="3" fill="#7c8f6a"/>
+            <text x="143.2" y="199" font-size="13" font-weight="600" fill="#9e2f2f" style="font-variant-numeric:tabular-nums">3 万</text>
+            <!-- 西吉 0.5 -->
+            <text x="86" y="240" text-anchor="end" font-size="13" fill="#2b2724" font-weight="600">宁夏西吉</text>
+            <rect x="96" y="226" width="6.2" height="20" rx="3" fill="#8a7a6d"/>
+            <text x="112.2" y="241" font-size="13" font-weight="600" fill="#9e2f2f" style="font-variant-numeric:tabular-nums">0.5 万</text>
+          </g>
+        </svg>
+      </figure>
+    </div>
+    <div class="badges" style="margin-top:18px">
+      <div class="badge">
+        <div class="n">13</div><div class="t">累计响应</div>
+        <div class="d">2019—2025 年间十三度捐资帮扶</div>
+      </div>
+      <div class="badge">
+        <div class="n">2</div><div class="t">连续两年支持隆德</div>
+        <div class="d">2024、2025 各捐资 10 万元，同一对口关系</div>
+      </div>
+      <div class="badge">
+        <div class="n">4</div><div class="t">四度帮扶原州区</div>
+        <div class="d">怡山文创定向支持固原市原州区</div>
+      </div>
+      <div class="badge">
+        <div class="n">6</div><div class="t">受助地</div>
+        <div class="d">宁夏、甘肃两省区六地</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 属地 -->
+  <section>
+    <div class="h"><span class="no">04</span><h2 class="serif">属地响应网络</h2></div>
+    <p class="lead">各子公司立足项目所在地，响应属地政府与慈善机构号召 —— 公益投入与经营布局同频。</p>
+    <div class="panel">
+      <div class="tblwrap">
+      <table>
+        <thead><tr><th>属地</th><th>恒荣主体</th><th>协作渠道</th><th>受助方向</th></tr></thead>
+        <tbody>
+          <tr><td><b>仓山区</b></td><td>投资集团本部、建筑事业部、星荟商业、恒荣城物业</td><td>区慈善总会、台山社区、师大附小</td><td>宁夏隆德县 · 本地社区 · 本地学校</td></tr>
+          <tr><td><b>鼓楼区</b></td><td>怡山文创</td><td>区慈善总会、区红十字会、怡山社区</td><td>甘肃岷县 · 宁夏原州区 · 本地社区</td></tr>
+          <tr><td><b>台江区</b></td><td>巨荣置业</td><td>区慈善总会、红星社区</td><td>宁夏西吉县 · 本地社区</td></tr>
+          <tr><td><b>长乐区</b></td><td>万星投资、恒荣盛置业</td><td>区慈善总会、区扶贫办、区乒协／书协</td><td>甘肃渭源县 · 金峰市民广场 · 文体赛事</td></tr>
+          <tr><td><b>闽侯县</b></td><td>恒荣九洲置业、恒荣置业集团</td><td>县扶贫开发领导小组、市乡村振兴基金会</td><td>闽宁镇 · 宁夏</td></tr>
+          <tr><td><b>沙　县</b></td><td>沙县恒荣置业</td><td>关心下一代联合基金、小吃文化节</td><td>本地助学 · 全国性赛事</td></tr>
+          <tr><td><b>光　泽</b></td><td>光泽荣辉置业</td><td>县慈善总会、红十字会、县文联</td><td>本地慈善 · 防疫物资 · 文化活动</td></tr>
+          <tr><td><b>霞　浦</b></td><td>金谷源地产</td><td>鸿爱慈善会、小水滴社工中心</td><td>乐书空间 · 高考志愿服务</td></tr>
+          <tr><td><b>南　平</b></td><td>恒荣集团</td><td>市慈善总会</td><td>应急救助 · 赈灾 · 爱心助学</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 重点 -->
+  <section>
+    <div class="h"><span class="no">05</span><h2 class="serif">重点项目</h2></div>
+    <p class="lead">从市政设施到教育助学，从东西部协作到社区共建。</p>
+    <div class="proj">
+      <div class="pcard">
+        <div class="pt serif">金峰市民广场</div>
+        <div class="pn">300 万元</div>
+        <div class="pd">向长乐区慈善总会捐资，用于金峰市民广场建设 —— 单项最大手笔，成果为一座留在地方的公共空间。</div>
+      </div>
+      <div class="pcard">
+        <div class="pt serif">春晖奖学金</div>
+        <div class="pn">22 万元</div>
+        <div class="pd">与福州市教育基金会合作设立，用于奖励品学兼优学生，已累计捐赠 22 万元。</div>
+      </div>
+      <div class="pcard">
+        <div class="pt serif">南平市慈善总会</div>
+        <div class="pn">100 万元</div>
+        <div class="pd">2013 年首笔百万级捐赠，用于应急救助、赈灾与爱心助学 —— 恒荣公益之路的起点。</div>
+      </div>
+      <div class="pcard">
+        <div class="pt serif">台山社区共建</div>
+        <div class="pn">12 万元</div>
+        <div class="pd">2022—2025 <b>连续四年</b>每年 3 万元支持社区公益事业，是集团最稳定的一条社区共建线。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 文体 -->
+  <section>
+    <div class="h"><span class="no">06</span><h2 class="serif">文体公益赞助</h2></div>
+    <p class="lead">在慈善捐赠之外，集团另投入 <b>152.89 万元</b>支持文体公益活动，助力全民健身与地方文化。</p>
+    <div class="panel">
+      <div class="tblwrap">
+      <table>
+        <thead><tr><th>活动</th><th>金额</th><th>层级</th></tr></thead>
+        <tbody>
+          <tr><td><b>「恒荣杯」全国健美操冠军赛</b><br><span class="tag">国家队选拔赛</span><span class="tag">沙县小吃文化节</span></td><td class="num">50 万</td><td>全国</td></tr>
+          <tr><td><b>迎春书法展及文化下乡</b><br><span class="tag">长乐书法家协会</span></td><td class="num">50 万</td><td>区级</td></tr>
+          <tr><td><b>「恒荣九洲杯」羽毛球精英邀请赛</b></td><td class="num">15.14 万</td><td>市级</td></tr>
+          <tr><td><b>「恒荣杯」乒乓球锦标赛</b><br><span class="tag">长乐区首届</span></td><td class="num">9 万</td><td>区级</td></tr>
+          <tr><td><b>福建师范大学附属小学 160 周年校庆</b><br><span class="tag">纪念邮册</span></td><td class="num">8.94 万</td><td>市级</td></tr>
+          <tr><td><b>「喜迎七十华诞 共建美丽光泽」摄影展</b></td><td class="num">6.51 万</td><td>县级</td></tr>
+          <tr><td><b>环福州·永泰国际公路自行车赛</b><br><span class="tag">中国自行车运动协会</span><span class="tag">福建省体育总局</span></td><td class="num">6 万</td><td>国际</td></tr>
+          <tr><td><b>其他</b> —— 元宵公益晚会、职工篮球赛、社区红歌会等</td><td class="num">7.3 万</td><td>社区</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fm serif">尽己所能 · 至善共荣</div>
+    <div>恒荣集团公益事业成果汇报 ｜ 数据截至 2025 年末 ｜ 集团合并口径</div>
+    <div style="margin-top:6px">全口径公益投入 716.60 万元 ＝ 慈善捐赠 563.71 万元 ＋ 文体公益赞助 152.89 万元</div>
+  </div>
+</footer>
+
+</body>
+</html>
