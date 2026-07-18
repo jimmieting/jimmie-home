@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>气候与种子 —— 从《美国牧歌》谈家庭教育</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#f2ede3; --ink-dim:#b8b0a1; --accent:#e0a458; --accent2:#c96f4a;
+    --bg:#141210; --paper:#f7f4ee; --paper-ink:#1c1a17; --paper-dim:#5b554c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;overflow:hidden;}
+  body{
+    font-family:'Noto Serif SC',serif; background:var(--bg); color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ===== slides ===== */
+  #deck{height:100%;transition:transform .85s cubic-bezier(.77,0,.18,1);}
+  .slide{
+    height:100vh; height:100dvh; width:100%;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; padding:6vh 6vw;
+  }
+  .bgimg{
+    position:absolute; inset:0; background-size:cover; background-position:center;
+    filter:brightness(.5) saturate(.9);
+  }
+  .bgimg::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(20,18,16,.35), rgba(20,18,16,.75));
+  }
+  .inner{position:relative; z-index:2; max-width:960px; width:100%;}
+  .center{text-align:center; display:flex; flex-direction:column; align-items:center;}
+  /* dark slide (default) vs light slide */
+  .light{background:var(--paper); color:var(--paper-ink);}
+  .light .dim{color:var(--paper-dim);}
+  .dim{color:var(--ink-dim);}
+  /* ===== type ===== */
+  .tag{
+    font-family:'Noto Sans SC',sans-serif; font-weight:400; font-size:clamp(11px,1.2vw,14px);
+    letter-spacing:.45em; padding-left:.45em; color:var(--accent); margin-bottom:3.2vh;
+  }
+  .light .tag{color:var(--accent2);}
+  h1{font-size:clamp(34px,6vw,72px); font-weight:900; line-height:1.5; letter-spacing:.03em;}
+  h2{font-size:clamp(26px,4.2vw,50px); font-weight:900; line-height:1.55; letter-spacing:.03em; margin-bottom:3.5vh;}
+  .big{font-size:clamp(20px,2.6vw,30px); line-height:2; font-weight:600;}
+  .body{font-size:clamp(15px,1.7vw,20px); line-height:2.1; font-weight:400; max-width:34em;}
+  .center .body{margin:0 auto;}
+  .hl{color:var(--accent);}
+  .light .hl{color:var(--accent2);}
+  .num{
+    font-family:'Noto Sans SC',sans-serif; font-weight:300; font-size:clamp(70px,11vw,140px);
+    line-height:1; color:transparent; -webkit-text-stroke:1px var(--accent);
+    margin-bottom:1vh; opacity:.85;
+  }
+  .quote{
+    font-size:clamp(19px,2.6vw,30px); font-weight:700; line-height:2.05;
+    max-width:26em;
+  }
+  .quote::before{content:"「"; color:var(--accent);}
+  .quote::after{content:"」"; color:var(--accent);}
+  .light .quote::before,.light .quote::after{color:var(--accent2);}
+  .who{
+    font-family:'Noto Sans SC',sans-serif; font-size:clamp(12px,1.3vw,15px);
+    margin-top:2.6vh; letter-spacing:.15em;
+  }
+  .rule{width:56px; height:2px; background:var(--accent); margin:0 auto 3.5vh;}
+  .light .rule{background:var(--accent2);}
+  /* cards */
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; width:100%; max-width:1020px;}
+  .card{
+    background:rgba(255,253,248,.05); border:1px solid rgba(255,253,248,.14);
+    border-radius:6px; padding:26px 24px; text-align:left;
+  }
+  .light .card{background:#fffdf8; border:1px solid #e2dacb;}
+  .card h3{
+    font-family:'Noto Sans SC',sans-serif; font-size:clamp(14px,1.5vw,17px);
+    font-weight:500; color:var(--accent); letter-spacing:.08em; margin-bottom:12px;
+  }
+  .light .card h3{color:var(--accent2);}
+  .card p{font-size:clamp(13px,1.4vw,15.5px); line-height:1.95; color:var(--ink-dim);}
+  .light .card p{color:var(--paper-dim);}
+  /* stat */
+  .stat{font-size:clamp(56px,9vw,120px); font-weight:900; color:var(--accent); line-height:1.1;}
+  .light .stat{color:var(--accent2);}
+  /* footer ui */
+  #progress{position:fixed; top:0; left:0; height:3px; background:var(--accent); width:0; z-index:50; transition:width .6s ease;}
+  #dots{position:fixed; right:22px; top:50%; transform:translateY(-50%); z-index:50; display:flex; flex-direction:column; gap:10px;}
+  #dots i{
+    width:8px; height:8px; border-radius:50%; background:rgba(255,253,248,.28);
+    cursor:pointer; transition:.3s;
+  }
+  #dots i.on{background:var(--accent); transform:scale(1.35);}
+  #pager{
+    position:fixed; left:26px; bottom:22px; z-index:50;
+    font-family:'Noto Sans SC',sans-serif; font-size:12px; letter-spacing:.25em;
+    color:rgba(255,253,248,.55);
+  }
+  #hint{
+    position:fixed; right:26px; bottom:22px; z-index:50;
+    font-family:'Noto Sans SC',sans-serif; font-size:12px; letter-spacing:.2em;
+    color:rgba(255,253,248,.55); animation:fadein 1s 1.5s both;
+  }
+  @keyframes fadein{to{opacity:1}} 
+  #hint{opacity:0;}
+  .bounce{animation:bnc 2s ease-in-out infinite; display:inline-block;}
+  @keyframes bnc{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+  /* reveal inside slide */
+  .a{opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease;}
+  .slide.on .a{opacity:1; transform:none;}
+  .slide.on .a.d1{transition-delay:.15s}.slide.on .a.d2{transition-delay:.35s}
+  .slide.on .a.d3{transition-delay:.55s}.slide.on .a.d4{transition-delay:.75s}
+  .slide.on .a.d5{transition-delay:.95s}
+  @media (max-width:640px){
+    #dots{display:none;}
+    .slide{padding:7vh 7vw;}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="dots"></div>
+<div id="pager"></div>
+<div id="hint">滚轮 · 方向键 · 触屏滑动 <span class="bounce">↓</span></div>
+
+<div id="deck">
+
+  <!-- 1 封面 -->
+  <section class="slide">
+    <div class="bgimg" style="background-image:url('assets/hero.jpg')"></div>
+    <div class="inner center">
+      <div class="tag a d1">一场关于家庭教育的对谈</div>
+      <h1 class="a d2">父母能给孩子<span class="hl">气候</span>，<br>却不能决定<span class="hl">种子</span>的方向</h1>
+      <div class="who dim a d3">从电影《美国牧歌》谈起</div>
+    </div>
+  </section>
+
+  <!-- 2 开场：三张截图 -->
+  <section class="slide light">
+    <div class="inner">
+      <div class="tag a d1">开场 · 三张微博截图</div>
+      <h2 class="a d2">一个没人愿意承认的困境</h2>
+      <div class="cards">
+        <div class="card a d3"><h3>截图一</h3><p>三十多岁的儿子问妈妈："为什么我读书那会儿，你不狠狠管管我？"——"管你，你也不听啊。"儿子沉默良久："那你应该加把劲，狠狠地管我一下啊。"</p></div>
+        <div class="card a d4"><h3>截图二</h3><p>一位母亲狠狠管教，儿子考上211，四年花了36万学费。毕业后，儿子半年不联系她。她说：无所谓了，人这一辈子哪有什么对错。</p></div>
+        <div class="card a d5"><h3>截图三</h3><p>一个被严管的孩子：重点大学、研究生，如今重度抑郁，与父亲疏远。父亲最后悔的，是小时候打得太狠。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 困境命题 -->
+  <section class="slide">
+    <div class="inner center">
+      <div class="rule a d1"></div>
+      <div class="quote a d2">无论你制定怎样的策略、耗费多大的心血，<br>孩子最终的结果和走向，始终无法预料。</div>
+      <div class="who dim a d3">管也不是，不管也不是 —— 一部电影把它推到了极限</div>
+    </div>
+  </section>
+
+  <!-- 4 电影引入 -->
+  <section class="slide">
+    <div class="bgimg" style="background-image:url('assets/family.jpg')"></div>
+    <div class="inner">
+      <div class="tag a d1">壹 · 电影</div>
+      <h2 class="a d2">《美国牧歌》<br><span class="dim" style="font-size:.5em;font-weight:400">American Pastoral · 2016 · 菲利普·罗斯普利策奖小说改编</span></h2>
+      <p class="big a d3">"瑞典佬"：橄榄球明星、新泽西小姐的丈夫、手套工厂继承人。<br>一对<span class="hl">把人生每道题都答对了</span>的父母。</p>
+    </div>
+  </section>
+
+  <!-- 5 女儿 -->
+  <section class="slide">
+    <div class="bgimg" style="background-image:url('assets/family.jpg'); filter:brightness(.38) saturate(.75);"></div>
+    <div class="inner">
+      <div class="tag a d1">壹 · 电影</div>
+      <h2 class="a d2">唯一的"不完美"：女儿梅丽</h2>
+      <p class="body a d3">从小结巴。父母带她一遍遍治疗，温柔耐心，从不发火。她善良得让人心疼——看到电视上越南僧人自焚，她抽泣着问："没有人在乎吗？没有人有良心吗？"</p>
+      <p class="big a d4" style="margin-top:3.5vh">十几年后，这颗良心燃烧得太旺盛——<br>她在小镇邮局安放炸弹，<span class="hl">炸死了父亲相识多年的邻居</span>，然后消失。</p>
+    </div>
+  </section>
+
+  <!-- 6 爆炸/父亲台词 -->
+  <section class="slide">
+    <div class="bgimg" style="background-image:url('assets/bomb.jpg')"></div>
+    <div class="inner center">
+      <div class="tag a d1">父亲对失去丈夫的寡妇说</div>
+      <div class="quote a d2">我做了我认为对的事，按我认为最好的方式养大她。<br>可有些孩子会从内心深处、某个你不知道的地方，<br>冒出一些东西来。你只能尽力，只能爱他们。</div>
+      <div class="who dim a d3">没有人做错任何事，毁灭依然发生了 —— 这是全片最惊悚之处</div>
+    </div>
+  </section>
+
+  <!-- 7 历史三案 -->
+  <section class="slide light">
+    <div class="inner">
+      <div class="tag a d1">贰 · 历史</div>
+      <h2 class="a d2">这不是电影虚构，历史给过同样的答案</h2>
+      <div class="cards">
+        <div class="card a d3"><h3>马可·奥勒留 → 康茂德</h3><p>写《沉思录》的哲学家皇帝，用整个帝国最好的资源培养儿子。康茂德继位后自称大力神，沉迷角斗，最终被摔跤伙伴勒死在浴室。最好的教育+最大的权力，仍然失败。</p></div>
+        <div class="card a d4"><h3>奥本海默 → 彼得</h3><p>曼哈顿计划的天才领导者，儿子一生平凡，在新墨西哥乡下做了一辈子木匠，刻意避开一切与"奥本海默"有关的东西。</p></div>
+        <div class="card a d5"><h3>孔子 → 孔鲤</h3><p>大圣人的儿子孔鲤，字伯鱼，资质平平，《论语》中鲜有记载；衣钵传人是颜回、子路。有趣的是，孔鲤之子子思相传写出了《中庸》。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 行为遗传学 -->
+  <section class="slide">
+    <div class="inner center">
+      <div class="tag a d1">叁 · 科学 · 行为遗传学</div>
+      <div class="stat a d2">≈ 50%</div>
+      <p class="big a d3">成年人的人格差异，约一半由基因解释；<br>父母共享的养育方式，贡献<span class="hl">远小于人们的想象</span>。</p>
+      <p class="body dim a d4" style="margin-top:3vh">明尼苏达双生子研究：一出生就被分开抚养的同卵双胞胎，成年后的性格爱好，与一起长大的双胞胎几乎一样像。</p>
+    </div>
+  </section>
+
+  <!-- 9 科学的另一半 -->
+  <section class="slide light">
+    <div class="inner">
+      <div class="tag a d1">叁 · 科学 · 必须说准确的另一半</div>
+      <h2 class="a d2">科学没说"父母无用"</h2>
+      <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <div class="card a d3"><h3>"教"的作用很小</h3><p>把孩子的人格刻意塑造成某个样子——这类"加工"对成年后的他影响甚微。你以为有效的东西，很多会随青春期烟消云散。</p></div>
+        <div class="card a d4"><h3>"爱"的作用很大</h3><p>情绪稳定、婚姻质量、被无条件接纳的体验，深刻影响孩子一生的心理健康。力气该花在关系上，而不是塑造上。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 阿伦特 -->
+  <section class="slide">
+    <div class="inner center">
+      <div class="tag a d1">肆 · 哲学 · 汉娜·阿伦特</div>
+      <h2 class="a d2">"诞生性"（Natality）</h2>
+      <div class="quote a d3">每一个人的出生，都是一个绝对的开端。<br>新来的人，天生带着开始前所未有之事的能力。</div>
+      <p class="big a d4" style="margin-top:4vh">如果一个孩子完全是父母的结果，<br>那他就不是一个新的人，<span class="hl">只是一件产品</span>。</p>
+    </div>
+  </section>
+
+  <!-- 11 幻觉的土壤 -->
+  <section class="slide light">
+    <div class="inner">
+      <div class="tag a d1">伍 · 追问</div>
+      <h2 class="a d2">"用力就能赢"的幻觉，为什么在中国如此顽固？</h2>
+      <div class="cards">
+        <div class="card a d3"><h3>独生子女的赌局</h3><p>只有一个孩子 = 一场不许失败、无法重来的单发赌局。多子女家庭早懂的"同父母、不同命"，我们没有对照组。</p></div>
+        <div class="card a d4"><h3>唯一的阶层通道</h3><p>对几代人而言，孩子的成绩是家庭全部的投资回报。"放手"在那种结构里曾经真的不理性——只是基础正在瓦解。</p></div>
+        <div class="card a d5"><h3>人生的成绩单</h3><p>孩子是父母向社会提交的作品。承认"孩子属于他自己"，等于承认人生最重要的项目不受控——这才是最难的。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 更深一层 -->
+  <section class="slide">
+    <div class="inner center">
+      <div class="tag a d1">陆 · 罗斯真正想说的</div>
+      <div class="quote a d2">也许问题不只是"你控制不了孩子"——<br>而是你的"完美正确"本身，让孩子窒息。</div>
+      <p class="body dim a d3" style="margin-top:3.5vh">瑞典佬太正确、太体面，像一个密不透风的体系。<br>梅丽的炸弹，是对"完美家庭"炸开的一个洞。<br>而人生根本不是一场比赛——父母连输赢的裁判席都不该坐。</p>
+    </div>
+  </section>
+
+  <!-- 13 结尾 -->
+  <section class="slide">
+    <div class="bgimg" style="background-image:url('assets/seed.jpg'); filter:brightness(.62) saturate(1);"></div>
+    <div class="inner center">
+      <div class="tag a d1">结语</div>
+      <h1 class="a d2" style="font-size:clamp(28px,4.6vw,56px)">爱是给气候，不是定方向。</h1>
+      <p class="big a d3" style="margin-top:3vh">给温度，给底线，给一种被爱过的经验——<br>然后承认：<span class="hl">他们终究属于他们自己。</span></p>
+      <div class="who dim a d4">延伸阅读：菲利普·罗斯《美国牧歌》 · 阿伦特《人的境况》 · 普洛明《蓝图》</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  const deck=document.getElementById('deck');
+  const slides=[...document.querySelectorAll('.slide')];
+  const dotsBox=document.getElementById('dots');
+  const pager=document.getElementById('pager');
+  const progress=document.getElementById('progress');
+  let i=0, lock=false;
+  slides.forEach((_,k)=>{
+    const d=document.createElement('i');
+    d.onclick=()=>go(k);
+    dotsBox.appendChild(d);
+  });
+  const dots=[...dotsBox.children];
+  function render(){
+    deck.style.transform=`translateY(-${i*100}vh)`;
+    dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    pager.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+    progress.style.width=((i+1)/slides.length*100)+'%';
+  }
+  function go(k){
+    if(lock||k<0||k>=slides.length||k===i&&slides[k].classList.contains('on'))return;
+    i=k; lock=true; render();
+    setTimeout(()=>lock=false,900);
+  }
+  addEventListener('keydown',e=>{
+    if(['ArrowDown','PageDown',' ','ArrowRight'].includes(e.key))go(i+1);
+    if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key))go(i-1);
+    if(e.key==='Home')go(0); if(e.key==='End')go(slides.length-1);
+  });
+  addEventListener('wheel',e=>{
+    if(Math.abs(e.deltaY)<18)return;
+    go(e.deltaY>0?i+1:i-1);
+  },{passive:true});
+  let ty=null;
+  addEventListener('touchstart',e=>ty=e.touches[0].clientY,{passive:true});
+  addEventListener('touchend',e=>{
+    if(ty===null)return;
+    const d=ty-e.changedTouches[0].clientY; ty=null;
+    if(Math.abs(d)>46)go(d>0?i+1:i-1);
+  },{passive:true});
+  render();
+})();
+</script>
+</body>
+</html>
