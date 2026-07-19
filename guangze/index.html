@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>光泽县 · 城市规划与空间格局研究 — 恒荣集团内部参考</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+  background:#0C1424;color:#E8E6E1;font-size:16px;line-height:1.7;
+  overflow:hidden;overscroll-behavior:none;-webkit-font-smoothing:antialiased;
+}
+button{font-family:inherit;cursor:pointer;}
+button:focus-visible{outline:2px solid rgba(201,162,39,.7);outline-offset:2px;}
+
+/* ============ 翻页轨道 ============ */
+.deck{height:100vh;height:100dvh;overflow:hidden;position:relative;}
+.track{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding:0;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}
+.track::-webkit-scrollbar{display:none;}
+.page{flex:0 0 100%;height:100%;position:relative;background:#0C1424;scroll-snap-align:start;scroll-snap-stop:always;}
+.page:nth-child(even){background:#101B30;}
+.sheet{position:relative;max-width:780px;margin:0 auto;height:100%;display:flex;flex-direction:column;
+  padding:20px 22px calc(94px + env(safe-area-inset-bottom));}
+@media(min-width:769px){.sheet{max-width:860px;padding-top:34px;}}
+
+/* ============ 页眉 / 标题 / 来源 ============ */
+.p-head{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  font-size:11px;letter-spacing:.16em;color:rgba(232,230,225,.45);white-space:nowrap;}
+.p-kicker{overflow:hidden;text-overflow:ellipsis;}
+.p-kicker::before{content:"";display:inline-block;width:7px;height:7px;background:#C9A227;
+  transform:rotate(45deg);margin-right:9px;vertical-align:1px;}
+.p-no{color:rgba(201,162,39,.8);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+.p-title{font-size:clamp(21px,5.4vw,30px);font-weight:700;line-height:1.35;margin-top:10px;letter-spacing:.02em;}
+.p-title .t-sub{font-size:.62em;font-weight:500;color:rgba(232,230,225,.6);}
+@media(max-width:768px){.p-title .t-sub{display:block;margin-top:3px;}}
+.p-rule{width:44px;height:3px;background:#C9A227;margin:12px 0 4px;}
+.p-scroll{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding:12px 2px 8px;scrollbar-width:thin;scrollbar-color:rgba(201,162,39,.4) transparent;}
+.p-scroll::-webkit-scrollbar{width:4px;}
+.p-scroll::-webkit-scrollbar-thumb{background:rgba(201,162,39,.35);border-radius:2px;}
+.p-src{font-size:11px;line-height:1.65;color:rgba(232,230,225,.45);
+  border-top:1px solid rgba(232,230,225,.12);padding-top:8px;margin-top:4px;}
+
+/* ============ 大数字卡片 ============ */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0 14px;}
+@media(min-width:769px){
+  .stats.c3{grid-template-columns:repeat(3,1fr);}
+  .stats.c4{grid-template-columns:repeat(4,1fr);}
+}
+.stat{background:rgba(255,255,255,.035);border:1px solid rgba(232,230,225,.10);border-radius:12px;padding:12px 14px 10px;}
+.stat .n{display:block;color:#C9A227;font-weight:700;font-size:clamp(22px,6vw,31px);
+  line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:.01em;}
+.stat .n small{font-size:.44em;font-weight:600;margin-left:3px;color:rgba(201,162,39,.85);}
+.stat .c{display:block;font-size:12px;line-height:1.55;color:rgba(232,230,225,.64);margin-top:5px;}
+
+/* ============ 要点列表 ============ */
+ul.pts{list-style:none;margin:8px 0 4px;}
+ul.pts>li{position:relative;padding-left:19px;margin-bottom:11px;font-size:16px;line-height:1.75;}
+ul.pts>li::before{content:"";position:absolute;left:2px;top:.68em;width:7px;height:7px;
+  background:#C9A227;transform:rotate(45deg);opacity:.9;}
+ul.pts ul{list-style:none;margin-top:8px;}
+ul.pts ul li{position:relative;padding-left:17px;margin-bottom:8px;font-size:15px;line-height:1.7;color:rgba(232,230,225,.88);}
+ul.pts ul li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;
+  border:1.5px solid rgba(201,162,39,.8);border-radius:50%;}
+.dense li{margin-bottom:8px;}
+.tg{color:#C9A227;font-weight:600;}
+em.hl{font-style:normal;color:#C9A227;font-weight:600;font-variant-numeric:tabular-nums;}
+
+/* ============ 判断 / 注释 / 小节 ============ */
+.verdict{margin:14px 0 4px;border-left:3px solid #C9A227;background:rgba(201,162,39,.08);
+  padding:10px 14px;border-radius:0 10px 10px 0;font-size:15px;line-height:1.75;}
+.verdict .vh{display:block;font-size:11.5px;letter-spacing:.22em;color:#C9A227;font-weight:600;margin-bottom:3px;}
+.note{font-size:12.5px;line-height:1.65;color:rgba(232,230,225,.55);margin:6px 0 2px;}
+.sub{font-size:12.5px;letter-spacing:.18em;color:#C9A227;font-weight:600;margin:16px 0 8px;
+  display:flex;align-items:center;gap:10px;}
+.sub::before{content:"";width:16px;height:1px;background:#C9A227;flex:none;}
+
+/* ============ 流程节点 ============ */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 4px;}
+.flow .st{background:rgba(255,255,255,.045);border:1px solid rgba(232,230,225,.13);
+  border-radius:8px;padding:6px 11px;font-size:13px;line-height:1.55;}
+.flow .ar{color:#C9A227;font-size:13px;font-weight:600;}
+
+/* ============ 判断卡（P15） ============ */
+.jcards{display:grid;gap:12px;margin:12px 0 4px;}
+@media(min-width:769px){.jcards{grid-template-columns:repeat(3,1fr);}}
+.jcard{background:rgba(255,255,255,.035);border:1px solid rgba(232,230,225,.12);
+  border-top:2px solid #C9A227;border-radius:12px;padding:15px 16px;}
+.jcard .jno{font-size:11.5px;letter-spacing:.28em;color:#C9A227;font-weight:700;}
+.jcard h3{font-size:17px;line-height:1.5;margin:7px 0 8px;}
+.jcard p{font-size:14.5px;line-height:1.75;color:rgba(232,230,225,.88);}
+
+/* ============ 标签行（P16） / 风险（P17） ============ */
+.rows{border-top:1px solid rgba(232,230,225,.1);margin-top:6px;}
+.row{display:flex;gap:12px;padding:10px 2px;border-bottom:1px dashed rgba(232,230,225,.12);}
+.row b{flex:none;width:4.6em;color:#C9A227;font-weight:600;font-size:14px;line-height:1.8;}
+.row div{flex:1;font-size:15px;line-height:1.75;}
+ul.todo{list-style:none;counter-reset:td;margin:4px 0;}
+ul.todo li{counter-increment:td;position:relative;padding-left:30px;margin-bottom:8px;font-size:14.5px;line-height:1.7;}
+ul.todo li::before{content:counter(td);position:absolute;left:0;top:.28em;width:18px;height:18px;
+  border:1px solid rgba(201,162,39,.7);border-radius:50%;color:#C9A227;font-size:11px;
+  display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;}
+.cols2{display:grid;gap:18px;}
+@media(min-width:769px){.cols2{grid-template-columns:1fr 1fr;gap:26px;}}
+ol.risks{list-style:none;counter-reset:rk;margin:4px 0;}
+ol.risks li{counter-increment:rk;position:relative;padding-left:34px;margin-bottom:11px;font-size:15px;line-height:1.7;}
+ol.risks li::before{content:"0" counter(rk);position:absolute;left:0;top:.3em;color:#C9A227;
+  font-size:13px;font-weight:700;letter-spacing:.05em;font-variant-numeric:tabular-nums;}
+.srclist{font-size:12px;line-height:1.85;color:rgba(232,230,225,.55);}
+
+/* ============ 恒荣高亮卡 ============ */
+.hrcard{margin:12px 0 4px;border:1px solid rgba(201,162,39,.55);background:rgba(201,162,39,.07);
+  border-radius:12px;padding:12px 15px;font-size:15px;line-height:1.75;}
+.hrcard .vh{display:block;font-size:11.5px;letter-spacing:.22em;color:#C9A227;font-weight:600;margin-bottom:3px;}
+
+/* ============ 封面 ============ */
+.cover-sheet{text-align:center;align-items:stretch;}
+.cv-kicker{font-size:11px;letter-spacing:.22em;color:rgba(232,230,225,.45);padding-top:6px;}
+.cv-main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.cv-eyebrow{font-size:12px;letter-spacing:.34em;color:rgba(201,162,39,.9);margin-bottom:22px;text-indent:.34em;}
+.cv-title{font-size:clamp(46px,13vw,76px);font-weight:700;letter-spacing:.14em;line-height:1.2;text-indent:.14em;}
+.cv-sub{font-size:clamp(19px,5.2vw,28px);font-weight:600;letter-spacing:.22em;margin-top:14px;color:rgba(232,230,225,.94);text-indent:.22em;}
+.cv-rule{display:flex;align-items:center;justify-content:center;gap:12px;margin:26px 0;}
+.cv-rule::before,.cv-rule::after{content:"";width:58px;height:1px;background:rgba(201,162,39,.65);}
+.cv-rule i{width:9px;height:9px;background:#C9A227;transform:rotate(45deg);}
+.cv-tagline{font-size:15px;letter-spacing:.12em;color:rgba(232,230,225,.85);}
+.cv-date{font-size:12px;line-height:1.8;color:rgba(232,230,225,.5);margin-top:16px;letter-spacing:.06em;}
+.cv-foot{font-size:11px;letter-spacing:.2em;color:rgba(232,230,225,.4);text-align:center;}
+
+/* ============ 底部导航栏 ============ */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;align-items:center;
+  justify-content:space-between;padding:10px 12px calc(10px + env(safe-area-inset-bottom));pointer-events:none;}
+.bar-mid{pointer-events:auto;display:flex;align-items:center;gap:12px;
+  background:rgba(13,22,40,.8);border:1px solid rgba(232,230,225,.14);border-radius:999px;padding:7px 15px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.nav-arrow{pointer-events:auto;width:42px;height:42px;flex:none;border-radius:50%;
+  border:1px solid rgba(232,230,225,.16);background:rgba(13,22,40,.8);color:rgba(232,230,225,.85);
+  font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:border-color .2s,color .2s;}
+.nav-arrow:active{border-color:rgba(201,162,39,.7);color:#C9A227;}
+.nav-arrow[disabled],.text-btn[disabled]{opacity:.28;pointer-events:none;}
+.text-btn{border:none;background:none;color:rgba(232,230,225,.6);font-size:12px;letter-spacing:.1em;padding:4px 2px;}
+.text-btn:active{color:#C9A227;}
+.dots{display:flex;align-items:center;gap:5px;}
+.dot{width:6px;height:6px;border-radius:3px;border:none;background:rgba(232,230,225,.22);padding:0;transition:all .25s;}
+.dot.on{background:#C9A227;width:16px;}
+.counter{font-size:12.5px;color:rgba(232,230,225,.62);font-variant-numeric:tabular-nums;letter-spacing:.05em;white-space:nowrap;}
+.counter b{color:#C9A227;font-weight:600;}
+
+/* ============ 桌面侧栏箭头 ============ */
+.side-nav{position:fixed;top:50%;transform:translateY(-50%);z-index:40;width:46px;height:66px;
+  border-radius:12px;border:1px solid rgba(232,230,225,.16);background:rgba(13,22,40,.55);
+  color:rgba(232,230,225,.8);font-size:26px;display:none;align-items:center;justify-content:center;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:all .2s;}
+.side-nav:hover{border-color:rgba(201,162,39,.6);color:#C9A227;}
+.side-nav[disabled]{opacity:.22;pointer-events:none;}
+.side-prev{left:16px;}.side-next{right:16px;}
+@media(min-width:900px){
+  .side-nav{display:flex;}
+  .bar{justify-content:center;}
+  .bar .nav-arrow{display:none;}
+}
+@media(max-width:399px){.dots{display:none;}}
+</style>
+</head>
+<body>
+<noscript><div style="position:fixed;top:0;left:0;right:0;z-index:60;text-align:center;font-size:12px;letter-spacing:.08em;color:#C9A227;background:rgba(12,20,36,.92);padding:7px 10px;">当前为无脚本模式：直接左右滑动即可翻页</div></noscript>
+<div class="deck" id="deck">
+<div class="track" id="track">
+
+<!-- ========== P1 封面 ========== -->
+<section class="page cover">
+  <div class="sheet cover-sheet">
+    <div class="cv-kicker">光泽县城市规划研究 · 恒荣集团内部参考</div>
+    <div class="cv-main">
+      <div class="cv-eyebrow">内部参考 · 演示文稿</div>
+      <h1 class="cv-title">光泽县</h1>
+      <div class="cv-sub">城市规划与空间格局研究</div>
+      <div class="cv-rule"><i></i></div>
+      <div class="cv-tagline">恒荣集团项目沟通前期准备 · 内部参考</div>
+      <div class="cv-date">2026 年 7 月 ｜ 基于政府公报、规划公示、统计公报等公开资料整理</div>
+    </div>
+    <div class="cv-foot">共 17 页 · 左右滑动或点击按钮翻页</div>
+  </div>
+</section>
+
+<!-- ========== P2 一页看懂光泽 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P2</span></header>
+    <h2 class="p-title">一页看懂光泽</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="stats c3">
+        <div class="stat"><span class="n">12.55<small>万</small></span><span class="c">常住人口 · 南平全市最少、连年下降；城区约 7 万</span></div>
+        <div class="stat"><span class="n">144.68<small>亿元</small></span><span class="c">2025 年 GDP（+6.2%）· 总量全市倒数第三</span></div>
+        <div class="stat"><span class="n">11.46<small>万元</small></span><span class="c">人均 GDP · 南平第一</span></div>
+        <div class="stat"><span class="n">56.57<small>%</small></span><span class="c">城镇化率</span></div>
+        <div class="stat"><span class="n">99.7<small>%</small></span><span class="c">禽肉占全县肉类产量 · 一产占 GDP 37.8%</span></div>
+        <div class="stat"><span class="n">22.5<small>%</small></span><span class="c">地方收入自给率仅约 22.5% · 高度依赖转移支付</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">区位：</b>福建西北门户，闽赣交界，武夷山脉北段，武夷山国家公园“西大门”</li>
+        <li><b class="tg">产业：</b>圣农白羽肉鸡一鸡独大</li>
+      </ul>
+      <div class="verdict"><span class="vh">一句话定性</span>生态强约束下的山区小县，“一只鸡”撑起的生态食品城</div>
+    </div>
+    <footer class="p-src">来源：光泽县 2025 年国民经济和社会发展统计公报（2026-04 发布）</footer>
+  </div>
+</section>
+
+<!-- ========== P3 上位规划怎么看光泽 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P3</span></header>
+    <h2 class="p-title">上位规划怎么看光泽</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="stats">
+        <div class="stat"><span class="n">4252<small>km²</small></span><span class="c">环武夷山国家公园保护发展带 · 光泽为“四核”之一</span></div>
+        <div class="stat"><span class="n">19.69<small>%</small></span><span class="c">国家公园面积约 19.69% 在光泽 · 光泽定位“国家公园西区”</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">省政府批复</b>（闽政文〔2024〕192 号，2024-05）：推动光泽打造“现代农业和生态食品产业集群、山水垂钓城市”</li>
+        <li><b class="tg">南平市总规</b>“双核多极”格局中，光泽属外围多极；武夷新区不带光泽，行政中心迁建阳后光泽处市域最西端</li>
+        <li><b class="tg">闽赣协作活跃：</b>与江西资溪首创跨省互免高速通行费；省际生态联盟</li>
+      </ul>
+      <div class="verdict"><span class="vh">启示</span>光泽的标签是“生态 + 省际边界节点”，任何项目叙事都要讲绿色、讲边界门户</div>
+    </div>
+    <footer class="p-src">来源：福建省自然资源厅（2024-05-30）、南平市国土空间总体规划、武夷山国家公园管理局</footer>
+  </div>
+</section>
+
+<!-- ========== P4 总规核心：中国生态食品城 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P4</span></header>
+    <h2 class="p-title">总规核心：中国生态食品城</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <p class="note" style="color:rgba(232,230,225,.8);font-size:14.5px;">《光泽县国土空间总体规划（2021-2035 年）》</p>
+      <div class="flow">
+        <span class="st">2023-02 草案公示</span><span class="ar">→</span>
+        <span class="st">2023-05 过专家评审</span><span class="ar">→</span>
+        <span class="st">2024-05 省政府批复</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="n">≤18<small>万人</small></span><span class="c">中心城区 2035 常住人口</span></div>
+        <div class="stat"><span class="n">70<small>%</small></span><span class="c">中心城区 2035 城镇化率</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">战略定位“中国生态食品城”</b>（2014 年省批复概念；此后关停木竹企业 100 多家→9 家，拒批矿山化工）</li>
+        <li><b class="tg">县域格局：</b>“一心两屏两带，四区多廊多点”</li>
+      </ul>
+      <div class="verdict"><span class="vh">最新动作</span>2026 年 7 月总规启动动态维护公示（三线正向优化）——规划微调的法定窗口正在打开</div>
+    </div>
+    <footer class="p-src">来源：光泽县自然资源局公示、福建省政府批复文件、光泽新闻网</footer>
+  </div>
+</section>
+
+<!-- ========== P5 三条红线：开发的硬约束 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P5</span></header>
+    <h2 class="p-title">三条红线：开发的硬约束</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="stats">
+        <div class="stat"><span class="n">≥973.75<small>km²</small></span><span class="c">生态保护红线 · 约占县域面积 <b style="color:#C9A227;">43.5%</b></span></div>
+        <div class="stat"><span class="n">≥20.997<small>万亩</small></span><span class="c">永久基本农田 · 耕地保有量 ≥22.90 万亩</span></div>
+        <div class="stat"><span class="n">≤13.82<small>km²</small></span><span class="c">城镇开发边界 · 扩展倍数 ≤1.27</span></div>
+        <div class="stat"><span class="n">11.3<small>%</small></span><span class="c">县域划入国家公园 · 天池禁养禁钓、小水电退出</span></div>
+      </div>
+      <div class="verdict"><span class="vh">含义</span>可开发空间稀缺且高度集中于中心城区与园区；边界内的合规土地是稀缺资源</div>
+    </div>
+    <footer class="p-src">来源：光泽县国土空间总体规划（含 2026 动态维护公示稿）、南平市批复口径</footer>
+  </div>
+</section>
+
+<!-- ========== P6 中心城区：一主城 + 双新城 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P6</span></header>
+    <h2 class="p-title">中心城区：一主城 + 双新城</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <ul class="pts">
+        <li><b class="tg">杭川主城：</b>老城更新主战场——43 个老旧小区改造 2026 年 1 月整体验收，EPC+O 模式入选省级经验；城市体检驱动 4 大更新单元</li>
+        <li><b class="tg">城西新城（含高铁片区先行区）：</b>城市“发展新核”，约 500 亩先行开发</li>
+        <li><b class="tg">圣农新城（鸾凤）：</b>产业配套新城，承载食品产业集群</li>
+      </ul>
+      <div class="stats">
+        <div class="stat"><span class="n">+32.5<small>%</small></span><span class="c">杭川镇十年人口增长</span></div>
+        <div class="stat"><span class="n">20–40<small>%</small></span><span class="c">乡镇人口普降幅度</span></div>
+      </div>
+      <div class="verdict"><span class="vh">人口向城区集聚</span>“小县大城关”格局强化</div>
+    </div>
+    <footer class="p-src">来源：光泽县自然资源局政协提案答复（2024-07）、闽北日报（2026-02）、人口普查公报</footer>
+  </div>
+</section>
+
+<!-- ========== P7 重点片区①：城西 / 高铁片区 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P7</span></header>
+    <h2 class="p-title">重点片区①：城西 / 高铁片区 <span class="t-sub">（最可能的焦点）</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll dense">
+      <div class="stats c4">
+        <div class="stat"><span class="n">8.4<small>km²</small></span><span class="c">控规总用地（2022-07 公示）</span></div>
+        <div class="stat"><span class="n">约500<small>亩</small></span><span class="c">先行区（武林村一带）</span></div>
+        <div class="stat"><span class="n">11.2<small>亿</small></span><span class="c">启天城市服务综合体总投资</span></div>
+        <div class="stat"><span class="n">19<small>亿</small></span><span class="c">“壹號苑”总投（2026-04 备案 · 推断）</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">控规盘子：</b>2022-07 公示，东起西溪、南至横四线，总用地 8.4 km²，“一核心、六组团”，集高铁枢纽、休闲康养、商贸物流于一体</li>
+        <li><b class="tg">实际推进：</b>开发实质收缩为约 500 亩先行区（武林村一带）</li>
+      </ul>
+      <div class="sub">已兑现 / 即将兑现（确定性高）</div>
+      <ul class="pts">
+        <li>大型城市服务综合体（启天，总投资约 11.2 亿、总建约 8.8–9.4 万㎡，商业+四星酒店+办公）<em class="hl">2026 年国庆前投用</em>
+          <ul>
+            <li>第三实验小学、职业教育产教融合项目 2026 年 9 月投用</li>
+            <li>闽北高级技工学校（圣农产业学院）157.5 亩校区推进中</li>
+            <li>武林西路改扩建及延伸段 2025 年底完成征地</li>
+          </ul>
+        </li>
+        <li><b class="tg">供地节奏：</b>核心商住地 G-01/G-02（武装部西侧 102+70.61 亩）连续两年列入计划未成交 → 2025 年末 G-27/G-24 两宗居住地拍卖 → 2026-04 启天备案“壹號苑”（172.6 亩、总建 25.74 万㎡、总投 19 亿，面积与 G-01+G-02 吻合，推断）</li>
+      </ul>
+      <div class="verdict"><span class="vh">判断</span>政府策略是“以城西为先行、以高铁为远期”——配套的确定性远高于铁路的确定性</div>
+    </div>
+    <footer class="p-src">来源：光泽县自然资源局控规公示（2022-07）、闽北日报（2026-02）、南平市出让计划、土地成交记录</footer>
+  </div>
+</section>
+
+<!-- ========== P8 重点片区②：圣农新城（鸾凤） ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P8</span></header>
+    <h2 class="p-title">重点片区②：圣农新城（鸾凤） <span class="t-sub">——一个对照样本</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <ul class="pts">
+        <li>2022-09 由省级特色小镇（<em class="hl">3.46 km²</em>）升格，定位“中国生态食品综合新城”、国家公园西区“战略引擎”</li>
+      </ul>
+      <div class="sub">落地实况</div>
+      <div class="stats c4">
+        <div class="stat"><span class="n">64<small>名</small></span><span class="c">一中分校 2023-09 开学学生数（现约 110 人）</span></div>
+        <div class="stat"><span class="n">350<small>套</small></span><span class="c">人才公寓已交付</span></div>
+        <div class="stat"><span class="n">2.5<small>亿</small></span><span class="c">冷链物流园 · 2025 年中仍在招标未投产</span></div>
+        <div class="stat"><span class="n">21.3<small>万</small></span><span class="c">2024 年转“工旅小镇”运营 · 年客流</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">信号：</b>2025、2026 年政府工作报告已无“圣农新城”表述；常住人口五年降近 5 千</li>
+      </ul>
+      <div class="verdict"><span class="vh">判断</span>产业新城人气培育比规划设想慢得多；纯“新城概念”地块需谨慎</div>
+    </div>
+    <footer class="p-src">来源：人民网（2022-10）、光泽县政府工作报告（2023–2026）、光泽新闻网</footer>
+  </div>
+</section>
+
+<!-- ========== P9 高铁悬念：两条铁路的时间线 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P9</span></header>
+    <h2 class="p-title">高铁悬念：两条铁路的时间线</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll dense">
+      <div class="sub">温武吉铁路 · 约 669–691 km · 双线 160 km/h</div>
+      <div class="flow">
+        <span class="st">2016 列入国家中长期铁路网规划</span><span class="ar">→</span>
+        <span class="st">预可研完成逾 6 年，国铁集团始终未组织审查</span><span class="ar">→</span>
+        <span class="st">2026 列入国家及福建“十五五”规划</span><span class="ar">→</span>
+        <span class="st">媒体推测 2028 开工、2031 通车</span>
+      </div>
+      <p class="note">卡点：运量不足长期亏损、单双线分歧；双线增量投资约 350 亿需地方承担，光泽已递交运营亏损承诺</p>
+      <div class="sub">昌福（厦）高铁 · 350 km/h</div>
+      <div class="flow">
+        <span class="st">2023 运量研究结题（财务内部收益率仅 3.77%）</span><span class="ar">→</span>
+        <span class="st">2025-12 光泽段线站位研究结题</span><span class="ar">→</span>
+        <span class="st">2026 列入国家综合交通“十五五”规划</span>
+      </div>
+      <p class="note">县报告口径已从温武吉转向主攻昌福厦（“尽早启动前期工作”）</p>
+      <ul class="pts" style="margin-top:10px;">
+        <li><b class="tg">既有鹰厦铁路：</b>客运 2023-11 短暂恢复、2024 年初再停，现仅货运</li>
+        <li>光泽已委托铁三院做两线“并站研究”；高铁站址从未官宣</li>
+      </ul>
+      <div class="verdict"><span class="vh">判断</span>高铁是“期权”不是“现值”——写进合作触发条款，不作为定价依据</div>
+    </div>
+    <footer class="p-src">来源：国家发改委/国铁公开信息、福建省“十五五”规划纲要、光泽县政府工作报告（2023–2026）、闽北日报</footer>
+  </div>
+</section>
+
+<!-- ========== P10 产业方向：一只鸡与它的朋友们 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P10</span></header>
+    <h2 class="p-title">产业方向：一只鸡与它的朋友们</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="stats c4">
+        <div class="stat"><span class="n">900<small>亿+</small></span><span class="c">圣农全产业链 2024 年规模 · 官方称 2025“迈入千亿级”</span></div>
+        <div class="stat"><span class="n">200.94<small>亿</small></span><span class="c">圣农发展 2025 年营收 · 净利 13.8 亿</span></div>
+        <div class="stat"><span class="n">44.5<small>万亩</small></span><span class="c">竹林（家底）</span></div>
+        <div class="stat"><span class="n">54.5<small>万吨</small></span><span class="c">矿泉水可开采量 · 泽汇鳗鱼万吨级</span></div>
+      </div>
+      <p class="note">注意：圣农集团口径含浦城/政和/甘肃/安徽外埠，非光泽本地产值</p>
+      <ul class="pts">
+        <li><b class="tg">“十五五”产业体系</b>（县委十四届十次全会，2025-12）：<em class="hl">“1115X”绿色产业体系</em>——千亿引领（白羽肉鸡）、百亿成势（水产业）、多点支撑（竹、中药材、茶、文旅）</li>
+        <li><b class="tg">园区“一区二园四组团”：</b>和顺（圣农食品专业园，3.5 万吨污水厂负荷仅 43%）、金岭（生态食品+竹循环）、华创（2.1 亿建 8 幢标准厂房）；标准厂房租金 4–6 元/㎡·月 + 免租奖励</li>
+      </ul>
+      <div class="verdict"><span class="vh">判断</span>政府极度渴望“非鸡”产业与消费业态——这正是外来企业的政策窗口</div>
+    </div>
+    <footer class="p-src">来源：圣农发展公告、光泽县委全会公报、光泽县工信与招商政策文件</footer>
+  </div>
+</section>
+
+<!-- ========== P11 文旅升格：从流量到留量 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P11</span></header>
+    <h2 class="p-title">文旅升格：从流量到留量</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="stats c3">
+        <div class="stat"><span class="n">472.48<small>万人次</small></span><span class="c">2025 年游客</span></div>
+        <div class="stat"><span class="n">39.43<small>亿元</small></span><span class="c">2025 年旅游花费</span></div>
+        <div class="stat"><span class="n">5.7<small>倍</small></span><span class="c">8 年增长</span></div>
+      </div>
+      <ul class="pts">
+        <li>2026 年政府工作报告将文旅列为<em class="hl">“支柱产业”</em>，构建“1+3+N”体系；抢抓“大武夷文旅圈核心区”</li>
+        <li><b class="tg">家底：</b>国家公园西区（西大门桃林入口，投资 1.45 亿）、环带十二驿、崇仁故里（年 30 万+人次）、武夷天池、玲珑溪谷、西坡等高端民宿、建昌帮康养中心、神山研学基地</li>
+        <li><b class="tg">痛点（官方自认）：</b>各点位人均消费仅 2–30 元，“旺丁不旺财”；驿站配套不完善；国家级垂钓赛事尚未落地</li>
+      </ul>
+      <div class="verdict"><span class="vh">判断</span>住宿、餐饮、夜间消费、赛事经济、康养旅居等“留客”业态是招商优先方向——商业/酒店类项目谈判地位优于纯住宅</div>
+    </div>
+    <footer class="p-src">来源：光泽县文旅局数据、2026 年政府工作报告、环带建设公开报道</footer>
+  </div>
+</section>
+
+<!-- ========== P12 房地产市场真相 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P12</span></header>
+    <h2 class="p-title">房地产市场真相 <span class="t-sub">（决策最相关）</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll dense">
+      <div class="sub">销售额 · 四年缩水约 56%</div>
+      <div class="flow">
+        <span class="st">12.08 亿（2021）</span><span class="ar">→</span>
+        <span class="st">6.13 亿（2023）</span><span class="ar">→</span>
+        <span class="st">5.11 亿（2025，住宅仅 3.97 亿）</span>
+      </div>
+      <div class="stats c4">
+        <div class="stat"><span class="n">-55.4<small>%</small></span><span class="c">2025 开发投资增速（2023 -7.3%、2024 -28.9%，三连降）</span></div>
+        <div class="stat"><span class="n">550–600<small>套</small></span><span class="c">全县可售住宅仅约 550–600 套 · 桃李春风去化约九成</span></div>
+        <div class="stat"><span class="n">20<small>万/套</small></span><span class="c">1 亿元“共有产权”房票最高补贴 · 2025 年认购 870 套</span></div>
+        <div class="stat"><span class="n">约3.8<small>万元/亩</small></span><span class="c">区片Ⅰ综合地价 57.18 万元/公顷 · 成本极低</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">涉宅地出让：</b>2024–2025 公开出让近乎零成交</li>
+        <li><b class="tg">价格坐标：</b>官方评估价 3160–5140 元/㎡（五级片区）；新房实际成交约 6000–6500 元/㎡；宅地楼面价 1622–3828 元/㎡，商办仅 297–647 元/㎡</li>
+        <li><b class="tg">土地清理：</b>2026 年拟清理批而未供和闲置土地 700 亩</li>
+      </ul>
+      <div class="verdict"><span class="vh">判断</span>窄而稳的结构市场。低库存 + 低地价 + 房票托底 = 财务模型可成立；但房价天花板明显，高溢价拿地模式已被证伪（2022 年 48% 溢价地块盈利承压）</div>
+    </div>
+    <footer class="p-src">来源：光泽县统计公报（2021–2025）、中国土地市场网、中指云、光泽县房地产信息网、光政规〔2025〕3 号</footer>
+  </div>
+</section>
+
+<!-- ========== P13 政府动态与窗口期 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P13</span></header>
+    <h2 class="p-title">政府动态与窗口期</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <ul class="pts">
+        <li><b class="tg">2025 年党政主官双更替：</b>王贵任县委书记（原县长）；郭锋任县长（原南平市商务局局长）——2025-05-29 当选</li>
+        <li><b class="tg">2026 年为换届年</b>（5-22 乡镇党政正职已集中交接）；“十五五”开局；县总规动态维护公示中（2026-07）</li>
+        <li><b class="tg">2026 年政府工作报告：</b>GDP 目标 <em class="hl">+5.5%</em>；实施省市重点项目 <em class="hl">35 个</em>、年度投资 <em class="hl">34.38 亿元</em>；储备亿元以上项目 <em class="hl">120 个</em>；尽早启动昌福厦高铁前期；深化“共有产权”、建“人房地钱”联动机制</li>
+        <li><b class="tg">营商环境信号：</b>“下午茶”政企沟通机制、“林下经济一类事”改革；环带十二驿站对外招商</li>
+      </ul>
+      <div class="verdict"><span class="vh">判断</span>2026 年下半年 = 拜访沟通的黄金窗口——新班子要实绩、总规微调有通道、片区开发在势头上</div>
+    </div>
+    <footer class="p-src">来源：光泽县人大公告、2026 年政府工作报告、县委十四届十次全会公报</footer>
+  </div>
+</section>
+
+<!-- ========== P14 竞争格局与恒荣足迹 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P14</span></header>
+    <h2 class="p-title">竞争格局与恒荣足迹</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <ul class="pts">
+        <li><b class="tg">启天系（浙江常山启天建设）：</b>文澜壹品、望江园、城市服务综合体、2026-03 以 <em class="hl">3828 元/㎡</em>楼面价溢价 26.7% 拿地（南平季度“地王”）、疑似高铁大盘“壹號苑”——已成光泽事实主导者</li>
+        <li><b class="tg">红杉系（县国企）：</b>安置房 / 保障房 / 共有产权房票运营</li>
+        <li><b class="tg">其他：</b>同晖亿丰系、朗著、美筑等分食存量</li>
+      </ul>
+      <div class="hrcard"><span class="vh">恒荣足迹</span>光泽恒荣置业“恒荣南郡”（已售罄，二手挂牌约 <em class="hl">9000 元/㎡</em>，全县最高）；与朗著合作“桃李春风”（去化约九成）</div>
+      <div class="verdict"><span class="vh">判断</span>恒荣在光泽有已被验证的品牌溢价和操盘记录——这是与新班子谈判的重要资产；启天是竞争者，也是片区成熟度的背书</div>
+    </div>
+    <footer class="p-src">来源：土地成交公开记录、房产平台挂牌、光泽县房地产信息网</footer>
+  </div>
+</section>
+
+<!-- ========== P15 核心判断（三条） ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P15</span></header>
+    <h2 class="p-title">核心判断（三条）</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="jcards">
+        <div class="jcard">
+          <div class="jno">判断一</div>
+          <h3>大规划 vs 小人口</h3>
+          <p>总规按 <em class="hl">18 万人</em>擘画，现实是 <em class="hl">12.55 万人</em>且收缩——政府“做热片区”的诉求极强，企业的谈判筹码真实存在；但项目规模必须适配真实人口容量</p>
+        </div>
+        <div class="jcard">
+          <div class="jno">判断二</div>
+          <h3>高铁是期权</h3>
+          <p>温武吉卡审批逾 6 年、昌福厦刚起步，兑现或在 <em class="hl">2030 年之后</em>——把铁路进展写进合作触发条款，把学校/综合体/路网等确定性配套当作价值锚</p>
+        </div>
+        <div class="jcard">
+          <div class="jno">判断三</div>
+          <h3>“非鸡”窗口</h3>
+          <p>一鸡独大下政府渴求多元化，文旅升支柱产业、消费业态留白——含商业/酒店/康养/品质居住的项目叙事最易获支持</p>
+        </div>
+      </div>
+      <div class="verdict"><span class="vh">附 · 时机判断</span>换届年 + 十五五开局 + 总规动态维护，2026 下半年是政策窗口期</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== P16 沟通建议 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P16</span></header>
+    <h2 class="p-title">沟通建议 <span class="t-sub">（与县政府谈什么、怎么谈）</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="rows">
+        <div class="row"><b>项目叙事</b><div>把项目讲成“补城市功能短板”——聚人气（居住+商业）、留消费（文旅配套）、服务产业人口（圣农 3.4 万员工及技工学校师生）</div></div>
+        <div class="row"><b>规划条件</b><div>借总规动态维护窗口，就地块容积率、商住比、配套代建提出优化诉求（错过需等例行评估周期）</div></div>
+        <div class="row"><b>价值锚定</b><div>以已兑现配套（综合体 2026 国庆投用、两校 2026.9 开学）为定价依据；分期开发与铁路进展挂钩</div></div>
+        <div class="row"><b>地块选择</b><div>城西先行区成熟地块 <em class="hl">优先于</em> 纯高铁概念地块；核实地块与综合体、学校的相对位置</div></div>
+        <div class="row"><b>政策工具</b><div>争取将项目房源纳入“共有产权”房票范围；关注 700 亩批而未供土地清理中的机会</div></div>
+        <div class="row"><b>对接线索</b><div>县委书记王贵、县长郭锋（商务口出身）；县自然资源局（规划股）、发改科技局（铁办）、住建局</div></div>
+      </div>
+      <div class="sub">尽调清单</div>
+      <ul class="todo">
+        <li>城西新城控规修编成稿（未公示）</li>
+        <li>目标地块的规划条件与征迁状态</li>
+        <li>房票政策细则</li>
+        <li>乡镇总规批复进展</li>
+        <li>启天壹號苑动向</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== P17 风险提示与资料说明 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">光泽县城市规划研究 · 恒荣集团内部参考</span><span class="p-no">P17</span></header>
+    <h2 class="p-title">风险提示与资料说明</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="cols2">
+        <div>
+          <div class="sub">五大风险</div>
+          <ol class="risks">
+            <li>铁路兑现重大不确定（温武吉 6 年未过审）</li>
+            <li>市场容量极小（年销 5 亿量级）</li>
+            <li>人口持续收缩</li>
+            <li>圣农周期波动传导（2025 规上工业利润 <em class="hl">-84.5%</em>）</li>
+            <li>政策依赖（房票退坡后的自然去化存疑）</li>
+          </ol>
+        </div>
+        <div>
+          <div class="sub">资料说明</div>
+          <p class="srclist" style="color:rgba(232,230,225,.72);font-size:13px;">本页内容全部基于公开资料整理（县政府公报与规划公示、省市批复文件、统计公报、官方媒体、土地与房产公开数据），截至 2026-07-19；推断性结论均已标注；关键数据建议会前二次核实</p>
+          <div class="sub">主要来源</div>
+          <p class="srclist">光泽县人民政府网 · 光泽县统计局历年统计公报 · 福建省自然资源厅 · 南平市政府 · 武夷山国家公园管理局 · 光泽新闻网 · 闽北日报 · 人民网 · 中国土地市场网 · 中指云</p>
+        </div>
+      </div>
+      <div class="verdict"><span class="vh">附注</span>完整研究底稿（12 份维度报告 + 交叉验证 + 洞察分析）另存，可供调阅</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /track -->
+</div><!-- /deck -->
+
+<!-- 桌面两侧翻页按钮 -->
+<button class="side-nav side-prev" id="sidePrev" aria-label="上一页">‹</button>
+<button class="side-nav side-next" id="sideNext" aria-label="下一页">›</button>
+
+<!-- 底部导航栏 -->
+<div class="bar">
+  <button class="nav-arrow" id="btnPrev" aria-label="上一页">‹</button>
+  <div class="bar-mid">
+    <button class="text-btn" id="btnFirst">首页</button>
+    <div class="dots" id="dots"></div>
+    <div class="counter" id="counter"><b>1</b> / 17</div>
+    <button class="text-btn" id="btnLast">末页</button>
+  </div>
+  <button class="nav-arrow" id="btnNext" aria-label="下一页">›</button>
+</div>
+
+<script>
+(function(){
+  var track=document.getElementById('track');
+  var pages=track.children;
+  var total=pages.length;
+  var idx=0;
+
+  var dots=document.getElementById('dots');
+  for(var i=0;i<total;i++){
+    var d=document.createElement('button');
+    d.className='dot';
+    d.setAttribute('aria-label','第 '+(i+1)+' 页');
+    (function(el,n){el.addEventListener('click',function(){go(n);});})(d,i);
+    dots.appendChild(d);
+  }
+
+  var counter=document.getElementById('counter');
+  var btnPrev=document.getElementById('btnPrev'),btnNext=document.getElementById('btnNext');
+  var btnFirst=document.getElementById('btnFirst'),btnLast=document.getElementById('btnLast');
+  var sidePrev=document.getElementById('sidePrev'),sideNext=document.getElementById('sideNext');
+
+  function setDis(el,off){if(!el)return;if(off){el.setAttribute('disabled','');}else{el.removeAttribute('disabled');}}
+
+  function updateUI(){
+    var ds=dots.children;
+    for(var i=0;i<total;i++){ds[i].className='dot'+(i===idx?' on':'');}
+    counter.innerHTML='<b>'+(idx+1)+'</b> / '+total;
+    setDis(btnPrev,idx===0);setDis(sidePrev,idx===0);setDis(btnFirst,idx===0);
+    setDis(btnNext,idx===total-1);setDis(sideNext,idx===total-1);setDis(btnLast,idx===total-1);
+    try{history.replaceState(null,'','#p'+(idx+1));}catch(e){}
+  }
+
+  function go(n,smooth){
+    n=Math.max(0,Math.min(total-1,n));
+    track.scrollTo({left:n*track.clientWidth,behavior:(smooth===false?'auto':'smooth')});
+  }
+
+  btnPrev.addEventListener('click',function(){go(idx-1);});
+  btnNext.addEventListener('click',function(){go(idx+1);});
+  sidePrev.addEventListener('click',function(){go(idx-1);});
+  sideNext.addEventListener('click',function(){go(idx+1);});
+  btnFirst.addEventListener('click',function(){go(0);});
+  btnLast.addEventListener('click',function(){go(total-1);});
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){go(idx-1);e.preventDefault();}
+    else if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){go(idx+1);e.preventDefault();}
+    else if(e.key==='Home'){go(0);e.preventDefault();}
+    else if(e.key==='End'){go(total-1);e.preventDefault();}
+  });
+
+  var raf=null;
+  track.addEventListener('scroll',function(){
+    if(raf)return;
+    raf=requestAnimationFrame(function(){
+      raf=null;
+      var w=track.clientWidth||1;
+      var n=Math.round(track.scrollLeft/w);
+      n=Math.max(0,Math.min(total-1,n));
+      if(n!==idx){
+        var sc=pages[idx]&&pages[idx].querySelector('.p-scroll');
+        if(sc){sc.scrollTop=0;}
+        idx=n;
+        updateUI();
+      }
+    });
+  },{passive:true});
+
+  var m=(location.hash||'').match(/p(\d+)/i);
+  var start=0;
+  if(m){var n=parseInt(m[1],10);if(n>=1&&n<=total){start=n-1;}}
+  idx=start;
+  go(start,false);
+  updateUI();
+})();
+</script>
+</body>
+</html>
