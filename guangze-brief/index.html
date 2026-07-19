@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>7·21 光泽会谈背景资料 — 恒荣集团内部参考</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+  background:#0C1424;color:#E8E6E1;font-size:16px;line-height:1.7;
+  overflow:hidden;overscroll-behavior:none;-webkit-font-smoothing:antialiased;
+}
+button{font-family:inherit;cursor:pointer;}
+button:focus-visible{outline:2px solid rgba(201,162,39,.7);outline-offset:2px;}
+
+/* ============ 翻页轨道 ============ */
+.deck{height:100vh;height:100dvh;overflow:hidden;position:relative;}
+.track{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding:0;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}
+.track::-webkit-scrollbar{display:none;}
+.page{flex:0 0 100%;height:100%;position:relative;background:#0C1424;scroll-snap-align:start;scroll-snap-stop:always;}
+.page:nth-child(even){background:#101B30;}
+.sheet{position:relative;max-width:780px;margin:0 auto;height:100%;display:flex;flex-direction:column;
+  padding:20px 22px calc(94px + env(safe-area-inset-bottom));}
+@media(min-width:769px){.sheet{max-width:860px;padding-top:34px;}}
+
+/* ============ 页眉 / 标题 / 来源 ============ */
+.p-head{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  font-size:11px;letter-spacing:.16em;color:rgba(232,230,225,.45);white-space:nowrap;}
+.p-kicker{overflow:hidden;text-overflow:ellipsis;}
+.p-kicker::before{content:"";display:inline-block;width:7px;height:7px;background:#C9A227;
+  transform:rotate(45deg);margin-right:9px;vertical-align:1px;}
+.p-no{color:rgba(201,162,39,.8);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+.p-title{font-size:clamp(21px,5.4vw,30px);font-weight:700;line-height:1.35;margin-top:10px;letter-spacing:.02em;}
+.p-title .t-sub{font-size:.62em;font-weight:500;color:rgba(232,230,225,.6);}
+@media(max-width:768px){.p-title .t-sub{display:block;margin-top:3px;}}
+.p-rule{width:44px;height:3px;background:#C9A227;margin:12px 0 4px;}
+.p-scroll{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding:12px 2px 8px;scrollbar-width:thin;scrollbar-color:rgba(201,162,39,.4) transparent;}
+.p-scroll::-webkit-scrollbar{width:4px;}
+.p-scroll::-webkit-scrollbar-thumb{background:rgba(201,162,39,.35);border-radius:2px;}
+.p-src{font-size:11px;line-height:1.65;color:rgba(232,230,225,.45);
+  border-top:1px solid rgba(232,230,225,.12);padding-top:8px;margin-top:4px;}
+
+/* ============ 大数字卡片 ============ */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0 14px;}
+@media(min-width:769px){
+  .stats.c3{grid-template-columns:repeat(3,1fr);}
+  .stats.c4{grid-template-columns:repeat(4,1fr);}
+}
+.stat{background:rgba(255,255,255,.035);border:1px solid rgba(232,230,225,.10);border-radius:12px;padding:12px 14px 10px;}
+.stat .n{display:block;color:#C9A227;font-weight:700;font-size:clamp(22px,6vw,31px);
+  line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:.01em;}
+.stat .n small{font-size:.44em;font-weight:600;margin-left:3px;color:rgba(201,162,39,.85);}
+.stat .c{display:block;font-size:12px;line-height:1.55;color:rgba(232,230,225,.64);margin-top:5px;}
+
+/* ============ 要点列表 ============ */
+ul.pts{list-style:none;margin:8px 0 4px;}
+ul.pts>li{position:relative;padding-left:19px;margin-bottom:11px;font-size:16px;line-height:1.75;}
+ul.pts>li::before{content:"";position:absolute;left:2px;top:.68em;width:7px;height:7px;
+  background:#C9A227;transform:rotate(45deg);opacity:.9;}
+ul.pts ul{list-style:none;margin-top:8px;}
+ul.pts ul li{position:relative;padding-left:17px;margin-bottom:8px;font-size:15px;line-height:1.7;color:rgba(232,230,225,.88);}
+ul.pts ul li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;
+  border:1.5px solid rgba(201,162,39,.8);border-radius:50%;}
+.dense li{margin-bottom:8px;}
+.tg{color:#C9A227;font-weight:600;}
+em.hl{font-style:normal;color:#C9A227;font-weight:600;font-variant-numeric:tabular-nums;}
+
+/* ============ 判断 / 注释 / 小节 ============ */
+.verdict{margin:14px 0 4px;border-left:3px solid #C9A227;background:rgba(201,162,39,.08);
+  padding:10px 14px;border-radius:0 10px 10px 0;font-size:15px;line-height:1.75;}
+.verdict .vh{display:block;font-size:11.5px;letter-spacing:.22em;color:#C9A227;font-weight:600;margin-bottom:3px;}
+.note{font-size:12.5px;line-height:1.65;color:rgba(232,230,225,.55);margin:6px 0 2px;}
+.sub{font-size:12.5px;letter-spacing:.18em;color:#C9A227;font-weight:600;margin:16px 0 8px;
+  display:flex;align-items:center;gap:10px;}
+.sub::before{content:"";width:16px;height:1px;background:#C9A227;flex:none;}
+
+/* ============ 流程节点 ============ */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 4px;}
+.flow .st{background:rgba(255,255,255,.045);border:1px solid rgba(232,230,225,.13);
+  border-radius:8px;padding:6px 11px;font-size:13px;line-height:1.55;}
+.flow .ar{color:#C9A227;font-size:13px;font-weight:600;}
+
+/* ============ 判断卡 ============ */
+.jcards{display:grid;gap:12px;margin:12px 0 4px;}
+@media(min-width:769px){.jcards{grid-template-columns:repeat(3,1fr);}}
+.jcard{background:rgba(255,255,255,.035);border:1px solid rgba(232,230,225,.12);
+  border-top:2px solid #C9A227;border-radius:12px;padding:15px 16px;}
+.jcard .jno{font-size:11.5px;letter-spacing:.28em;color:#C9A227;font-weight:700;}
+.jcard h3{font-size:17px;line-height:1.5;margin:7px 0 8px;}
+.jcard p{font-size:14.5px;line-height:1.75;color:rgba(232,230,225,.88);}
+
+/* ============ 标签行 / 待办 / 风险 ============ */
+.rows{border-top:1px solid rgba(232,230,225,.1);margin-top:6px;}
+.row{display:flex;gap:12px;padding:10px 2px;border-bottom:1px dashed rgba(232,230,225,.12);}
+.row b{flex:none;width:4.6em;color:#C9A227;font-weight:600;font-size:14px;line-height:1.8;}
+.row div{flex:1;font-size:15px;line-height:1.75;}
+ul.todo{list-style:none;counter-reset:td;margin:4px 0;}
+ul.todo li{counter-increment:td;position:relative;padding-left:30px;margin-bottom:8px;font-size:14.5px;line-height:1.7;}
+ul.todo li::before{content:counter(td);position:absolute;left:0;top:.28em;width:18px;height:18px;
+  border:1px solid rgba(201,162,39,.7);border-radius:50%;color:#C9A227;font-size:11px;
+  display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;}
+.cols2{display:grid;gap:18px;}
+@media(min-width:769px){.cols2{grid-template-columns:1fr 1fr;gap:26px;}}
+ol.risks{list-style:none;counter-reset:rk;margin:4px 0;}
+ol.risks li{counter-increment:rk;position:relative;padding-left:34px;margin-bottom:11px;font-size:15px;line-height:1.7;}
+ol.risks li::before{content:"0" counter(rk);position:absolute;left:0;top:.3em;color:#C9A227;
+  font-size:13px;font-weight:700;letter-spacing:.05em;font-variant-numeric:tabular-nums;}
+.srclist{font-size:12px;line-height:1.85;color:rgba(232,230,225,.55);}
+
+/* ============ 恒荣高亮卡 ============ */
+.hrcard{margin:12px 0 4px;border:1px solid rgba(201,162,39,.55);background:rgba(201,162,39,.07);
+  border-radius:12px;padding:12px 15px;font-size:15px;line-height:1.75;}
+.hrcard .vh{display:block;font-size:11.5px;letter-spacing:.22em;color:#C9A227;font-weight:600;margin-bottom:3px;}
+
+/* ============ 原文引用块 / 表格 / 影像图 ============ */
+.q{margin:10px 0 4px;border-left:3px solid rgba(201,162,39,.7);background:rgba(255,255,255,.03);
+  padding:10px 14px;border-radius:0 10px 10px 0;font-size:14.5px;line-height:1.8;color:rgba(232,230,225,.9);}
+.q .qh{display:block;font-size:11.5px;letter-spacing:.2em;color:#C9A227;font-weight:600;margin-bottom:4px;}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0 6px;}
+.tbl th,.tbl td{border:1px solid rgba(232,230,225,.15);padding:8px 10px;text-align:left;line-height:1.6;}
+.tbl th{background:rgba(201,162,39,.12);color:#C9A227;font-weight:600;font-size:13px;letter-spacing:.04em;white-space:nowrap;}
+.tbl td:first-child{color:rgba(232,230,225,.62);white-space:nowrap;font-size:13.5px;}
+.tbl td b{color:#C9A227;font-weight:600;font-variant-numeric:tabular-nums;}
+.p-img{display:block;width:100%;border-radius:12px;border:1px solid rgba(232,230,225,.16);margin:10px 0 6px;}
+.p-cap{font-size:12px;line-height:1.7;color:rgba(232,230,225,.58);}
+.p-cap b{color:rgba(201,162,39,.9);font-weight:600;}
+
+/* ============ 封面 ============ */
+.cover-sheet{text-align:center;align-items:stretch;overflow-y:auto;}
+.cv-kicker{font-size:11px;letter-spacing:.22em;color:rgba(232,230,225,.45);padding-top:6px;}
+.cv-main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.cv-eyebrow{font-size:12px;letter-spacing:.34em;color:rgba(201,162,39,.9);margin-bottom:22px;text-indent:.34em;}
+.cv-title{font-size:clamp(32px,9vw,52px);font-weight:700;letter-spacing:.1em;line-height:1.25;text-indent:.1em;}
+.cv-sub{font-size:clamp(17px,4.6vw,24px);font-weight:600;letter-spacing:.22em;margin-top:12px;color:rgba(232,230,225,.94);text-indent:.22em;}
+.cv-rule{display:flex;align-items:center;justify-content:center;gap:12px;margin:22px 0;}
+.cv-rule::before,.cv-rule::after{content:"";width:58px;height:1px;background:rgba(201,162,39,.65);}
+.cv-rule i{width:9px;height:9px;background:#C9A227;transform:rotate(45deg);}
+.cv-tagline{font-size:15px;letter-spacing:.12em;color:rgba(232,230,225,.85);}
+.cv-date{font-size:12px;line-height:1.8;color:rgba(232,230,225,.5);margin-top:14px;letter-spacing:.06em;}
+.cv-info{text-align:left;margin:4px auto 0;max-width:640px;width:100%;}
+.cv-foot{font-size:11px;letter-spacing:.2em;color:rgba(232,230,225,.4);text-align:center;padding-top:14px;}
+
+/* ============ 底部导航栏 ============ */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;align-items:center;
+  justify-content:space-between;padding:10px 12px calc(10px + env(safe-area-inset-bottom));pointer-events:none;}
+.bar-mid{pointer-events:auto;display:flex;align-items:center;gap:12px;
+  background:rgba(13,22,40,.8);border:1px solid rgba(232,230,225,.14);border-radius:999px;padding:7px 15px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.nav-arrow{pointer-events:auto;width:42px;height:42px;flex:none;border-radius:50%;
+  border:1px solid rgba(232,230,225,.16);background:rgba(13,22,40,.8);color:rgba(232,230,225,.85);
+  font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:border-color .2s,color .2s;}
+.nav-arrow:active{border-color:rgba(201,162,39,.7);color:#C9A227;}
+.nav-arrow[disabled],.text-btn[disabled]{opacity:.28;pointer-events:none;}
+.text-btn{border:none;background:none;color:rgba(232,230,225,.6);font-size:12px;letter-spacing:.1em;padding:4px 2px;}
+.text-btn:active{color:#C9A227;}
+.dots{display:flex;align-items:center;gap:5px;}
+.dot{width:6px;height:6px;border-radius:3px;border:none;background:rgba(232,230,225,.22);padding:0;transition:all .25s;}
+.dot.on{background:#C9A227;width:16px;}
+.counter{font-size:12.5px;color:rgba(232,230,225,.62);font-variant-numeric:tabular-nums;letter-spacing:.05em;white-space:nowrap;}
+.counter b{color:#C9A227;font-weight:600;}
+
+/* ============ 桌面侧栏箭头 ============ */
+.side-nav{position:fixed;top:50%;transform:translateY(-50%);z-index:40;width:46px;height:66px;
+  border-radius:12px;border:1px solid rgba(232,230,225,.16);background:rgba(13,22,40,.55);
+  color:rgba(232,230,225,.8);font-size:26px;display:none;align-items:center;justify-content:center;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:all .2s;}
+.side-nav:hover{border-color:rgba(201,162,39,.6);color:#C9A227;}
+.side-nav[disabled]{opacity:.22;pointer-events:none;}
+.side-prev{left:16px;}.side-next{right:16px;}
+@media(min-width:900px){
+  .side-nav{display:flex;}
+  .bar{justify-content:center;}
+  .bar .nav-arrow{display:none;}
+}
+@media(max-width:399px){.dots{display:none;}}
+</style>
+</head>
+<body>
+<noscript><div style="position:fixed;top:0;left:0;right:0;z-index:60;text-align:center;font-size:12px;letter-spacing:.08em;color:#C9A227;background:rgba(12,20,36,.92);padding:7px 10px;">当前为无脚本模式：直接左右滑动即可翻页</div></noscript>
+<div class="deck" id="deck">
+<div class="track" id="track">
+
+<!-- ========== P1 封面 / 会谈信息卡 ========== -->
+<section class="page cover">
+  <div class="sheet cover-sheet">
+    <div class="cv-kicker">恒荣集团 · 内部参考 · 事实与依据汇编</div>
+    <div class="cv-main">
+      <div class="cv-eyebrow">呈许星总裁参阅</div>
+      <h1 class="cv-title">7·21 光泽会谈</h1>
+      <div class="cv-sub">背景资料汇编</div>
+      <div class="cv-rule"><i></i></div>
+      <div class="cv-tagline">鸾凤烟草站地块及 350723-01-A-36 地块 · 背景事实与待核事项</div>
+      <div class="cv-date">会谈：2026-07-21（周二）15:00 ｜ 整理日期：2026-07-19</div>
+      <div class="cv-info">
+        <div class="rows">
+          <div class="row"><b>时间</b><div>2026-07-21（周二）<em class="hl">15:00</em></div></div>
+          <div class="row"><b>地点</b><div>光泽县县委接待室</div></div>
+          <div class="row"><b>对方</b><div>李强副县长（分管自然资源）、杨慧（县自然资源局局长）</div></div>
+          <div class="row"><b>我方</b><div>许星总裁、汪云飞、曲培文等共 5 人</div></div>
+          <div class="row"><b>晚宴</b><div>县委统一安排。确定出席：县委书记王贵、圣农集团傅芬芳、许总；其余陪同人员周一由圣农集团行政部胡志浩对接后同步</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cv-foot">共 12 页 · 左右滑动或点击按钮翻页</div>
+  </div>
+</section>
+
+<!-- ========== P2 恒荣在光泽 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P2</span></header>
+    <h2 class="p-title">恒荣在光泽 <span class="t-sub">——四盘沿革，本项目为第五盘</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="flow">
+        <span class="st">2013 汇金广场</span><span class="ar">→</span>
+        <span class="st">印象巴黎（恒荣南郡）</span><span class="ar">→</span>
+        <span class="st">荣辉·凡尔赛</span><span class="ar">→</span>
+        <span class="st">桃李春风</span><span class="ar">→</span>
+        <span class="st">本项目</span>
+      </div>
+      <ul class="pts" style="margin-top:12px;">
+        <li><b class="tg">2013 年：</b>首进城南，开发汇金广场</li>
+        <li><b class="tg">其后：</b>在汇金广场对面开发印象巴黎（备案名<em class="hl">恒荣南郡</em>，已售罄；二手挂牌约 <em class="hl">9,000 元/㎡</em>、全县最高）</li>
+        <li><b class="tg">此后：</b>与辉腾置业合资荣辉置业，开发城南荣辉·凡尔赛</li>
+        <li><b class="tg">再后：</b>与朗著集团合作桃李春风</li>
+      </ul>
+      <div class="stats c3">
+        <div class="stat"><span class="n">715<small>套</small></span><span class="c">桃李春风总套数</span></div>
+        <div class="stat"><span class="n">655<small>套</small></span><span class="c">桃李春风已售</span></div>
+        <div class="stat"><span class="n">约九成</span><span class="c">桃李春风去化率</span></div>
+      </div>
+      <div class="hrcard"><span class="vh">平台公司</span>荣辉置业是恒荣在光泽的合作平台公司</div>
+    </div>
+    <footer class="p-src">来源：恒荣集团内部资料、光泽县房地产信息网</footer>
+  </div>
+</section>
+
+<!-- ========== P3 目标地块·指标 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P3</span></header>
+    <h2 class="p-title">目标地块 · 规划指标</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <table class="tbl">
+        <tr><th>指标</th><th>鸾凤烟草站地块</th><th>350723-01-A-36 地块</th></tr>
+        <tr><td>面积</td><td><b>45.42 亩</b>（约 30,280 ㎡）</td><td><b>54.32 亩</b></td></tr>
+        <tr><td>容积率</td><td>1.1–2.2</td><td>1.1–2.0</td></tr>
+        <tr><td>建筑密度</td><td>≤30%</td><td>≤25%</td></tr>
+        <tr><td>绿地率</td><td>≥30%</td><td>≥30%</td></tr>
+        <tr><td>建筑限高</td><td>≤45 米</td><td>≤50 米</td></tr>
+      </table>
+      <div class="stats c3">
+        <div class="stat"><span class="n">99.7<small>亩</small></span><span class="c">两宗合计面积（相邻）</span></div>
+        <div class="stat"><span class="n">约6.7<small>万㎡</small></span><span class="c">烟草站地块满容计容建面</span></div>
+        <div class="stat"><span class="n">约600<small>套</small></span><span class="c">满容估算套数（按套均 110 ㎡）</span></div>
+      </div>
+      <div class="verdict"><span class="vh">地上物与权属</span>影像显示地块内有烟草站仓库等地上物；权属与收储状态<em class="hl">【待核】</em>（疑为烟草系统存量建设用地）</div>
+    </div>
+    <footer class="p-src">来源：02-初步经济指标（项目影像套合图指标标注）</footer>
+  </div>
+</section>
+
+<!-- ========== P4 目标地块·影像 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P4</span></header>
+    <h2 class="p-title">目标地块 · 影像套合图</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <img class="p-img" src="aerial-luanfeng.jpg" alt="鸾凤烟草站地块与350723-01-A-36地块影像套合图">
+      <p class="p-cap"><b>图注：</b>鸾凤烟草站地块 <em class="hl">45.42 亩</em>与 350723-01-A-36 地块 <em class="hl">54.32 亩</em>影像套合图（已按指北针方向扶正，N 朝上；比例 1:4,000）。红线内可见烟草站仓库等地上物，东、南两侧紧邻村庄，西、北侧为山前地带。来源：02-初步经济指标。</p>
+    </div>
+    <footer class="p-src">来源：02-初步经济指标 · 项目影像套合图</footer>
+  </div>
+</section>
+
+<!-- ========== P5 区位事实 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P5</span></header>
+    <h2 class="p-title">区位事实 <span class="t-sub">——鸾凤镇与城区关系</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="stats c3">
+        <div class="stat"><span class="n">约3<small>公里</small></span><span class="c">十里铺距县城 · G316 入城门户</span></div>
+        <div class="stat"><span class="n">34,016<small>人</small></span><span class="c">圣农发展 2025 年员工数</span></div>
+        <div class="stat"><span class="n">+5,520<small>人</small></span><span class="c">圣农发展员工年增量</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">区位：</b>鸾凤镇在县城正南；十里铺距县城约 3 公里，为 G316 入城门户</li>
+        <li><b class="tg">产业人口：</b>圣农集团总部在十里铺；圣农发展 2025 年员工 <em class="hl">34,016 人</em>、年增 <em class="hl">5,520 人</em></li>
+        <li><b class="tg">总规定位：</b>县国土空间总规中，"鸾凤河谷产城融合发展区"属中心城区范围</li>
+        <li><b class="tg">发展方向：</b>城市发展方向"东控、西备、南联、北拓"，鸾凤对应<em class="hl">"南联"</em></li>
+        <li><b class="tg">城乡融合：</b>武林、文昌、坪山、中坊等村已与城区融合</li>
+      </ul>
+    </div>
+    <footer class="p-src">来源：光泽县国土空间总体规划、圣农发展 2025 年年度报告、公开资料</footer>
+  </div>
+</section>
+
+<!-- ========== P6 市场基本面 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P6</span></header>
+    <h2 class="p-title">市场基本面</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="stats c4">
+        <div class="stat"><span class="n">12.55<small>万</small></span><span class="c">常住人口 · 南平最少、连年下降；城区约 7.1 万</span></div>
+        <div class="stat"><span class="n">144.68<small>亿元</small></span><span class="c">2025 年 GDP（+6.2%）</span></div>
+        <div class="stat"><span class="n">967<small>套</small></span><span class="c">2025 年住宅销售 · 约 9.62 万㎡ / 3.97 亿元</span></div>
+        <div class="stat"><span class="n">550–600<small>套</small></span><span class="c">全县可售住宅存量（约）</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">成交结构：</b>2025 年 2 月与 11 月两个集中备案占全年销量一半以上</li>
+        <li><b class="tg">单月极值：</b>2025-12 单月 <em class="hl">48 套</em>；2026-02 单月仅 <em class="hl">4 套</em></li>
+        <li><b class="tg">竞品流速：</b>在售竞品月均去化 1–20 套</li>
+      </ul>
+      <div class="verdict"><span class="vh">提示</span>本地块满容约 600 套 ≈ 全县一年成交量（967 套）的六成</div>
+    </div>
+    <footer class="p-src">来源：光泽县 2025 年国民经济和社会发展统计公报、04-光泽市场简报、光泽县房地产信息网</footer>
+  </div>
+</section>
+
+<!-- ========== P7 价格坐标 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P7</span></header>
+    <h2 class="p-title">价格坐标 <span class="t-sub">——房价与地价记录</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll dense">
+      <div class="sub">房价</div>
+      <ul class="pts">
+        <li>新房城区单幢成交约 <em class="hl">6,000–6,500 元/㎡</em>；圣农系华圣澜山挂牌约 5,600 元/㎡</li>
+        <li>官方评估价：鸾凤近城片区 <em class="hl">4,020 元/㎡</em></li>
+        <li>二手：恒荣南郡约 <em class="hl">9,000 元/㎡</em>（全县最高）；多数小区 4,000–5,500 元/㎡</li>
+      </ul>
+      <div class="sub">地价记录</div>
+      <div class="rows">
+        <div class="row"><b>历史区间</b><div>光泽宅地楼面价 <em class="hl">1,622–3,828 元/㎡</em></div></div>
+        <div class="row"><b>2022-03</b><div>桃李春风地块：1.65 亿成交，楼面价 2,033 元/㎡，溢价 48.65%</div></div>
+        <div class="row"><b>2025-11</b><div>高铁片区 G-27（约 97 亩居住）起价 1.141 亿；G-24（约 75 亩）起价 9,200 万</div></div>
+        <div class="row"><b>2026-03</b><div>市监局南侧 GZP202601（2,978 ㎡）：启天 2,280 万竞得，楼面价 <em class="hl">3,828 元/㎡</em>，溢价 26.7%</div></div>
+        <div class="row"><b>2025-12</b><div>GZP202501 成交：成交价与竞得人<em class="hl">【待核】</em></div></div>
+      </div>
+    </div>
+    <footer class="p-src">来源：中国土地市场网、光泽县房地产信息网、公开成交记录</footer>
+  </div>
+</section>
+
+<!-- ========== P8 房票政策依据 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P8</span></header>
+    <h2 class="p-title">房票政策依据 <span class="t-sub">——光政规〔2024〕4 号</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll dense">
+      <p class="note" style="color:rgba(232,230,225,.8);font-size:14px;">《2024 年光泽县城市更新房票安置实施细则》（光政规〔2024〕4 号）原文要点：</p>
+      <div class="q"><span class="qh">原文摘录</span>"房地产企业竞得国有建设用地后，允许其用持有的未兑付房票，用于支付新竞得的经营性房地产项目的土地出让金，也可用于购置国有固定资产……具体实施办法由县自然资源局另行制定"</div>
+      <ul class="pts" style="margin-top:10px;">
+        <li>房票可实名转让<em class="hl">一次</em>，转让后不可再转让</li>
+        <li>可向县红杉资产运营发展有限公司申请拆分结算</li>
+        <li>票面经县财政局、县房屋征收中心、红杉公司三方盖章生效</li>
+      </ul>
+      <div class="sub">共有产权房票</div>
+      <div class="stats c3">
+        <div class="stat"><span class="n">1<small>亿元</small></span><span class="c">县授权红杉集团统筹，为购房者付首付</span></div>
+        <div class="stat"><span class="n">20<small>万/套</small></span><span class="c">每套最高补贴</span></div>
+        <div class="stat"><span class="n">870<small>套</small></span><span class="c">2025 年全县认购</span></div>
+      </div>
+      <p class="note">兑付方式由实施单位与房企另行签订兑付协议。</p>
+      <div class="sub">周边先例</div>
+      <ul class="pts">
+        <li>尤溪县：共有产权房票可兑付不超过单宗土地出让金 <em class="hl">50%</em>、上限 <em class="hl">5,000 万</em></li>
+      </ul>
+    </div>
+    <footer class="p-src">来源：光政规〔2024〕4 号《2024 年光泽县城市更新房票安置实施细则》、尤溪县公开政策文件</footer>
+  </div>
+</section>
+
+<!-- ========== P9 房票待核事项 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P9</span></header>
+    <h2 class="p-title">房票待核事项 <span class="t-sub">——均为会前内部待核</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <p class="note" style="color:rgba(232,230,225,.8);font-size:14px;">核对主体：荣辉置业（桃李春风项目公司）持有房票情况。</p>
+      <ul class="todo" style="margin-top:10px;">
+        <li>持有房票的<b class="tg">类型</b>（征迁房票 / 共有产权房票）</li>
+        <li>持有房票的<b class="tg">面额、张数、有效期</b></li>
+        <li>是否已有<b class="tg">转让记录</b>（"转让后不可再转让"为关键约束）</li>
+        <li><b class="tg">兑付协议</b>条款（与实施单位签订的具体兑付安排）</li>
+        <li>合作方（辉腾 / 朗著）<b class="tg">内部授权</b>情况</li>
+      </ul>
+      <div class="verdict"><span class="vh">提示</span>以上各项均为会前内部待核事项，暂无书面结论</div>
+    </div>
+    <footer class="p-src">来源：集团内部待核清单（2026-07-19 整理）</footer>
+  </div>
+</section>
+
+<!-- ========== P10 中山北路大桥 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P10</span></header>
+    <h2 class="p-title">中山北路大桥 <span class="t-sub">——已经县住建局原局长何燕核实</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="stats">
+        <div class="stat"><span class="n">约2.13<small>亿元</small></span><span class="c">富屯溪流域防洪提升工程光泽段总投 · 已将大桥纳入工程衔接</span></div>
+        <div class="stat"><span class="n">未启动</span><span class="c">已列入交通规划，尚未开工建设</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">桥位：</b>中山路延伸跨富屯溪接武林路的规划桥，正式名称为<em class="hl">"中山北路大桥"</em></li>
+        <li><b class="tg">状态：</b>已列入交通规划、尚未启动</li>
+        <li><b class="tg">滞后原因：</b>拆迁——涉及农村信用社大楼、实验小学杭川书院，县里仍在权衡取舍</li>
+        <li><b class="tg">工程衔接：</b>县水利局城区防洪堤项目（富屯溪流域防洪提升工程光泽段，总投约 <em class="hl">2.13 亿</em>）已将大桥纳入工程衔接</li>
+      </ul>
+      <p class="note">信息来源：县住建局原局长何燕（已核实）。</p>
+    </div>
+    <footer class="p-src">来源：县住建局原局长何燕核实、县水利局项目公开信息</footer>
+  </div>
+</section>
+
+<!-- ========== P11 邻避事项·公墓 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P11</span></header>
+    <h2 class="p-title">邻避事项 <span class="t-sub">——县城市公益性公墓</span></h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll">
+      <div class="stats c3">
+        <div class="stat"><span class="n">148.78<small>亩</small></span><span class="c">公墓规划建设面积</span></div>
+        <div class="stat"><span class="n">约1–3<small>公里</small></span><span class="c">与目标地块直线距离估计（最坏情形约 5 公里）</span></div>
+        <div class="stat"><span class="n">【待核】</span><span class="c">精确距离与可视关系</span></div>
+      </div>
+      <ul class="pts">
+        <li><b class="tg">项目：</b>光泽县城市公益性公墓，省民政厅 2025-07-23 批复（闽民事〔2025〕88 号）</li>
+        <li><b class="tg">选址：</b>杭川镇农场楼下组；征地涉及杭川镇与鸾凤镇中坊村交界，主地块四面至山地</li>
+        <li><b class="tg">相对位置：</b>经地图数据研判，与目标地块同处县城东南十里铺—中坊村 G316 走廊，直线距离估计约 <em class="hl">1–3 公里</em>（最坏情形约 5 公里）</li>
+        <li><b class="tg">待核：</b>精确距离——可通过两宗红线图矢量叠加确定；山体遮挡与可视关系需现场踏勘确认</li>
+      </ul>
+    </div>
+    <footer class="p-src">来源：福建省民政厅（闽民事〔2025〕88 号）、光泽县人民政府征地预公告、公开地图数据研判（2026-07-19）</footer>
+  </div>
+</section>
+
+<!-- ========== P12 规划条件与会前事项 ========== -->
+<section class="page">
+  <div class="sheet">
+    <header class="p-head"><span class="p-kicker">7·21 光泽会谈背景资料 · 恒荣集团内部参考</span><span class="p-no">P12</span></header>
+    <h2 class="p-title">规划条件与会前事项</h2>
+    <div class="p-rule"></div>
+    <div class="p-scroll dense">
+      <div class="sub">规划条件现状</div>
+      <ul class="pts">
+        <li>地块现行规划条件：容积率 <em class="hl">1.1–2.2</em> 区间、限高 <em class="hl">45 米</em>等（正式《规划设计条件通知书》未出具）</li>
+        <li>县国土空间总规动态维护 2026-07-01 起公示中</li>
+        <li>2026-02-09《圣农总部周边地块控规局部地块动态维护》批前公示，与本地块关系<em class="hl">【待核】</em></li>
+        <li>2026 年县城市工作主线："东西齐飞、南北贯通"、"两岸六片区" 40+ 更新项目</li>
+      </ul>
+      <div class="sub">会前事项（事实类）</div>
+      <ul class="todo">
+        <li>核荣辉房票底数</li>
+        <li>打印光政规〔2024〕4 号原文</li>
+        <li>现场踏勘（地块、公墓可视关系、桥位）</li>
+        <li>向县自然资源局索取宗地图 / 规划条件 / 供地计划 / 批而未供清单</li>
+        <li>周一接收胡志浩同步的晚宴安排</li>
+      </ul>
+      <div class="sub">资料来源</div>
+      <p class="srclist">项目文件（02-初步经济指标、04-光泽市场简报、05-投资估算表、06-土地储备审批表）· 光泽县人民政府网 · 福建省民政厅 · 光政规〔2024〕4 号 · 光泽县房地产信息网 · 公开土地市场信息</p>
+      <p class="srclist" style="margin-top:6px;">整理日期：2026-07-19 ｜ 本汇编仅列事实与依据，拿不准的信息均已标注【待核】</p>
+    </div>
+    <footer class="p-src">来源：光泽县人民政府网、县自然资源局公示、项目文件（2026-07-19 整理）</footer>
+  </div>
+</section>
+
+</div><!-- /track -->
+</div><!-- /deck -->
+
+<!-- 桌面两侧翻页按钮 -->
+<button class="side-nav side-prev" id="sidePrev" aria-label="上一页">‹</button>
+<button class="side-nav side-next" id="sideNext" aria-label="下一页">›</button>
+
+<!-- 底部导航栏 -->
+<div class="bar">
+  <button class="nav-arrow" id="btnPrev" aria-label="上一页">‹</button>
+  <div class="bar-mid">
+    <button class="text-btn" id="btnFirst">首页</button>
+    <div class="dots" id="dots"></div>
+    <div class="counter" id="counter"><b>1</b> / 12</div>
+    <button class="text-btn" id="btnLast">末页</button>
+  </div>
+  <button class="nav-arrow" id="btnNext" aria-label="下一页">›</button>
+</div>
+
+<script>
+(function(){
+  var track=document.getElementById('track');
+  var pages=track.children;
+  var total=pages.length;
+  var idx=0;
+
+  var dots=document.getElementById('dots');
+  for(var i=0;i<total;i++){
+    var d=document.createElement('button');
+    d.className='dot';
+    d.setAttribute('aria-label','第 '+(i+1)+' 页');
+    (function(el,n){el.addEventListener('click',function(){go(n);});})(d,i);
+    dots.appendChild(d);
+  }
+
+  var counter=document.getElementById('counter');
+  var btnPrev=document.getElementById('btnPrev'),btnNext=document.getElementById('btnNext');
+  var btnFirst=document.getElementById('btnFirst'),btnLast=document.getElementById('btnLast');
+  var sidePrev=document.getElementById('sidePrev'),sideNext=document.getElementById('sideNext');
+
+  function setDis(el,off){if(!el)return;if(off){el.setAttribute('disabled','');}else{el.removeAttribute('disabled');}}
+
+  function updateUI(){
+    var ds=dots.children;
+    for(var i=0;i<total;i++){ds[i].className='dot'+(i===idx?' on':'');}
+    counter.innerHTML='<b>'+(idx+1)+'</b> / '+total;
+    setDis(btnPrev,idx===0);setDis(sidePrev,idx===0);setDis(btnFirst,idx===0);
+    setDis(btnNext,idx===total-1);setDis(sideNext,idx===total-1);setDis(btnLast,idx===total-1);
+    try{history.replaceState(null,'','#p'+(idx+1));}catch(e){}
+  }
+
+  function go(n,smooth){
+    n=Math.max(0,Math.min(total-1,n));
+    track.scrollTo({left:n*track.clientWidth,behavior:(smooth===false?'auto':'smooth')});
+  }
+
+  btnPrev.addEventListener('click',function(){go(idx-1);});
+  btnNext.addEventListener('click',function(){go(idx+1);});
+  sidePrev.addEventListener('click',function(){go(idx-1);});
+  sideNext.addEventListener('click',function(){go(idx+1);});
+  btnFirst.addEventListener('click',function(){go(0);});
+  btnLast.addEventListener('click',function(){go(total-1);});
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){go(idx-1);e.preventDefault();}
+    else if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){go(idx+1);e.preventDefault();}
+    else if(e.key==='Home'){go(0);e.preventDefault();}
+    else if(e.key==='End'){go(total-1);e.preventDefault();}
+  });
+
+  var raf=null;
+  track.addEventListener('scroll',function(){
+    if(raf)return;
+    raf=requestAnimationFrame(function(){
+      raf=null;
+      var w=track.clientWidth||1;
+      var n=Math.round(track.scrollLeft/w);
+      n=Math.max(0,Math.min(total-1,n));
+      if(n!==idx){
+        var sc=pages[idx]&&pages[idx].querySelector('.p-scroll');
+        if(sc){sc.scrollTop=0;}
+        idx=n;
+        updateUI();
+      }
+    });
+  },{passive:true});
+
+  var m=(location.hash||'').match(/p(\d+)/i);
+  var start=0;
+  if(m){var n=parseInt(m[1],10);if(n>=1&&n<=total){start=n-1;}}
+  idx=start;
+  go(start,false);
+  updateUI();
+})();
+</script>
+</body>
+</html>
