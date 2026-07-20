@@ -22,6 +22,36 @@ body{background:var(--bg);color:var(--ink);line-height:1.7;padding:0 20px;
 .eyebrow{font-size:11.5px;letter-spacing:.4em;color:var(--blue);font-weight:700}
 h1{font-size:clamp(28px,5vw,34px);font-weight:800;margin:10px 0 8px;letter-spacing:.01em}
 .sub{color:var(--muted);font-size:14.5px;max-width:520px}
+.sec{margin-top:42px}
+.sec-label{font-size:11.5px;letter-spacing:.32em;color:var(--faint);font-weight:700;
+  display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.person-img{display:block;aspect-ratio:3/4;border-radius:11px;overflow:hidden;
+  border:1px solid var(--line);background:var(--surface);text-decoration:none}
+.person-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.person:hover .person-img img{transform:scale(1.045)}
+.person-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  background:#f2ecdf;color:#b3a587;font-family:"Songti SC","STSong","SimSun",serif;
+  font-size:clamp(40px,9vw,58px);transition:.4s}
+@media (prefers-color-scheme:dark){.person-ph{background:#211f1a;color:#57503f}}
+.person:hover .person-ph{color:#8a7c5c}
+.person-name{font-size:15px;font-weight:700;margin-top:9px}
+.person-meta{font-size:11.5px;color:var(--faint);margin-top:1px}
+.person-title{font-size:13px;line-height:1.55;margin-top:4px}
+.person-title a{color:var(--blue);text-decoration:none}
+.person-title a:hover{text-decoration:underline}
+.person-links{display:flex;gap:7px;margin-top:6px;flex-wrap:wrap}
+.person-links a{font-size:11px;font-weight:700;color:var(--blue);border:1px solid var(--line);
+  border-radius:6px;padding:2px 9px;text-decoration:none;transition:.18s;background:var(--bg)}
+.person-links a:hover{border-color:var(--blue)}
+@media (max-width:480px){
+  .people{gap:10px}
+  .person-name{font-size:13.5px}
+  .person-meta{font-size:10.5px}
+  .person-title{font-size:12px}
+  .person-links a{font-size:10.5px;padding:2px 7px}
+}
 .list{margin-top:38px;display:grid;gap:12px}
 .item{display:block;border:1px solid var(--line);border-radius:13px;padding:20px 22px;
   background:var(--surface);transition:.18s;color:inherit;text-decoration:none}
@@ -47,46 +77,57 @@ h1{font-size:clamp(28px,5vw,34px);font-weight:800;margin:10px 0 8px;letter-spaci
   <h1>实验室</h1>
   <p class="sub">不挂在导航上的页面，都收在这儿。凭链接访问。</p>
 
-  <div class="list">
-    <a class="item" href="/hr-csr/">
-      <div class="item-tag">汇报</div>
-      <div class="item-title">恒荣集团 · 公益事业成果汇报</div>
-      <div class="item-desc">十余年公益投入的数据汇总：累计投入曲线、捐赠构成、东西部协作、属地响应网络。逐笔核验后的口径，图表为主。<b>内部材料，勿外传。</b></div>
-    </a>
-    <div class="item">
-      <div class="item-tag">研究</div>
-      <div class="item-title">周星驰研究档案</div>
-      <div class="item-desc">周星驰研究 · 卷一。同一选题、两个模型各自独立完成的研究页：人物档案、完整片单、对源视频说法的逐条核查。部分结论两版并不一致，适合对照着读。</div>
-      <div class="exits">
-        <a class="exit" href="/zhouxingchi/">数字与流言<small>Claude Fable 5</small></a>
-        <a class="exit" href="/stephen-chow/">一年一影帝，百年周星驰<small>Kimi K3</small></a>
+  <div class="sec">
+    <div class="sec-label">人物</div>
+    <div class="people">
+      <div class="person">
+        <a class="person-img" href="/zhouxingchi/"><img src="/lab/portraits/zhouxingchi.jpg" alt="周星驰" loading="lazy"></a>
+        <div class="person-name">周星驰</div>
+        <div class="person-meta">研究档案 · 卷一 · 两版对照</div>
+        <div class="person-links">
+          <a href="/zhouxingchi/">数字与流言</a>
+          <a href="/stephen-chow/">一年一影帝</a>
+        </div>
+      </div>
+      <div class="person">
+        <a class="person-img" href="/iris-chang/"><img src="/lab/portraits/iris-chang.jpg" alt="张纯如" loading="lazy"></a>
+        <div class="person-name">张纯如</div>
+        <div class="person-meta">1968–2004 · 纪念页</div>
+        <div class="person-title"><a href="/iris-chang/">无法忘却历史的女子</a></div>
+      </div>
+      <div class="person">
+        <a class="person-img" href="/chen_danqing/"><div class="person-ph">陈</div></a>
+        <div class="person-name">陈丹青</div>
+        <div class="person-meta">1953– · 人物志</div>
+        <div class="person-title"><a href="/chen_danqing/">一个不肯退场的人</a></div>
       </div>
     </div>
-    <a class="item" href="/fonts/">
-      <div class="item-tag">工具</div>
-      <div class="item-title">字体选型台</div>
-      <div class="item-desc">免费商用中文字体样本册，每款用同一段话真实渲染、带编号。挑中报编号给 Claude，自动子集化应用到指定网页。</div>
-    </a>
-    <a class="item" href="/puer-tea-guide/">
-      <div class="item-tag">分享页</div>
-      <div class="item-title">普洱茶 · 从入门到在行</div>
-      <div class="item-desc">深度科普：仓储江湖（干仓／港仓／大马仓）、山头产区、品鉴维度、黑话速查。可直接发朋友。</div>
-    </a>
-    <a class="item" href="/american-pastoral/">
-      <div class="item-tag">分享页</div>
-      <div class="item-title">父母能给孩子气候，却不能决定种子的方向 —— 从《美国牧歌》谈家庭教育</div>
-      <div class="item-desc">全屏幻灯片：从菲利普·罗斯《美国牧歌》出发，谈家庭教育里「气候」与「种子」的边界。方向键／空格翻页，可直接发朋友。</div>
-    </a>
-    <a class="item" href="/iris-chang/">
-      <div class="item-tag">纪念页</div>
-      <div class="item-title">张纯如 · 无法忘却历史的女子</div>
-      <div class="item-desc">张纯如（1968–2004）纪念长页：生平年表、《南京暴行》写作始末、代价与遗产、各地纪念雕像。深色沉浸排版，可直接转发。</div>
-    </a>
-    <a class="item" href="/chen_danqing/">
-      <div class="item-tag">人物志</div>
-      <div class="item-title">陈丹青 · 一个不肯退场的人</div>
-      <div class="item-desc">陈丹青人物长页：七十年生平时间线、《西藏组画》与《牧羊人》拍卖纪录、辞职清华始末、与木心的三十年、《局部》三季。纸墨画廊风排版，可直接转发。</div>
-    </a>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">更多</div>
+    <div class="list" style="margin-top:0">
+      <a class="item" href="/hr-csr/">
+        <div class="item-tag">汇报</div>
+        <div class="item-title">恒荣集团 · 公益事业成果汇报</div>
+        <div class="item-desc">十余年公益投入的数据汇总：累计投入曲线、捐赠构成、东西部协作、属地响应网络。逐笔核验后的口径，图表为主。<b>内部材料，勿外传。</b></div>
+      </a>
+      <a class="item" href="/fonts/">
+        <div class="item-tag">工具</div>
+        <div class="item-title">字体选型台</div>
+        <div class="item-desc">免费商用中文字体样本册，每款用同一段话真实渲染、带编号。挑中报编号给 Claude，自动子集化应用到指定网页。</div>
+      </a>
+      <a class="item" href="/puer-tea-guide/">
+        <div class="item-tag">分享页</div>
+        <div class="item-title">普洱茶 · 从入门到在行</div>
+        <div class="item-desc">深度科普：仓储江湖（干仓／港仓／大马仓）、山头产区、品鉴维度、黑话速查。可直接发朋友。</div>
+      </a>
+      <a class="item" href="/american-pastoral/">
+        <div class="item-tag">分享页</div>
+        <div class="item-title">父母能给孩子气候，却不能决定种子的方向 —— 从《美国牧歌》谈家庭教育</div>
+        <div class="item-desc">全屏幻灯片：从菲利普·罗斯《美国牧歌》出发，谈家庭教育里「气候」与「种子」的边界。方向键／空格翻页，可直接发朋友。</div>
+      </a>
+    </div>
   </div>
 
   <div class="foot">
