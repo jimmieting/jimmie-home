@@ -1,0 +1,2058 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>智算事业部2026年上半年度运营情况汇报｜完整经营版</title>
+  <style>
+    :root {
+      --paper: #f3eee6;
+      --paper-2: #faf7f1;
+      --ink: #162337;
+      --muted: #647184;
+      --red: #bd2031;
+      --gold: #b58a49;
+      --green: #2f8a68;
+      --amber: #c9892d;
+      --line: rgba(22, 35, 55, .14);
+      --shadow: 0 16px 44px rgba(22, 35, 55, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      color: var(--ink);
+      background: #d8d3cb;
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    }
+
+    button { font: inherit; }
+
+    .deck {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      padding: 46px 76px 30px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(189, 32, 49, .07), transparent 28%),
+        linear-gradient(120deg, rgba(255,255,255,.55), transparent 46%),
+        var(--paper);
+    }
+
+    .slide.active { display: grid; }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(var(--red), var(--gold));
+    }
+
+    .slide-header,
+    .slide-footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .slide-header {
+      align-items: flex-start;
+      margin-bottom: 22px;
+    }
+
+    .slide-footer {
+      align-items: flex-end;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .source { max-width: 82%; }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 22px;
+      font-size: clamp(50px, 5.2vw, 74px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+
+    h2 {
+      max-width: 920px;
+      margin-bottom: 0;
+      font-size: clamp(36px, 3.45vw, 50px);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: clamp(18px, 1.55vw, 24px);
+      line-height: 1.3;
+    }
+
+    p,
+    li {
+      font-size: clamp(16px, 1.25vw, 21px);
+      line-height: 1.62;
+    }
+
+    .tag {
+      flex: 0 0 auto;
+      padding: 6px 11px;
+      border: 1px solid rgba(181, 138, 73, .28);
+      border-radius: 999px;
+      color: #775a2e;
+      background: rgba(181, 138, 73, .10);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .slide-body {
+      position: relative;
+      z-index: 2;
+      align-self: center;
+      width: 100%;
+      min-height: 0;
+    }
+
+    .cover-body {
+      align-self: center;
+      max-width: 980px;
+    }
+
+    .cover-kicker {
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: 16px;
+      font-weight: 720;
+      letter-spacing: .14em;
+    }
+
+    .cover-meta {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cover-subtitle {
+      margin: -4px 0 18px;
+      color: #46546a;
+      font-size: clamp(18px, 1.45vw, 23px);
+      font-weight: 650;
+      letter-spacing: .03em;
+    }
+
+    .slide-subtitle {
+      max-width: 960px;
+      margin: 8px 0 0;
+      color: #5a6678;
+      font-size: clamp(14px, 1.03vw, 17px);
+      font-weight: 520;
+      line-height: 1.45;
+    }
+
+    .grid {
+      display: grid;
+      gap: 26px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .metric,
+    .panel {
+      min-width: 0;
+      padding: 24px 6px 12px;
+      border-top: 4px solid var(--red);
+    }
+
+    .metric:nth-child(2),
+    .panel:nth-child(2) { border-top-color: var(--gold); }
+
+    .metric:nth-child(3),
+    .panel:nth-child(3) { border-top-color: var(--green); }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: clamp(48px, 5vw, 76px);
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: clamp(15px, 1.15vw, 19px);
+      line-height: 1.5;
+    }
+
+    .panel {
+      min-height: 188px;
+      padding-right: 20px;
+    }
+
+    .panel p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1.08vw, 18px);
+    }
+
+    .summary {
+      margin-top: 34px;
+      padding: 18px 22px;
+      border-left: 4px solid var(--red);
+      color: #354155;
+      background: rgba(189, 32, 49, .055);
+      font-size: clamp(17px, 1.35vw, 22px);
+      line-height: 1.5;
+    }
+
+    .clean {
+      margin: 0;
+      padding-left: 1.25em;
+    }
+
+    .clean li { margin-bottom: 14px; }
+
+    .lead {
+      max-width: 1080px;
+      margin: 0 0 28px;
+      color: #39475b;
+      font-size: clamp(18px, 1.48vw, 24px);
+      line-height: 1.52;
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: clamp(14px, 1.02vw, 17px);
+      line-height: 1.5;
+    }
+
+    .status-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      padding: 14px 18px;
+      border-left: 4px solid var(--amber);
+      background: rgba(201, 137, 45, .08);
+      color: #6e4b18;
+      font-size: clamp(15px, 1.12vw, 18px);
+      line-height: 1.5;
+    }
+
+    .status-line.verified {
+      border-left-color: var(--green);
+      color: #276f56;
+      background: rgba(47, 138, 104, .08);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: rgba(255,255,255,.25);
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      font-size: clamp(14px, 1.02vw, 17px);
+      line-height: 1.35;
+      vertical-align: middle;
+    }
+
+    .data-table th {
+      color: #354155;
+      background: rgba(22, 35, 55, .05);
+      font-weight: 760;
+    }
+
+    .data-table td.num {
+      font-variant-numeric: tabular-nums;
+      font-weight: 720;
+    }
+
+    .good { color: var(--green); }
+    .warn { color: var(--amber); }
+    .risk { color: var(--red); }
+
+    .bar-list {
+      display: grid;
+      gap: 24px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 110px;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .bar-label {
+      font-size: clamp(16px, 1.25vw, 20px);
+      font-weight: 720;
+    }
+
+    .bar-track {
+      position: relative;
+      height: 34px;
+      overflow: hidden;
+      border-radius: 3px;
+      background: rgba(22, 35, 55, .08);
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      min-width: 3px;
+      background: linear-gradient(90deg, var(--red), #d6505d);
+    }
+
+    .bar-fill.target { background: rgba(181, 138, 73, .56); }
+    .bar-fill.blue { background: #3f6f9e; }
+
+    .bar-value {
+      text-align: right;
+      font-size: clamp(16px, 1.22vw, 20px);
+      font-weight: 760;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .chart-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .chart-caption {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: clamp(14px, 1.02vw, 17px);
+      line-height: 1.45;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: clamp(13px, .96vw, 16px);
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .legend i {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      background: var(--gold);
+    }
+
+    .legend i.actual { background: var(--red); }
+    .legend i.green { background: var(--green); }
+    .legend i.muted { background: rgba(22,35,55,.14); }
+
+    .progress-board {
+      display: grid;
+      gap: 22px;
+    }
+
+    .progress-item {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 165px;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .progress-label strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: clamp(17px, 1.25vw, 20px);
+    }
+
+    .progress-label small,
+    .progress-side small {
+      color: var(--muted);
+      font-size: clamp(12px, .9vw, 15px);
+      line-height: 1.35;
+    }
+
+    .progress-track {
+      position: relative;
+      height: 42px;
+      overflow: visible;
+      background: rgba(22,35,55,.08);
+    }
+
+    .progress-track::after {
+      content: "";
+      position: absolute;
+      top: -7px;
+      right: 0;
+      bottom: -7px;
+      width: 2px;
+      background: var(--ink);
+      opacity: .42;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--red), #d6505d);
+    }
+
+    .progress-fill.green {
+      background: linear-gradient(90deg, var(--green), #66ad91);
+    }
+
+    .progress-fill.amber {
+      background: linear-gradient(90deg, var(--amber), #e4ad57);
+    }
+
+    .progress-overflow {
+      position: absolute;
+      top: 50%;
+      right: -9px;
+      width: 18px;
+      height: 18px;
+      border: 4px solid var(--green);
+      border-radius: 50%;
+      background: var(--paper);
+      transform: translateY(-50%);
+    }
+
+    .progress-side {
+      text-align: right;
+    }
+
+    .progress-side b {
+      display: block;
+      color: var(--red);
+      font-size: clamp(22px, 1.8vw, 30px);
+      line-height: 1.1;
+    }
+
+    .progress-side b.good { color: var(--green); }
+    .progress-side b.warn { color: var(--amber); }
+
+    .column-chart {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: end;
+      gap: 24px;
+      height: 300px;
+      padding: 18px 24px 0;
+      border-bottom: 2px solid rgba(22,35,55,.24);
+      background:
+        linear-gradient(to top, transparent 24.7%, rgba(22,35,55,.08) 25%, transparent 25.3%),
+        linear-gradient(to top, transparent 49.7%, rgba(22,35,55,.08) 50%, transparent 50.3%),
+        linear-gradient(to top, transparent 74.7%, rgba(22,35,55,.08) 75%, transparent 75.3%);
+    }
+
+    .column {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      align-items: end;
+      height: 100%;
+      min-width: 0;
+      text-align: center;
+    }
+
+    .column-well {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .column-bar {
+      position: relative;
+      width: min(72px, 68%);
+      min-height: 5px;
+      background: linear-gradient(var(--red), #d6505d);
+    }
+
+    .column-bar.target { background: rgba(181,138,73,.58); }
+
+    .column-bar b {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 8px);
+      white-space: nowrap;
+      font-size: clamp(14px, 1vw, 17px);
+      transform: translateX(-50%);
+    }
+
+    .column-label {
+      min-height: 48px;
+      padding-top: 10px;
+      color: var(--muted);
+      font-size: clamp(13px, .94vw, 16px);
+      line-height: 1.3;
+    }
+
+    .small-multiples {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 34px;
+    }
+
+    .mini-chart {
+      padding: 20px 24px 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.28);
+    }
+
+    .mini-chart header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .mini-chart header b {
+      color: var(--red);
+      font-size: clamp(22px, 1.8vw, 30px);
+    }
+
+    .two-column-plot {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: end;
+      gap: 34px;
+      height: 230px;
+      padding: 14px 30px 0;
+      border-bottom: 2px solid rgba(22,35,55,.22);
+      background:
+        linear-gradient(to top, transparent 49.7%, rgba(22,35,55,.08) 50%, transparent 50.3%);
+    }
+
+    .two-column-plot .column-bar {
+      width: min(92px, 72%);
+    }
+
+    .donut-layout {
+      display: grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+    }
+
+    .donut {
+      position: relative;
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      background: conic-gradient(var(--green) 0 var(--donut-value), rgba(22,35,55,.10) var(--donut-value) 100%);
+    }
+
+    .donut.red {
+      background: conic-gradient(var(--red) 0 var(--donut-value), var(--gold) var(--donut-value) 100%);
+    }
+
+    .donut::after {
+      content: "";
+      position: absolute;
+      inset: 46px;
+      border-radius: 50%;
+      background: var(--paper);
+      box-shadow: inset 0 0 0 1px rgba(22,35,55,.05);
+    }
+
+    .donut-center {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      text-align: center;
+    }
+
+    .donut-center strong {
+      font-size: clamp(42px, 4vw, 62px);
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .donut-center span {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: clamp(14px, 1vw, 17px);
+    }
+
+    .donut-legend {
+      display: grid;
+      gap: 14px;
+      width: 100%;
+      max-width: 290px;
+      margin-top: 18px;
+    }
+
+    .donut-legend div {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid var(--line);
+      font-size: clamp(13px, .96vw, 16px);
+    }
+
+    .scale-bars {
+      display: grid;
+      gap: 20px;
+    }
+
+    .scale-row {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr) 120px;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .scale-row label {
+      font-size: clamp(15px, 1.08vw, 18px);
+      font-weight: 720;
+    }
+
+    .scale-row .bar-track { height: 28px; }
+    .scale-row .bar-fill { background: var(--red); }
+    .scale-row:nth-child(2) .bar-fill { background: var(--gold); }
+    .scale-row:nth-child(3) .bar-fill { background: var(--green); }
+
+    .scale-row output {
+      text-align: right;
+      font-size: clamp(15px, 1.08vw, 18px);
+      font-weight: 760;
+    }
+
+    .receivable-chart {
+      display: grid;
+      gap: 13px;
+    }
+
+    .receivable-row {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr) 85px 90px;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .receivable-row label {
+      font-size: clamp(14px, 1vw, 17px);
+      font-weight: 680;
+    }
+
+    .receivable-row .bar-track { height: 30px; }
+    .receivable-row .bar-fill { background: linear-gradient(90deg, var(--red), #d6505d); }
+
+    .receivable-row output {
+      text-align: right;
+      font-size: clamp(14px, 1vw, 17px);
+      font-weight: 760;
+    }
+
+    .age-cell {
+      padding: 7px 8px;
+      text-align: center;
+      color: #6e4b18;
+      background: rgba(201,137,45,.14);
+      font-size: clamp(12px, .88vw, 14px);
+      font-weight: 720;
+    }
+
+    .age-cell.long {
+      color: #8c1b28;
+      background: rgba(189,32,49,.16);
+    }
+
+    .status-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .status-column {
+      display: grid;
+      gap: 10px;
+    }
+
+    .status-column h3 {
+      margin-bottom: 4px;
+      font-size: clamp(17px, 1.25vw, 21px);
+    }
+
+    .status-tile {
+      min-height: 64px;
+      padding: 13px 15px;
+      border-left: 5px solid var(--green);
+      background: rgba(47,138,104,.09);
+      font-size: clamp(14px, 1vw, 17px);
+      line-height: 1.35;
+    }
+
+    .status-column.latest .status-tile {
+      border-left-color: var(--gold);
+      background: rgba(181,138,73,.10);
+    }
+
+    .status-column.pending .status-tile {
+      border-left-color: var(--amber);
+      background: rgba(201,137,45,.10);
+    }
+
+    .target-lock-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px 22px;
+    }
+
+    .target-lock {
+      min-height: 142px;
+      padding: 18px 20px 16px;
+      border-top: 4px solid var(--red);
+      background: rgba(255,255,255,.30);
+    }
+
+    .target-lock:nth-child(2),
+    .target-lock:nth-child(5) { border-top-color: var(--gold); }
+
+    .target-lock:nth-child(3),
+    .target-lock:nth-child(6) { border-top-color: var(--green); }
+
+    .target-lock strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: clamp(32px, 3vw, 46px);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .target-lock span {
+      display: block;
+      margin-bottom: 7px;
+      color: #354155;
+      font-size: clamp(14px, 1vw, 17px);
+      font-weight: 720;
+    }
+
+    .target-lock small {
+      color: var(--muted);
+      font-size: clamp(12px, .9vw, 15px);
+      line-height: 1.35;
+    }
+
+    .placeholder-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 9px;
+      border: 1px dashed rgba(201,137,45,.72);
+      border-radius: 999px;
+      color: #7d551b;
+      background: rgba(201,137,45,.08);
+      font-size: clamp(12px, .88vw, 14px);
+      font-weight: 720;
+      white-space: nowrap;
+    }
+
+    .placeholder-cell {
+      color: #7d551b;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(201,137,45,.04),
+        rgba(201,137,45,.04) 8px,
+        rgba(201,137,45,.09) 8px,
+        rgba(201,137,45,.09) 16px
+      );
+      font-weight: 720;
+    }
+
+    .compact-table th,
+    .compact-table td {
+      padding: 9px 10px;
+      font-size: clamp(12px, .9vw, 15px);
+      line-height: 1.25;
+    }
+
+    .bridge {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: end;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .bridge-step {
+      min-height: 142px;
+      padding: 18px 16px;
+      border-bottom: 5px solid var(--red);
+      background: rgba(255,255,255,.28);
+    }
+
+    .bridge-step:nth-child(2) { border-bottom-color: var(--gold); }
+    .bridge-step:nth-child(3) { border-bottom-color: var(--green); }
+    .bridge-step:nth-child(4) { border-bottom-color: var(--amber); }
+
+    .bridge-step strong {
+      display: block;
+      margin: 10px 0 6px;
+      font-size: clamp(30px, 2.8vw, 44px);
+      line-height: 1;
+    }
+
+    .bridge-step small {
+      color: var(--muted);
+      font-size: clamp(12px, .88vw, 15px);
+      line-height: 1.35;
+    }
+
+    .funnel {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+    }
+
+    .funnel-stage {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 9px 16px;
+      border: 1px dashed rgba(201,137,45,.62);
+      background: rgba(201,137,45,.08);
+      font-size: clamp(13px, .95vw, 16px);
+    }
+
+    .funnel-stage:nth-child(1) { width: 100%; }
+    .funnel-stage:nth-child(2) { width: 88%; }
+    .funnel-stage:nth-child(3) { width: 76%; }
+    .funnel-stage:nth-child(4) { width: 64%; }
+    .funnel-stage:nth-child(5) { width: 52%; }
+    .funnel-stage b { color: #7d551b; }
+
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 24px;
+    }
+
+    .model-card {
+      min-height: 150px;
+      padding: 17px 20px;
+      border-top: 4px solid var(--red);
+      background: rgba(255,255,255,.28);
+    }
+
+    .model-card:nth-child(2) { border-top-color: var(--gold); }
+    .model-card:nth-child(3) { border-top-color: var(--green); }
+    .model-card:nth-child(4) { border-top-color: var(--amber); }
+    .model-card h3 { margin-bottom: 7px; }
+    .model-card p {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: clamp(13px, .96vw, 16px);
+      line-height: 1.42;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+    }
+
+    .comparison article {
+      padding: 22px 26px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.32);
+      box-shadow: 0 10px 28px rgba(22,35,55,.04);
+    }
+
+    .comparison strong {
+      display: block;
+      margin: 10px 0 8px;
+      color: var(--red);
+      font-size: clamp(42px, 4.4vw, 68px);
+      line-height: 1;
+    }
+
+    .comparison small {
+      color: var(--muted);
+      font-size: clamp(14px, 1vw, 17px);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 26px;
+    }
+
+    .timeline-step {
+      position: relative;
+      min-height: 228px;
+      padding: 28px 24px 20px;
+      border-top: 4px solid var(--red);
+      background: rgba(255,255,255,.28);
+    }
+
+    .timeline-step:nth-child(2) { border-top-color: var(--gold); }
+    .timeline-step:nth-child(3) { border-top-color: var(--green); }
+
+    .timeline-step b {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .12em;
+    }
+
+    .timeline-step p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1.08vw, 18px);
+    }
+
+    .callout-number {
+      color: var(--red);
+      font-size: clamp(48px, 4.8vw, 72px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+
+    .split-rail {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1.35fr);
+      gap: 46px;
+      align-items: start;
+    }
+
+    .page-watermark {
+      position: absolute;
+      right: 56px;
+      bottom: 10px;
+      z-index: 1;
+      color: rgba(22, 35, 55, .08);
+      font-size: clamp(150px, 17vw, 250px);
+      font-weight: 800;
+      line-height: .8;
+      letter-spacing: -.08em;
+      pointer-events: none;
+    }
+
+    .control-bar {
+      position: fixed;
+      right: 22px;
+      bottom: 18px;
+      z-index: 40;
+      display: flex;
+      gap: 4px;
+      padding: 5px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      background: rgba(22,35,55,.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .control-bar button {
+      min-width: 38px;
+      height: 38px;
+      padding: 0 10px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .control-bar button:hover,
+    .control-bar button[aria-pressed="true"] {
+      background: rgba(255,255,255,.16);
+    }
+
+    .notes-panel {
+      position: fixed;
+      top: 4%;
+      right: 2%;
+      bottom: 4%;
+      z-index: 30;
+      display: none;
+      width: min(46vw, 720px);
+      padding: 54px 32px 28px;
+      overflow: auto;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      color: #fff;
+      background: rgba(5, 12, 22, .60);
+      box-shadow: 0 20px 70px rgba(5,12,22,.28);
+      backdrop-filter: blur(7px);
+      white-space: pre-wrap;
+      font-size: clamp(15px, 1.12vw, 19px);
+      line-height: 1.75;
+    }
+
+    .notes-panel.visible { display: block; }
+
+    .notes-panel::before {
+      content: "本页练习话术 · 按 N 或 Esc 关闭";
+      position: absolute;
+      top: 20px;
+      left: 32px;
+      color: #e6c997;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .notes { display: none; }
+
+    body.overview {
+      overflow: auto;
+      background: #d8d3cb;
+    }
+
+    body.overview .deck {
+      display: grid;
+      grid-template-columns: repeat(3, 384px);
+      grid-auto-rows: 216px;
+      justify-content: center;
+      align-items: start;
+      gap: 18px;
+      height: auto;
+      padding: 28px;
+    }
+
+    body.overview .slide {
+      position: relative;
+      display: grid;
+      width: 1280px;
+      height: 720px;
+      aspect-ratio: auto;
+      padding: 46px 76px 30px;
+      transform: scale(.3);
+      transform-origin: top left;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    body.overview .control-bar,
+    body.overview .notes-panel { display: none !important; }
+
+    @media (min-width: 1600px) {
+      body.overview .deck {
+        grid-template-columns: repeat(3, 550px);
+        grid-auto-rows: 310px;
+      }
+
+      body.overview .slide { transform: scale(.43); }
+    }
+
+    @media (max-width: 980px) {
+      .slide { padding: 34px 40px 24px; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .slide-body { overflow: auto; }
+      .notes-panel { left: 4%; right: 4%; width: auto; }
+      body.overview .deck { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      @page { size: 13.333in 7.5in; margin: 0; }
+      html,
+      body {
+        width: auto;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+      }
+      .deck { height: auto; }
+      .slide {
+        position: relative;
+        display: grid !important;
+        width: 13.333in;
+        height: 7.5in;
+        page-break-after: always;
+      }
+      .control-bar,
+      .notes-panel { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide active" data-title="封面">
+      <div></div>
+      <div class="slide-body cover-body">
+        <p class="cover-kicker">HENGRONG · INTELLIGENT COMPUTING</p>
+        <h1>智算事业部<br>2026年上半年度运营情况汇报</h1>
+        <p class="cover-subtitle">经营结果复盘｜业务质量分析｜下半年经营部署</p>
+        <p class="cover-meta">完整经营版　｜　丁凌　｜　2026年7月</p>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">内部经营管理材料｜数据截至2026年6月30日</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">开场说明三点：第一，本次汇报主体为智算事业部；第二，经营结果统计截止6月30日；第三，7月周报中的事项只作为最新进展，不计入上半年成绩。</aside>
+    </section>
+
+    <section class="slide" data-title="上半年实现业务起量">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第一部分｜半年经营结果</p>
+          <h2>上半年实现业务起量</h2>
+          <p class="slide-subtitle">收入与利润阶段性突破，但签约、库存和现金尚未进入可控状态</p>
+        </div>
+        <span class="tag">上半年结论</span>
+      </header>
+      <div class="slide-body">
+        <p class="lead">收入超过阶段目标，净利润由预算亏损转为盈利，二季度完成业务起量；但全年签约、库存消化和现金回笼仍是决定下半年结果的三项约束。</p>
+        <div class="grid grid-3">
+          <article class="metric">
+            <strong>1,017.10</strong>
+            <span>上半年营业收入（万元）<br>完成半年目标146.7%，全年目标22.2%</span>
+          </article>
+          <article class="metric">
+            <strong>833.00</strong>
+            <span>上半年签约（万元）<br>完成半年目标77.1%，全年目标8.3%</span>
+          </article>
+          <article class="metric">
+            <strong>32.75</strong>
+            <span>上半年净利润（万元）<br>半年预算为-248万元</span>
+          </article>
+        </div>
+        <div class="summary">管理含义：上半年完成“从组建到起量”，下半年必须从收入确认转向订单储备、库存周转和现金闭环。</div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：集团2026年二季度业绩确认书；运营指标.xlsx。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">先讲结论，不逐项念数字。收入和利润说明事业部已经起步，但不能把半年完成率直接等同于全年任务完成。签约只完成全年8.3%，库存接近1.3亿元，所以下半年经营逻辑要发生转换。</aside>
+    </section>
+
+    <section class="slide" data-title="收入达标，签约承压">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第一部分｜半年经营结果</p>
+          <h2>收入达标，签约承压</h2>
+          <p class="slide-subtitle">半年收入完成146.7%，全年新增签约仅完成8.3%</p>
+        </div>
+        <span class="tag">目标承接</span>
+      </header>
+      <div class="slide-body">
+        <p class="chart-caption">横条以半年目标为100%，右侧同时标注全年完成率。</p>
+        <div class="progress-board" role="img" aria-label="新增签约完成半年目标77.1%，营业收入完成半年目标146.7%">
+          <div class="progress-item">
+            <div class="progress-label">
+              <strong>新增签约</strong>
+              <small>833 / 1,080万元</small>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill amber" style="width:77.1%"></div>
+            </div>
+            <div class="progress-side">
+              <b class="warn">77.1%</b>
+              <small>全年完成率8.3%</small>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label">
+              <strong>营业收入</strong>
+              <small>1,017.10 / 693.40万元</small>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill green" style="width:100%"></div>
+              <i class="progress-overflow" aria-hidden="true"></i>
+            </div>
+            <div class="progress-side">
+              <b class="good">146.7%</b>
+              <small>全年完成率22.2%</small>
+            </div>
+          </div>
+        </div>
+        <div class="status-line verified"><strong>净利润：</strong>半年预算-248.00万元，实际32.75万元，较预算改善280.75万元并实现转正。</div>
+        <div class="status-line">现金流在业绩确认书与运营分析表中存在冲突，正式定稿前采用更高层级文件，不对完成率下结论。</div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：建设投资事业部2026年目标任务书第7页；集团2026年二季度业绩确认书。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">强调两个分化：收入超额和签约不足同时存在。现金流不要现场展开未经确认的数字。待财务补充：截至6月30日归母净现金流最终值、-80万元预算来源及运营表中完成值的计算范围。</aside>
+    </section>
+
+    <section class="slide" data-title="收入增量主要来自集成">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第一部分｜半年经营结果</p>
+          <h2>收入增量主要来自集成</h2>
+          <p class="slide-subtitle">集成存量项目贡献超目标增量，算力业务仅完成半年计划</p>
+        </div>
+        <span class="tag">单位：万元</span>
+      </header>
+      <div class="slide-body chart-split">
+        <div>
+          <div class="legend"><span><i></i>半年目标</span><span><i class="actual"></i>上半年完成</span></div>
+          <div class="column-chart" role="img" aria-label="集成目标113.40万元、完成430.65万元；算力目标580万元、完成586.45万元">
+            <div class="column">
+              <div class="column-well"><div class="column-bar target" style="height:19.3%"><b>113.40</b></div></div>
+              <div class="column-label">集成<br>目标</div>
+            </div>
+            <div class="column">
+              <div class="column-well"><div class="column-bar" style="height:73.4%"><b>430.65</b></div></div>
+              <div class="column-label">集成<br>完成</div>
+            </div>
+            <div class="column">
+              <div class="column-well"><div class="column-bar target" style="height:98.9%"><b>580.00</b></div></div>
+              <div class="column-label">算力<br>目标</div>
+            </div>
+            <div class="column">
+              <div class="column-well"><div class="column-bar" style="height:100%"><b>586.45</b></div></div>
+              <div class="column-label">算力<br>完成</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="summary" style="margin-top:0"><strong>98%</strong>的超半年目标增量来自集成，存量项目提前兑现贡献317.25万元增量。</div>
+          <div class="status-line verified">算力收入完成半年目标101.1%，但全年收入目标仅完成14.9%。</div>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：运营指标.xlsx，Sheet2 A2:J5。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">这里要区分“超半年目标的来源”和“季度增长的来源”。超目标主要是集成项目提前兑现；算力板块只是刚好完成半年计划。不要把总收入146.7%的完成率全部归因于算力业务。</aside>
+    </section>
+
+    <section class="slide" data-title="二季度业务明显放量">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第一部分｜半年经营结果</p>
+          <h2>二季度业务明显放量</h2>
+          <p class="slide-subtitle">收入和签约环比提升，但持续性仍需三、四季度验证</p>
+        </div>
+        <span class="tag">Q1 → Q2</span>
+      </header>
+      <div class="slide-body">
+        <div class="small-multiples">
+          <article class="mini-chart">
+            <header><h3>营业收入（万元）</h3><b>4.76倍</b></header>
+            <div class="two-column-plot" role="img" aria-label="一季度营业收入176.63万元，二季度840.47万元">
+              <div class="column">
+                <div class="column-well"><div class="column-bar target" style="height:21%"><b>176.63</b></div></div>
+                <div class="column-label">Q1</div>
+              </div>
+              <div class="column">
+                <div class="column-well"><div class="column-bar" style="height:100%"><b>840.47</b></div></div>
+                <div class="column-label">Q2</div>
+              </div>
+            </div>
+          </article>
+          <article class="mini-chart">
+            <header><h3>新增签约（万元）</h3><b>14.25倍</b></header>
+            <div class="two-column-plot" role="img" aria-label="一季度新增签约54.62万元，二季度778.38万元">
+              <div class="column">
+                <div class="column-well"><div class="column-bar target" style="height:7%"><b>54.62</b></div></div>
+                <div class="column-label">Q1</div>
+              </div>
+              <div class="column">
+                <div class="column-well"><div class="column-bar" style="height:100%"><b>778.38</b></div></div>
+                <div class="column-label">Q2</div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="summary">二季度设备销售185张加速卡、2台工控机，较一季度16张明显放量；但尚未形成全年目标所需的持续月度规模。</div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：运营指标.xlsx；智算业务-项目&账目-核对清单-20260630.xlsx。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">本页讲趋势，不讲绝对乐观。二季度确实起量，但全年签约目标是一亿元，目前还没有形成稳定月度节奏。销售数量采用项目台账口径：201张加速卡和2台工控机，不再笼统说203张卡。</aside>
+    </section>
+
+    <section class="slide" data-title="算力销售初步形成闭环">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第二部分｜业务经营情况</p>
+          <h2>算力销售初步形成闭环</h2>
+          <p class="slide-subtitle">10笔销售覆盖7家客户，298.70万元尚待开票回款</p>
+        </div>
+        <span class="tag">10笔销售记录</span>
+      </header>
+      <div class="slide-body donut-layout">
+        <div class="donut-wrap">
+          <div class="donut" style="--donut-value:49.1%" role="img" aria-label="算力业务金额586.45万元，其中已开票回款287.75万元，占49.1%">
+            <div class="donut-center"><strong>49.1%</strong><span>金额已回款</span></div>
+          </div>
+          <div class="donut-legend">
+            <div><span class="good">● 已开票回款</span><strong>287.75万</strong></div>
+            <div><span>● 待开票回款</span><strong>298.70万</strong></div>
+          </div>
+        </div>
+        <div>
+          <p class="lead">金额端仍有一半待闭环，但记录端已有9/10完成开票回款，销售、交付和收入确认底账已经形成。</p>
+          <div class="progress-board">
+            <div class="progress-item">
+              <div class="progress-label"><strong>销售记录闭环</strong><small>9 / 10笔</small></div>
+              <div class="progress-track"><div class="progress-fill green" style="width:90%"></div></div>
+              <div class="progress-side"><b class="good">90%</b><small>记录数量口径</small></div>
+            </div>
+          </div>
+          <div class="summary">覆盖7家外部客户，销售203台/张设备：201张加速卡、2台工控机。</div>
+          <div class="status-line">待闭环298.70万元对应103张设备，5月已签收，合同付款节点为8月21日。</div>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：智算业务-项目&账目-核对清单-20260630.xlsx；业绩确认书算力板块。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">讲清楚“闭环”和“未闭环”的边界。九笔记录已经完成开票回款；298.70万元已交付签收，但截至6月30日未开票、未回款。待财务统一其会计分类，运营持续跟踪8月21日付款节点。</aside>
+    </section>
+
+    <section class="slide" data-title="集成收入兑现，储备不足">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第二部分｜业务经营情况</p>
+          <h2>集成收入兑现，储备不足</h2>
+          <p class="slide-subtitle">存量项目支撑当期业绩，新增签约不足制约后续收入</p>
+        </div>
+        <span class="tag">存量兑现 / 增量承压</span>
+      </header>
+      <div class="slide-body">
+        <p class="chart-caption">横条以半年目标为100%，圆点表示完成值已超过目标上限。</p>
+        <div class="progress-board" role="img" aria-label="集成收入完成半年目标379.8%，新增签约49.3%，回款315.8%">
+          <div class="progress-item">
+            <div class="progress-label"><strong>营业收入</strong><small>430.65 / 113.40万元</small></div>
+            <div class="progress-track"><div class="progress-fill green" style="width:100%"></div><i class="progress-overflow" aria-hidden="true"></i></div>
+            <div class="progress-side"><b class="good">379.8%</b><small>存量项目兑现</small></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><strong>新增签约</strong><small>246.55 / 500万元</small></div>
+            <div class="progress-track"><div class="progress-fill amber" style="width:49.3%"></div></div>
+            <div class="progress-side"><b class="warn">49.3%</b><small>缺口253.45万元</small></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><strong>项目回款</strong><small>上半年541.65万元</small></div>
+            <div class="progress-track"><div class="progress-fill green" style="width:100%"></div><i class="progress-overflow" aria-hidden="true"></i></div>
+            <div class="progress-side"><b class="good">315.8%</b><small>半年目标完成率</small></div>
+          </div>
+        </div>
+        <div class="summary">管理含义：集成板块当前业绩主要来自存量项目兑现，若下半年不能补足签约储备，后续收入和回款将失去项目支撑。</div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：运营指标.xlsx，Sheet2 A2:J16、A44:J47。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">待运营负责人补充四项内容：未签约项目清单、未签原因、预计签约月份、下半年可转化金额。正式汇报时只讲经过确认的项目，不把商机当成签约结果。</aside>
+    </section>
+
+    <section class="slide" data-title="利润转正，质量仍待验证">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第二部分｜业务经营情况</p>
+          <h2>利润转正，质量仍待验证</h2>
+          <p class="slide-subtitle">测算毛利率23.4%，现金转化和费用构成仍需财务核实</p>
+        </div>
+        <span class="tag">单位：万元</span>
+      </header>
+      <div class="slide-body">
+        <div class="bridge" role="img" aria-label="营业收入1017.10万元，主营业务成本779.05万元，测算毛利238.05万元，净利润32.75万元">
+          <article class="bridge-step">
+            <span>营业收入</span>
+            <strong>1,017.10</strong>
+            <small>上半年确认口径</small>
+          </article>
+          <article class="bridge-step">
+            <span>主营业务成本</span>
+            <strong>779.05</strong>
+            <small>负责人确认口径</small>
+          </article>
+          <article class="bridge-step">
+            <span>测算毛利</span>
+            <strong>238.05</strong>
+            <small>毛利率23.4%</small>
+          </article>
+          <article class="bridge-step">
+            <span>净利润</span>
+            <strong>32.75</strong>
+            <small>较预算-248万元改善</small>
+          </article>
+        </div>
+        <div class="grid grid-2" style="margin-top:20px">
+          <article class="panel">
+            <h3>298.70万元尚未形成现金闭环</h3>
+            <p>对应103张设备，已交付签收并确认收入，但截至6月30日未开票、未回款，占上半年收入29.4%。</p>
+          </article>
+          <article class="panel">
+            <h3>205.30万元差额需要财务拆解</h3>
+            <p>毛利至净利润之间的期间费用、税费及其他损益构成尚未形成统一说明。<span class="placeholder-chip">费用桥接待财务确认</span></p>
+          </article>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：运营指标.xlsx；主营业务成本779.05万元经负责人确认；利润质量分析含待确认项。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">本页把收入、成本、毛利和净利润串成一条经营质量链。利润转正是积极结果，但需要解释298.70万元未开票未回款事项，以及毛利至净利润之间205.30万元的费用和其他损益构成，判断利润是否可持续、能否转化为现金。</aside>
+    </section>
+
+    <section class="slide" data-title="签约缺口缺少项目支撑">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第二部分｜业务经营情况</p>
+          <h2>签约缺口缺少项目支撑</h2>
+          <p class="slide-subtitle">9,167万元年度缺口尚未形成可验证的订单漏斗</p>
+        </div>
+        <span class="tag">年度缺口9,167万元</span>
+      </header>
+      <div class="slide-body split-rail">
+        <div>
+          <div class="metric">
+            <strong>10,000</strong>
+            <span>全年新增签约目标（万元）</span>
+          </div>
+          <div class="metric">
+            <strong>833</strong>
+            <span>上半年完成（万元）｜年度完成率8.3%</span>
+          </div>
+          <div class="status-line">正式汇报前需要形成能够覆盖缺口的TOP项目清单，并按概率折算加权签约额。</div>
+        </div>
+        <div class="funnel" role="img" aria-label="订单漏斗待运营负责人补充">
+          <div class="funnel-stage"><span>全部有效商机</span><b>金额 / 项目数待补</b></div>
+          <div class="funnel-stage"><span>需求已验证</span><b>待补</b></div>
+          <div class="funnel-stage"><span>方案已报价</span><b>待补</b></div>
+          <div class="funnel-stage"><span>商务谈判</span><b>待补</b></div>
+          <div class="funnel-stage"><span>预计签约</span><b>待补</b></div>
+          <span class="placeholder-chip">每个项目补充金额、概率、签约月和第一责任人</span>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：年度目标任务书、上半年签约数据；订单漏斗及TOP项目清单待运营负责人确认。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">全年新增签约目标一亿元，上半年只完成833万元。当前材料还没有一套能够覆盖9,167万元缺口的项目漏斗。本页必须补齐每个阶段的项目数、总金额和加权金额，TOP项目逐项明确客户、金额、成功概率、预计签约月份和责任人。</aside>
+    </section>
+
+    <section class="slide" data-title="近1.3亿元库存成为首要风险">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第三部分｜资产与现金管理</p>
+          <h2>近1.3亿元库存成为首要风险</h2>
+          <p class="slide-subtitle">算力库存占94%，账面成本为上半年主营业务成本的16.6倍</p>
+        </div>
+        <span class="tag">期末账面成本</span>
+      </header>
+      <div class="slide-body donut-layout">
+        <div class="donut-wrap">
+          <div class="donut red" style="--donut-value:94%" role="img" aria-label="期末库存账面成本12953.61万元，其中算力库存占94%">
+            <div class="donut-center"><strong>94.0%</strong><span>算力库存占比</span></div>
+          </div>
+          <div class="donut-legend">
+            <div><span class="risk">● 算力库存</span><strong>12,178.99万</strong></div>
+            <div><span>● 集成库存</span><strong>774.62万</strong></div>
+          </div>
+        </div>
+        <div>
+          <p class="chart-caption">以期末库存账面成本12,953.61万元为100%进行比例比较。</p>
+          <div class="scale-bars" role="img" aria-label="期末库存12953.61万元，上半年收入1017.10万元，主营业务成本779.05万元">
+            <div class="scale-row">
+              <label>期末库存</label><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><output>12,953.61</output>
+            </div>
+            <div class="scale-row">
+              <label>上半年收入</label><span class="bar-track"><span class="bar-fill" style="width:7.85%"></span></span><output>1,017.10</output>
+            </div>
+            <div class="scale-row">
+              <label>结转主营成本</label><span class="bar-track"><span class="bar-fill" style="width:6.01%"></span></span><output>779.05</output>
+            </div>
+          </div>
+          <div class="summary">库存账面成本为上半年主营成本的<strong>16.6倍</strong>。按同口径测算，毛利238.05万元、毛利率23.4%。</div>
+          <div class="status-line">8,147.60万元采购/支出分类仍在核对，本轮不评价现金流完成率。</div>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：运营指标.xlsx；库存成本、主营业务成本经负责人确认。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">本页是下半年经营的核心。期末库存账面成本接近1.3亿元，其中94%为算力库存。当期真正结转的主营业务成本是779.05万元，不再把8,147.60万元表述为主营业务成本。待财务确认其采购或现金支出分类；待库存负责人核对3,039和3,040张的数量差异。</aside>
+    </section>
+
+    <section class="slide" data-title="库存去化必须逐项承诺">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第三部分｜资产与现金管理</p>
+          <h2>库存去化必须逐项承诺</h2>
+          <p class="slide-subtitle">按型号、客户和月份明确售价、回款及预计毛利损失</p>
+        </div>
+        <span class="tag">型号 × 客户 × 月份</span>
+      </header>
+      <div class="slide-body">
+        <table class="data-table compact-table">
+          <thead>
+            <tr>
+              <th>主要型号/品类</th>
+              <th>数量及账面成本</th>
+              <th>库龄/当前市价</th>
+              <th>已锁定客户</th>
+              <th>预计去化月份</th>
+              <th>预计毛利或损失</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="placeholder-cell">待库存明细</td><td class="placeholder-cell">待补</td><td class="placeholder-cell">待市场询价</td><td class="placeholder-cell">待销售确认</td><td class="placeholder-cell">待承诺</td><td class="placeholder-cell">待测算</td></tr>
+            <tr><td class="placeholder-cell">待库存明细</td><td class="placeholder-cell">待补</td><td class="placeholder-cell">待市场询价</td><td class="placeholder-cell">待销售确认</td><td class="placeholder-cell">待承诺</td><td class="placeholder-cell">待测算</td></tr>
+            <tr><td class="placeholder-cell">待库存明细</td><td class="placeholder-cell">待补</td><td class="placeholder-cell">待市场询价</td><td class="placeholder-cell">待销售确认</td><td class="placeholder-cell">待承诺</td><td class="placeholder-cell">待测算</td></tr>
+            <tr><td class="placeholder-cell">其他库存</td><td class="placeholder-cell">待汇总</td><td class="placeholder-cell">待分类</td><td class="placeholder-cell">待补</td><td class="placeholder-cell">待补</td><td class="placeholder-cell">待补</td></tr>
+          </tbody>
+        </table>
+        <div class="grid grid-3" style="margin-top:20px">
+          <article class="panel"><h3>价格权限</h3><p>明确可售底价、折价审批权限及毛利红线。</p></article>
+          <article class="panel"><h3>账期授信</h3><p>明确客户授信、最长账期和回款前置条件。</p></article>
+          <article class="panel"><h3>采购边界</h3><p>明确新增采购暂停条件和库存资金占用上限。</p></article>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">说明：本页为库存去化作战表，占位内容需由采购、销售、运营和财务共同确认。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">库存总额本身不能形成经营动作。正式汇报前要按型号列明数量、账面成本、库龄、市场价格、锁定客户、预计销售月份和毛利损失，并确定价格、账期、授信和采购边界。总裁要看到的是库存何时变现、需要承担多少价格损失、谁对结果负责。</aside>
+    </section>
+
+    <section class="slide" data-title="逾期应收需要分类处置">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第三部分｜资产与现金管理</p>
+          <h2>逾期应收需要分类处置</h2>
+          <p class="slide-subtitle">逾期152.18万元，长账龄项目必须明确责任和回款日期</p>
+        </div>
+        <span class="tag">逾期152.18万元</span>
+      </header>
+      <div class="slide-body">
+        <p class="chart-caption">应收账款454.88万元，其中逾期152.18万元，占33.5%；下列五项占逾期总额84.1%。</p>
+        <div class="receivable-chart" role="img" aria-label="前五项逾期应收金额及账龄">
+          <div class="receivable-row">
+            <label>物联网智能化分包</label>
+            <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+            <output>54.12</output>
+            <span class="age-cell long">12个月</span>
+          </div>
+          <div class="receivable-row">
+            <label>漳州联通工互展厅</label>
+            <span class="bar-track"><span class="bar-fill" style="width:63.3%"></span></span>
+            <output>34.24</output>
+            <span class="age-cell long">20个月</span>
+          </div>
+          <div class="receivable-row">
+            <label>山湖郡智能化</label>
+            <span class="bar-track"><span class="bar-fill" style="width:28.3%"></span></span>
+            <output>15.34</output>
+            <span class="age-cell">2个月</span>
+          </div>
+          <div class="receivable-row">
+            <label>漳州联通营业厅/办公</label>
+            <span class="bar-track"><span class="bar-fill" style="width:24.8%"></span></span>
+            <output>13.43</output>
+            <span class="age-cell long">19个月</span>
+          </div>
+          <div class="receivable-row">
+            <label>星光里二期</label>
+            <span class="bar-track"><span class="bar-fill" style="width:20%"></span></span>
+            <output>10.84</output>
+            <span class="age-cell long">12个月</span>
+          </div>
+        </div>
+        <div class="status-line">上海邦程298.70万元为已交付、未开票、未回款且未逾期，应与逾期应收分开管理。</div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：运营指标.xlsx，Sheet2 A67:G82；项目账目核对清单。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">逾期应收总额152.18万元，本页只列金额较大的五项。待运营补充每项责任人、下一动作和承诺回款日期。上海邦程298.70万元不属于逾期，但需要财务统一“应收账款、未开票应收或合同资产”的分类。</aside>
+    </section>
+
+    <section class="slide" data-title="现金底账必须统一">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第三部分｜资产与现金管理</p>
+          <h2>现金底账必须统一</h2>
+          <p class="slide-subtitle">回款、采购及其他支出需勾稽到同一张现金流调节表</p>
+        </div>
+        <span class="tag">两份材料口径冲突</span>
+      </header>
+      <div class="slide-body grid grid-2">
+        <div>
+          <table class="data-table compact-table">
+            <thead><tr><th>现金流项目</th><th>上半年金额</th><th>核对状态</th></tr></thead>
+            <tbody>
+              <tr><td>经营回款</td><td class="num">829.40</td><td class="good">已确认</td></tr>
+              <tr><td>采购及经营支出</td><td class="placeholder-cell">8,147.60分类待确认</td><td class="warn">待财务勾稽</td></tr>
+              <tr><td>其他经营流入/流出</td><td class="placeholder-cell">待补</td><td class="placeholder-cell">待补</td></tr>
+              <tr><td>归母净现金流</td><td class="placeholder-cell">待统一</td><td class="risk">材料口径冲突</td></tr>
+              <tr><td>下半年月度净现金流</td><td class="placeholder-cell">待负责人承诺</td><td class="placeholder-cell">待分解</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div class="metric">
+            <strong>454.88</strong>
+            <span>期末应收账款（万元）</span>
+          </div>
+          <div class="metric">
+            <strong>152.18</strong>
+            <span>逾期应收（万元）｜占应收33.5%</span>
+          </div>
+          <div class="status-line">298.70万元已交付未开票回款事项，需明确会计分类、开票日、回款日和第一责任人。</div>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：运营指标.xlsx、业绩确认书；归母净现金流及8,147.60万元性质待财务统一。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">现金流不能以口径冲突结束。财务需要形成一张现金流调节表，把回款、采购、经营费用和其他流入流出勾稽到归母净现金流，解释8,147.60万元的准确性质，并给出7至12月月度现金流预测。</aside>
+    </section>
+
+    <section class="slide" data-title="组织架构就位，关键岗位缺编">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第四部分｜组织与经营机制</p>
+          <h2>组织架构就位，关键岗位缺编</h2>
+          <p class="slide-subtitle">人员到位率60.5%，财务、销售和技术岗位仍需补强</p>
+        </div>
+        <span class="tag">截至6月30日 / 7月1日生效</span>
+      </header>
+      <div class="slide-body donut-layout">
+        <div class="donut-wrap">
+          <div class="donut" style="--donut-value:60.5%" role="img" aria-label="核定编制43人，实际在编26人，人员到位率60.5%">
+            <div class="donut-center"><strong>60.5%</strong><span>人员到位率</span></div>
+          </div>
+          <div class="donut-legend">
+            <div><span class="good">● 实际在编</span><strong>26人</strong></div>
+            <div><span>● 缺编</span><strong>17人</strong></div>
+          </div>
+        </div>
+        <div>
+          <p class="lead">组织架构于7月1日生效。经营骨干已经形成，但财务、销售和技术岗位仍需补强。</p>
+          <div class="progress-board">
+            <div class="progress-item">
+              <div class="progress-label"><strong>人力成本</strong><small>实际149 / 预算184万元</small></div>
+              <div class="progress-track"><div class="progress-fill green" style="width:81%"></div></div>
+              <div class="progress-side"><b class="good">81.0%</b><small>较预算节约35万元</small></div>
+            </div>
+          </div>
+          <div class="summary">半年人均营收<strong>44.22万元</strong>，采用23名非兼岗人员口径；下半年增配预计新增费用57万元。</div>
+          <div class="status-line">当前缺编：财务负责人、销售经理2人、软硬件工程师；暂无已录用未到岗人员。</div>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：人力行政口径，经负责人确认；组织架构生效日期为2026年7月1日。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">时间边界要讲清楚：人员数量、人力成本和人均营收统计截至6月30日；组织架构于7月1日正式生效，只作为最新状态。26名在编中含3名领导兼岗，人均营收采用23名非兼岗人员作为分母。下半年新增57万元为整体预计费用，具体岗位数量、到岗月份和月度费用仍需进一步拆解。</aside>
+    </section>
+
+    <section class="slide" data-title="基础机制已启动，激励尚未闭环">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第四部分｜组织与经营机制</p>
+          <h2>基础机制已启动，激励尚未闭环</h2>
+          <p class="slide-subtitle">周例会和组织架构已落地，提成、绩效和业务标准待完成</p>
+        </div>
+        <span class="tag">上半年结果 / 7月进展</span>
+      </header>
+      <div class="slide-body">
+        <div class="status-matrix" role="img" aria-label="制度事项状态矩阵：上半年完成2项，7月最新进展3项，尚未完成3项">
+          <div class="status-column">
+            <h3 class="good">上半年已完成 · 2</h3>
+            <div class="status-tile">事业部周例会启动</div>
+            <div class="status-tile">事业部组织架构定稿</div>
+          </div>
+          <div class="status-column latest">
+            <h3>7月最新进展 · 3</h3>
+            <div class="status-tile">线上会议纪要确认制度拟定并试行</div>
+            <div class="status-tile">系统审批流程梳理</div>
+            <div class="status-tile">华南公司专精特新规划方案</div>
+          </div>
+          <div class="status-column pending">
+            <h3 class="warn">尚未闭环 · 3</h3>
+            <div class="status-tile">销售提成方案</div>
+            <div class="status-tile">年度绩效考核</div>
+            <div class="status-tile">业务卡位标准</div>
+          </div>
+        </div>
+        <div class="summary">管理含义：基础运行机制已经启动，但销售提成、年度绩效考核和业务卡位标准尚未完成，责任传导和结果激励仍缺少正式制度闭环。</div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：人力行政及运营口径，经负责人确认；7月事项不计入上半年成绩。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">上半年完成的是周例会启动和组织架构定稿。线上会议纪要确认制度、审批流程梳理和华南公司专精特新规划方案均属于7月开局进展，不能计入上半年完成量。正式上会前建议补齐三项未完成制度的牵头人、审批节点和正式执行日期。</aside>
+    </section>
+
+    <section class="slide" data-title="四种业务模式需要明确取舍">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第五部分｜下半年经营部署</p>
+          <h2>四种业务模式需要明确取舍</h2>
+          <p class="slide-subtitle">硬件、集成、算力运营和行业应用必须确定经营定位</p>
+        </div>
+        <span class="tag">扩大 / 维持 / 试点 / 停止</span>
+      </header>
+      <div class="slide-body model-grid">
+        <article class="model-card">
+          <h3>硬件及算力设备销售</h3>
+          <p>已有586.45万元收入和较大库存基础。需明确目标客户、渠道策略、毛利底线、库存周转与现金周期。</p>
+          <span class="placeholder-chip">下半年定位与收入目标待确认</span>
+        </article>
+        <article class="model-card">
+          <h3>系统集成</h3>
+          <p>上半年收入430.65万元，但新增签约不足。需形成确定性项目储备、标准方案和可复制交付能力。</p>
+          <span class="placeholder-chip">项目储备与签约目标待确认</span>
+        </article>
+        <article class="model-card">
+          <h3>算力运营与平台服务</h3>
+          <p>已有平台、实验室和适配能力描述，但缺少合同、利用率、单位经济性和经常性收入验证。</p>
+          <span class="placeholder-chip">商业化指标待确认</span>
+        </article>
+        <article class="model-card">
+          <h3>模型及行业应用</h3>
+          <p>现阶段以测试和场景验证为主。需明确付费客户、产品化路径、交付成本和停止投入条件。</p>
+          <span class="placeholder-chip">试点与付费目标待确认</span>
+        </article>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：现有业务手册及经营数据；各模式战略定位与下半年目标待事业部负责人确认。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">下半年目标不能建立在业务模式不清晰的基础上。事业部要分别判断硬件销售、系统集成、算力运营和行业应用的市场空间、毛利、现金周期、库存要求和可复制性，并明确扩大、维持、试点还是停止投入。</aside>
+    </section>
+
+    <section class="slide" data-title="下半年六项承诺必须锁定">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第五部分｜下半年经营部署</p>
+          <h2>下半年六项承诺必须锁定</h2>
+          <p class="slide-subtitle">收入、签约、回款、库存、利润和现金流形成正式目标</p>
+        </div>
+        <span class="tag">事业部负责人拉通事项</span>
+      </header>
+      <div class="slide-body">
+        <p class="lead">收入和签约可由年度目标倒推最低缺口；回款、库存、利润和现金流需由事业部负责人确认下半年承诺值，并拆解至7—12月。</p>
+        <div class="target-lock-grid">
+          <article class="target-lock">
+            <strong>3,556.90</strong>
+            <span>营业收入年度剩余缺口（万元）</span>
+            <small>全年目标4,574万元；需确认月度收入结构和项目支撑。</small>
+          </article>
+          <article class="target-lock">
+            <strong>9,167.00</strong>
+            <span>新增签约年度剩余缺口（万元）</span>
+            <small>全年目标10,000万元；需确认算力、集成分解和重点客户。</small>
+          </article>
+          <article class="target-lock">
+            <strong>829.40</strong>
+            <span>上半年已回款（万元）</span>
+            <small>需锁定下半年回款目标、重点项目和月度回笼节点。</small>
+          </article>
+          <article class="target-lock">
+            <strong>12,953.61</strong>
+            <span>下半年期初库存成本（万元）</span>
+            <small>需锁定期末库存余额、月度去化金额和毛利底线。</small>
+          </article>
+          <article class="target-lock">
+            <strong>32.75</strong>
+            <span>上半年净利润（万元）</span>
+            <small>需锁定下半年利润承诺和费用、库存售价约束。</small>
+          </article>
+          <article class="target-lock">
+            <strong>0</strong>
+            <span>全年归母净现金流目标（万元）</span>
+            <small>先统一上半年口径，再锁定下半年净现金流目标。</small>
+          </article>
+        </div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：年度目标任务书、上半年经营数据；下半年承诺值需与事业部负责人确认。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">本页不是正式下达目标，而是与事业部负责人拉通的目标框架。收入和签约剩余缺口由年度目标减上半年实际倒推；回款、库存、利润和现金流只展示当前基数或年度约束。拉通时必须形成六项下半年承诺值、7—12月分解、责任人、项目或客户支撑及验收数据。</aside>
+    </section>
+
+    <section class="slide" data-title="下半年聚焦三条经营主线">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第五部分｜下半年经营部署</p>
+          <h2>下半年聚焦三条经营主线</h2>
+          <p class="slide-subtitle">订单牵引、库存变现和现金闭环共用一套经营底账</p>
+        </div>
+        <span class="tag">周跟踪 · 月复盘 · 季纠偏</span>
+      </header>
+      <div class="slide-body">
+        <div class="timeline">
+          <article class="timeline-step">
+            <b>01 · 订单牵引</b>
+            <h3>补足确定性项目储备</h3>
+            <p>集成未签项目逐项明确金额与签约月；算力形成重点客户、渠道和产品清单；建立7—12月滚动签约预测。</p>
+          </article>
+          <article class="timeline-step">
+            <b>02 · 库存变现</b>
+            <h3>以销售节奏带动去化</h3>
+            <p>按型号、库龄和可售状态拆分库存；明确售价底线、账期、授信和审批权限；按月验收去化金额与毛利。</p>
+          </article>
+          <article class="timeline-step">
+            <b>03 · 现金闭环</b>
+            <h3>交付、开票、回款同步</h3>
+            <p>盯住298.70万元付款节点和152.18万元逾期应收；统一合同资产、应收及现金流口径；责任落实到项目。</p>
+          </article>
+        </div>
+        <div class="summary">经营机制：周例会盯动作和节点，月度经营会看收入、签约、回款、库存、利润、现金流六项指标，月底以财务底账验收。</div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">来源：基于上半年经营约束形成的下半年经营建议；目标值待事业部负责人确认。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">本页回答“下半年怎么经营”。第一用订单解决后续收入来源，第二用库存销售解决资金占用，第三用开票回款解决现金闭环。组织与激励是三条主线的保障：关键岗位补充、销售提成、年度绩效和业务卡位标准应同步落地。每周只追动作，每月以六项指标和财务底账验收。</aside>
+    </section>
+
+    <section class="slide" data-title="目标必须落实到月和责任人">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第五部分｜下半年经营部署</p>
+          <h2>目标必须落实到月和责任人</h2>
+          <p class="slide-subtitle">六项承诺拆解到7—12月，并以项目和财务底账验收</p>
+        </div>
+        <span class="tag">7—12月经营作战表</span>
+      </header>
+      <div class="slide-body">
+        <table class="data-table compact-table">
+          <thead>
+            <tr><th>指标</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th><th>下半年</th><th>第一责任人</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>营业收入</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">待确认</td><td class="placeholder-cell">待明确</td></tr>
+            <tr><td>新增签约</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">待确认</td><td class="placeholder-cell">待明确</td></tr>
+            <tr><td>回款</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">待确认</td><td class="placeholder-cell">待明确</td></tr>
+            <tr><td>库存去化</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">待确认</td><td class="placeholder-cell">待明确</td></tr>
+            <tr><td>净利润</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">待确认</td><td class="placeholder-cell">待明确</td></tr>
+            <tr><td>净现金流</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">—</td><td class="placeholder-cell">待确认</td><td class="placeholder-cell">待明确</td></tr>
+          </tbody>
+        </table>
+        <div class="summary">收入和签约对应项目，回款对应合同节点，库存去化对应型号和客户，利润及现金流由财务测算；月底以财务和项目底账验收。</div>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">说明：月度分解需在六项下半年承诺和业务模式选择确认后填写。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">六项经营承诺拍板后，必须全部拆解到7至12月。月度目标不能只填数字：收入和签约要对应项目，回款要对应合同节点，库存去化要对应型号和客户，利润现金流由财务测算，并为每项指标指定一名第一责任人。</aside>
+    </section>
+
+    <section class="slide" data-title="四项事项提请总裁决策">
+      <header class="slide-header">
+        <div>
+          <p class="eyebrow">第五部分｜下半年经营部署</p>
+          <h2>四项事项提请总裁决策</h2>
+          <p class="slide-subtitle">库存权限、资金边界、客户资源和组织激励需现场拍板</p>
+        </div>
+        <span class="tag">决策内容待会前固化</span>
+      </header>
+      <div class="slide-body grid grid-2">
+        <article class="panel">
+          <h3>库存价格与销售授权</h3>
+          <p>明确可售底价、账期、客户授信及审批权限，缩短订单响应周期。<br><span class="placeholder-chip">推荐方案与经营影响待补</span></p>
+        </article>
+        <article class="panel">
+          <h3>资金与现金流安排</h3>
+          <p>明确库存资金占用上限、暂停采购条件和重点回款闭环机制。<br><span class="placeholder-chip">决策边界与最晚日期待补</span></p>
+        </article>
+        <article class="panel">
+          <h3>客户与项目协同</h3>
+          <p>明确集团可导入客户、重点项目和需要高层协同的具体清单。<br><span class="placeholder-chip">客户项目清单与诉求待补</span></p>
+        </article>
+        <article class="panel">
+          <h3>组织与激励机制</h3>
+          <p>确定关键岗位增配、57万元费用及销售提成绩效方案的审批节点。<br><span class="placeholder-chip">审批方案与生效日期待补</span></p>
+        </article>
+      </div>
+      <footer class="slide-footer">
+        <span class="source">说明：正式定稿前补充牵头人、完成时点及需要集团审批的具体事项。</span>
+        <span class="page-no"></span>
+      </footer>
+      <aside class="notes">最后一页只保留真正需要总裁决定的事项。每项都要说明需要决定什么、事业部推荐什么、不决策会影响什么、最晚何时决定。会前未形成推荐方案的事项，不建议占用现场决策时间。</aside>
+    </section>
+  </main>
+
+  <nav class="control-bar" aria-label="演示控制">
+    <button id="prevBtn" title="上一页">‹</button>
+    <button id="nextBtn" title="下一页">›</button>
+    <button id="overviewBtn" title="总览 O" aria-pressed="false">总览</button>
+    <button id="notesBtn" title="讲稿 N" aria-pressed="false">讲稿</button>
+    <button id="fullscreenBtn" title="全屏 F">全屏</button>
+  </nav>
+
+  <div class="notes-panel" id="notesPanel" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const slides = [...document.querySelectorAll(".slide")];
+      const notesPanel = document.getElementById("notesPanel");
+      const overviewBtn = document.getElementById("overviewBtn");
+      const notesBtn = document.getElementById("notesBtn");
+      let current = 0;
+
+      slides.forEach((slide, index) => {
+        const label = String(index + 1).padStart(2, "0");
+        const watermark = document.createElement("div");
+        watermark.className = "page-watermark";
+        watermark.setAttribute("aria-hidden", "true");
+        watermark.textContent = label;
+        slide.appendChild(watermark);
+        const pageNo = slide.querySelector(".page-no");
+        if (pageNo) pageNo.textContent = `${label} / ${String(slides.length).padStart(2, "0")}`;
+      });
+
+      function updateNotes() {
+        const notes = slides[current].querySelector(".notes");
+        notesPanel.textContent = notes ? notes.textContent.trim() : "本页无讲稿备注。";
+      }
+
+      function render(index, updateHash = true) {
+        current = Math.min(Math.max(index, 0), slides.length - 1);
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === current);
+          slide.setAttribute("aria-hidden", i === current ? "false" : "true");
+        });
+        document.title = `${String(current + 1).padStart(2, "0")} · ${slides[current].dataset.title}`;
+        if (updateHash) history.replaceState(null, "", `#${current + 1}`);
+        updateNotes();
+      }
+
+      function toggleNotes(force) {
+        const visible = typeof force === "boolean"
+          ? force
+          : !notesPanel.classList.contains("visible");
+        notesPanel.classList.toggle("visible", visible);
+        notesBtn.setAttribute("aria-pressed", String(visible));
+        updateNotes();
+      }
+
+      function toggleOverview(force) {
+        const enabled = typeof force === "boolean"
+          ? force
+          : !document.body.classList.contains("overview");
+        document.body.classList.toggle("overview", enabled);
+        overviewBtn.setAttribute("aria-pressed", String(enabled));
+        if (!enabled) render(current);
+      }
+
+      async function toggleFullscreen() {
+        try {
+          if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+          else await document.exitFullscreen();
+        } catch (_) {}
+      }
+
+      document.getElementById("prevBtn").addEventListener("click", () => render(current - 1));
+      document.getElementById("nextBtn").addEventListener("click", () => render(current + 1));
+      document.getElementById("notesBtn").addEventListener("click", () => toggleNotes());
+      document.getElementById("overviewBtn").addEventListener("click", () => toggleOverview());
+      document.getElementById("fullscreenBtn").addEventListener("click", toggleFullscreen);
+
+      slides.forEach((slide, index) => {
+        slide.addEventListener("click", () => {
+          if (!document.body.classList.contains("overview")) return;
+          current = index;
+          toggleOverview(false);
+        });
+      });
+
+      document.addEventListener("keydown", event => {
+        const key = event.key.toLowerCase();
+        if (key === "escape" && notesPanel.classList.contains("visible")) {
+          toggleNotes(false);
+        } else if (key === "escape" && document.body.classList.contains("overview")) {
+          toggleOverview(false);
+        } else if (["arrowright", "pagedown", " "].includes(key)) {
+          event.preventDefault();
+          render(current + 1);
+        } else if (["arrowleft", "pageup"].includes(key)) {
+          event.preventDefault();
+          render(current - 1);
+        } else if (key === "home") {
+          render(0);
+        } else if (key === "end") {
+          render(slides.length - 1);
+        } else if (key === "n") {
+          toggleNotes();
+        } else if (key === "o") {
+          toggleOverview();
+        } else if (key === "f") {
+          toggleFullscreen();
+        }
+      });
+
+      let touchStartX = 0;
+      let touchStartY = 0;
+      document.addEventListener("touchstart", event => {
+        const touch = event.changedTouches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+      }, { passive: true });
+
+      document.addEventListener("touchend", event => {
+        if (document.body.classList.contains("overview")) return;
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
+        if (Math.abs(deltaX) < 50 || Math.abs(deltaX) < Math.abs(deltaY) * 1.2) return;
+        render(current + (deltaX < 0 ? 1 : -1));
+      }, { passive: true });
+
+      const initial = Number.parseInt(location.hash.replace("#", ""), 10);
+      render(Number.isFinite(initial) ? initial - 1 : 0, false);
+    })();
+  </script>
+</body>
+</html>
